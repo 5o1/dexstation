@@ -1,0 +1,24 @@
+{
+  "schema": "dexhand-task-v1",
+  "id": "empty",
+  "version": "1.0",
+  "title": "Empty table",
+  "workbenches": [
+    "*"
+  ],
+  "backends": {
+    "sapien": {},
+    "mjcf_export": {}
+  },
+  "objects": [],
+  "fixtures": [],
+  "observations": [],
+  "sources": [],
+  "cells": [],
+  "actions": {},
+  "evaluation": null,
+  "keep_out": [],
+  "real_robot": {
+    "twin_objects": "none"
+  }
+}

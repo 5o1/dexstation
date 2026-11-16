@@ -1,0 +1,51 @@
+{
+  "motion_type": "manus_anatomical",
+  "publish_hz": 60,
+  "stale_after_s": 0.25,
+  "direction_huber_delta": 0.2,
+  "distal_weight": 0.25,
+  "dexpilot_weight": 0.1,
+  "pinch_project_hand_fraction": 0.12,
+  "pinch_escape_hand_fraction": 0.2,
+  "pinch_contact_robot_fraction": 0.001,
+  "pinch_secondary_robot_fraction": 0.12,
+  "maxeval": 50,
+  "output_filter": {
+    "time_constant_s": 0.04,
+    "max_motor_units_per_s": 1200
+  },
+  "segment_ranges_m": {
+    "wrist_to_metacarpal": [
+      0.01,
+      0.06
+    ],
+    "metacarpal": [
+      0.04,
+      0.105
+    ],
+    "proximal": [
+      0.02,
+      0.065
+    ],
+    "intermediate": [
+      0.008,
+      0.04
+    ],
+    "distal": [
+      0.008,
+      0.035
+    ],
+    "thumb_metacarpal": [
+      0.02,
+      0.065
+    ],
+    "thumb_proximal": [
+      0.015,
+      0.05
+    ],
+    "thumb_distal": [
+      0.012,
+      0.04
+    ]
+  }
+}

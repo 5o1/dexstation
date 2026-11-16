@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/takeover.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "dexhand-takeover-v1"
+    },
+    "parts": {
+      "const": [
+        "left_arm",
+        "right_arm"
+      ]
+    },
+    "match_tolerance_deg": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 7,
+              "maxItems": 7
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "null = not configured; loader must refuse to enable"
+    },
+    "match_dwell_s": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "null = not configured; loader must refuse to enable"
+    },
+    "deviation_budget_deg": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 7,
+              "maxItems": 7
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "null = not configured; loader must refuse to enable"
+    },
+    "on_limit": {
+      "const": "hold"
+    }
+  },
+  "required": [
+    "schema",
+    "parts",
+    "match_tolerance_deg",
+    "match_dwell_s",
+    "deviation_budget_deg",
+    "on_limit"
+  ],
+  "additionalProperties": false,
+  "description": "Design §6.3. Only arms align; hands immediately follow. Null thresholds refuse enablement. Scalar or per-joint thresholds are structurally accepted; interpretation is WP5."
+}

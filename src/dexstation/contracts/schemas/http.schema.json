@@ -1,0 +1,1649 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/http.schema.json",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "GET"
+            },
+            "path": {
+              "const": "/api/v1/config"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "workbench": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "revision": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "cameras": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "real": {
+                            "type": "object",
+                            "properties": {
+                              "port_key": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "model": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "start_by_default": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "port_key",
+                              "model",
+                              "start_by_default"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "sim": {
+                            "anyOf": [
+                              {
+                                "type": "null"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "parent": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "pose_optical": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    },
+                                    "minItems": 7,
+                                    "maxItems": 7
+                                  },
+                                  "intrinsics": {
+                                    "type": "object",
+                                    "properties": {
+                                      "width": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                      },
+                                      "height": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                      },
+                                      "fx": {
+                                        "type": "number"
+                                      },
+                                      "fy": {
+                                        "type": "number"
+                                      },
+                                      "cx": {
+                                        "type": "number"
+                                      },
+                                      "cy": {
+                                        "type": "number"
+                                      },
+                                      "distortion": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      },
+                                      "model": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      }
+                                    },
+                                    "required": [
+                                      "width",
+                                      "height",
+                                      "fx",
+                                      "fy",
+                                      "cx",
+                                      "cy",
+                                      "distortion",
+                                      "model"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "status": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "source": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                },
+                                "required": [
+                                  "parent",
+                                  "pose_optical",
+                                  "intrinsics",
+                                  "status",
+                                  "source"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "real",
+                          "sim"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "revision",
+                    "cameras"
+                  ],
+                  "additionalProperties": false
+                },
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "version": {
+                        "type": "string",
+                        "pattern": "^[0-9]+\\.[0-9]+$"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "backends": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "reason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "null = no unavailability reason."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "available",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "defaults": {
+                  "type": "object",
+                  "properties": {
+                    "task": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    }
+                  },
+                  "required": [
+                    "task"
+                  ],
+                  "additionalProperties": true
+                }
+              },
+              "required": [
+                "workbench",
+                "tasks",
+                "backends",
+                "defaults"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "GET"
+            },
+            "path": {
+              "const": "/api/v1/tasks/tabletop_cube_grasp/cells"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "cells": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "module": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "css": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "size": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "visible_when": {
+                        "type": "object"
+                      },
+                      "builtin": {
+                        "enum": [
+                          "values",
+                          "lamps",
+                          "banner",
+                          "controls"
+                        ]
+                      },
+                      "source": {
+                        "type": "object"
+                      },
+                      "states": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "speak_on_change": {
+                        "type": "boolean"
+                      },
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "unit": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "digits": {
+                              "type": "integer",
+                              "minimum": 0
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "label"
+                          ],
+                          "additionalProperties": true
+                        }
+                      },
+                      "controls": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "action": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "hotkey": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "action"
+                          ],
+                          "additionalProperties": true
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title"
+                    ],
+                    "additionalProperties": false,
+                    "oneOf": [
+                      {
+                        "required": [
+                          "module"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "builtin"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "actions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "builtin": {
+                        "enum": [
+                          "resample_objects",
+                          "restore_initial"
+                        ]
+                      },
+                      "plugin": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "objects": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "while_recording": {
+                        "enum": [
+                          "forbidden",
+                          "allowed"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "while_recording"
+                    ],
+                    "additionalProperties": false,
+                    "oneOf": [
+                      {
+                        "required": [
+                          "builtin"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "plugin"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "cells",
+                "actions"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "GET"
+            },
+            "path": {
+              "const": "/tasks/xbox_gamepad_v3_3/web/gamepad-overlay.mjs"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "text/javascript"
+            },
+            "body": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "POST"
+            },
+            "path": {
+              "const": "/api/v1/session/start"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*$"
+                },
+                "seed": {
+                  "type": "integer"
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "backend": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "motion_profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scene_variant": {
+                  "enum": [
+                    "free-space"
+                  ]
+                }
+              },
+              "required": [
+                "task"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "session_state": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "task": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-z][a-z0-9_]*$"
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "^[0-9]+\\.[0-9]+$"
+                        },
+                        "cell_state": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "version",
+                        "cell_state"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "workbench": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "pattern": "^[a-z][a-z0-9_]*$"
+                        },
+                        "revision": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "revision"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "takeover": {
+                      "type": "object",
+                      "properties": {
+                        "left": {
+                          "type": "object",
+                          "properties": {
+                            "state": {
+                              "enum": [
+                                "waiting",
+                                "matching",
+                                "following",
+                                "hold"
+                              ]
+                            },
+                            "release": {
+                              "type": "boolean"
+                            },
+                            "deviation_deg": {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            },
+                            "reason": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Optional reason; null has no error."
+                            }
+                          },
+                          "required": [
+                            "state",
+                            "release",
+                            "deviation_deg",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "right": {
+                          "type": "object",
+                          "properties": {
+                            "state": {
+                              "enum": [
+                                "waiting",
+                                "matching",
+                                "following",
+                                "hold"
+                              ]
+                            },
+                            "release": {
+                              "type": "boolean"
+                            },
+                            "deviation_deg": {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            },
+                            "reason": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "description": "Optional reason; null has no error."
+                            }
+                          },
+                          "required": [
+                            "state",
+                            "release",
+                            "deviation_deg",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "left",
+                        "right"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "limits": {
+                      "type": "object",
+                      "properties": {
+                        "spatial": {
+                          "enum": [
+                            "disabled",
+                            "enabled"
+                          ]
+                        },
+                        "angular": {
+                          "enum": [
+                            "disabled",
+                            "enabled"
+                          ]
+                        },
+                        "joint": {
+                          "enum": [
+                            "disabled",
+                            "enabled"
+                          ]
+                        },
+                        "report": {
+                          "type": "object",
+                          "properties": {
+                            "ok": {
+                              "type": "boolean"
+                            },
+                            "spatial": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "side": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "link": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "obstacle": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "distance_m": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "side",
+                                  "link",
+                                  "obstacle",
+                                  "distance_m"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "angular": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "side": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "joint": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "azimuth_deg": {
+                                    "type": "number"
+                                  },
+                                  "elevation_deg": {
+                                    "type": "number"
+                                  },
+                                  "reason": {
+                                    "enum": [
+                                      "azimuth",
+                                      "elevation_up"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "side",
+                                  "joint",
+                                  "azimuth_deg",
+                                  "elevation_deg",
+                                  "reason"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "joint": {
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "boolean"
+                                },
+                                "minItems": 7,
+                                "maxItems": 7
+                              }
+                            },
+                            "angular_range": {
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                              }
+                            }
+                          },
+                          "required": [
+                            "ok",
+                            "spatial",
+                            "angular",
+                            "joint",
+                            "angular_range"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "spatial",
+                        "angular",
+                        "joint",
+                        "report"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "hardware_lease": {
+                      "type": "object",
+                      "properties": {
+                        "held": {
+                          "type": "boolean"
+                        },
+                        "owner": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "port": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 65535
+                                },
+                                "task": {
+                                  "type": "string",
+                                  "pattern": "^[a-z][a-z0-9_]*$"
+                                }
+                              },
+                              "required": [
+                                "port",
+                                "task"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "null = no hardware owner."
+                        }
+                      },
+                      "required": [
+                        "held",
+                        "owner"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "session_state",
+                    "task",
+                    "workbench",
+                    "takeover",
+                    "limits",
+                    "hardware_lease"
+                  ],
+                  "additionalProperties": true
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "POST"
+            },
+            "path": {
+              "const": "/api/v1/task/action"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "params": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "accepted": {
+                  "const": true
+                },
+                "result": {}
+              },
+              "required": [
+                "accepted",
+                "result"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "POST"
+            },
+            "path": {
+              "const": "/api/v1/task/action"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "params": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 409
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "accepted": {
+                  "const": false
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "accepted",
+                "error"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "GET"
+            },
+            "path": {
+              "const": "/api/v1/status"
+            },
+            "query": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "session_state": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[0-9]+\\.[0-9]+$"
+                    },
+                    "cell_state": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "version",
+                    "cell_state"
+                  ],
+                  "additionalProperties": false
+                },
+                "workbench": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "revision": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "revision"
+                  ],
+                  "additionalProperties": false
+                },
+                "takeover": {
+                  "type": "object",
+                  "properties": {
+                    "left": {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "enum": [
+                            "waiting",
+                            "matching",
+                            "following",
+                            "hold"
+                          ]
+                        },
+                        "release": {
+                          "type": "boolean"
+                        },
+                        "deviation_deg": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "reason": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Optional reason; null has no error."
+                        }
+                      },
+                      "required": [
+                        "state",
+                        "release",
+                        "deviation_deg",
+                        "reason"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "right": {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "enum": [
+                            "waiting",
+                            "matching",
+                            "following",
+                            "hold"
+                          ]
+                        },
+                        "release": {
+                          "type": "boolean"
+                        },
+                        "deviation_deg": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "reason": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Optional reason; null has no error."
+                        }
+                      },
+                      "required": [
+                        "state",
+                        "release",
+                        "deviation_deg",
+                        "reason"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "left",
+                    "right"
+                  ],
+                  "additionalProperties": false
+                },
+                "limits": {
+                  "type": "object",
+                  "properties": {
+                    "spatial": {
+                      "enum": [
+                        "disabled",
+                        "enabled"
+                      ]
+                    },
+                    "angular": {
+                      "enum": [
+                        "disabled",
+                        "enabled"
+                      ]
+                    },
+                    "joint": {
+                      "enum": [
+                        "disabled",
+                        "enabled"
+                      ]
+                    },
+                    "report": {
+                      "type": "object",
+                      "properties": {
+                        "ok": {
+                          "type": "boolean"
+                        },
+                        "spatial": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "side": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "link": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "obstacle": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "distance_m": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "side",
+                              "link",
+                              "obstacle",
+                              "distance_m"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "angular": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "side": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "joint": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "azimuth_deg": {
+                                "type": "number"
+                              },
+                              "elevation_deg": {
+                                "type": "number"
+                              },
+                              "reason": {
+                                "enum": [
+                                  "azimuth",
+                                  "elevation_up"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "side",
+                              "joint",
+                              "azimuth_deg",
+                              "elevation_deg",
+                              "reason"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "joint": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "boolean"
+                            },
+                            "minItems": 7,
+                            "maxItems": 7
+                          }
+                        },
+                        "angular_range": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          }
+                        }
+                      },
+                      "required": [
+                        "ok",
+                        "spatial",
+                        "angular",
+                        "joint",
+                        "angular_range"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "spatial",
+                    "angular",
+                    "joint",
+                    "report"
+                  ],
+                  "additionalProperties": false
+                },
+                "hardware_lease": {
+                  "type": "object",
+                  "properties": {
+                    "held": {
+                      "type": "boolean"
+                    },
+                    "owner": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "port": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 65535
+                            },
+                            "task": {
+                              "type": "string",
+                              "pattern": "^[a-z][a-z0-9_]*$"
+                            }
+                          },
+                          "required": [
+                            "port",
+                            "task"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "null = no hardware owner."
+                    }
+                  },
+                  "required": [
+                    "held",
+                    "owner"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "session_state",
+                "task",
+                "workbench",
+                "takeover",
+                "limits",
+                "hardware_lease"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "request": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "GET"
+            },
+            "path": {
+              "const": "/api/v1/episodes"
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*$"
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "query",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": 200
+            },
+            "content_type": {
+              "const": "application/json"
+            },
+            "body": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "task": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*$"
+                  },
+                  "status": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "rows": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "id",
+                  "task",
+                  "status",
+                  "rows"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "status",
+            "content_type",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "request",
+        "response"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "description": "Illustrative request/response envelopes for all §8.4 endpoints. Paths are concrete examples, not a router schema. Existing write authentication/Origin/client header/remote switch rules still apply. A static module body is a string, not a JSON HTTP response. Status uses task.cell_state only (ruling 1)."
+}

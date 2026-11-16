@@ -1,0 +1,74 @@
+{
+  "name": "station-factory-baseline-v2",
+  "control_dt_s": 0.001,
+  "arm": {
+    "max_speed_deg_s": 40.0,
+    "speed_ramp_s": 1.0,
+    "ramp_update_s": 0.02,
+    "deadband_deg": 0.5,
+    "joint_limit_margin_deg": 3.0,
+    "filter_hz": 100.0,
+    "filter_model": "rokae-sdk-rc",
+    "stiffness_nm_rad": 1000.0,
+    "damping_nm_s_rad": 4.0,
+    "effort_limit_nm": null,
+    "armature_kg_m2": 0.01
+  },
+  "hand": {
+    "max_speed_rad_s": null,
+    "filter_hz": null,
+    "filter_model": "rokae-sdk-rc",
+    "motor_quantization": true,
+    "stiffness_nm_rad": 200.0,
+    "damping_nm_s_rad": 4.0,
+    "effort_limit_nm": null,
+    "armature_kg_m2": 3.4707e-08
+  },
+  "evidence": {
+    "host_math": "Maintained station_math.hpp clone; GUI launch values for speed/ramp/deadband",
+    "client_filter": "Actual station xCoreSDK 0.5.1 lowpassFilter; backward-Euler RC recursion and 100Hz default verified offline",
+    "controller_filter": "Separate setFilterFrequency controller-side setting; implementation unresolved and NOT approximated by an added filter",
+    "drive_baseline": "Owned fixed linker-sim-assets ar5_08 and linkerhand_l25 presets, K/D kept as pairs; simulation baseline, not measured hardware impedance",
+    "hand_geometry_scope": "L25 geometry correspondence only; does not establish firmware equivalence",
+    "unresolved": [
+      "hardware equivalent damping and torque caps",
+      "controller-side filter implementation",
+      "hand motor speed/current to joint rad/s/Nm conversion",
+      "friction/backlash and real contact compliance",
+      "vendor hand Coulomb frictionloss0.5Nm cannot be copied as PhysX friction coefficient"
+    ],
+    "limits": "intersection of station mapping envelope and loaded model bounds; 3 degree margin on effective arm bounds",
+    "effort_caps": "null follows vendor uncapped position actuators; not a claim of unlimited real motor torque",
+    "hand_passive_damping": "Manifest D4 used as zero-velocity-reference PD damping; coupled passive dynamics are not claimed identical across engines"
+  },
+  "version": 2,
+  "experimental": true,
+  "numerical_adapters": {
+    "sapien": {
+      "hand_armature_floor_kg_m2": 0.0001,
+      "reason": "CPU PhysX full hand is unstable with the source 3.4707e-8 at 1ms. Explicit numerical regularization, not manufacturer or hardware inertia. Applied drives are saved in episode metadata."
+    }
+  },
+  "observed_hardware_settings": {
+    "arm_stiffness_nm_rad": [
+      220,
+      220,
+      220,
+      220,
+      30,
+      30,
+      30
+    ],
+    "controller_filter_hz": [
+      100,
+      100,
+      100
+    ],
+    "controller_filter_implementation": null,
+    "hand_speed_protocol_units": [
+      "rpm",
+      "mm/s"
+    ],
+    "hand_joint_velocity_conversion": null
+  }
+}

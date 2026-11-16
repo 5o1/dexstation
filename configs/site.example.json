@@ -1,0 +1,59 @@
+{
+  "workspace": "",
+  "conda_executable": "conda",
+  "simulation": {
+    "python": "",
+    "resources": ""
+  },
+  "compute": {
+    "ssh_profile": "",
+    "remote_code": "",
+    "python": "",
+    "cuda_visible_devices": "",
+    "render_device": ""
+  },
+  "udp": {
+    "bind_host": "127.0.0.1",
+    "peer_host": "127.0.0.1",
+    "source_host": "",
+    "port": 50200,
+    "allow_sources": []
+  },
+  "operator": {
+    "bind_host": "127.0.0.1",
+    "port": 8780,
+    "browser_url": "http://127.0.0.1:8780/",
+    "debug_url": "http://127.0.0.1:19222"
+  },
+  "network": {
+    "proxy_url": ""
+  },
+  "snapshots": {
+    "delay_s": 30,
+    "width": 1280,
+    "height": 720,
+    "max_bytes": 67108864
+  },
+  "collection": {
+    "motion_profile": "auto",
+    "backend": "sapien",
+    "source": "udp",
+    "scene_variant": "full",
+    "duration": null,
+    "rate_hz": 60,
+    "loop_replay": false,
+    "replay": "",
+    "replay_files": [],
+    "ros_topic_prefix": "",
+    "output_root": "",
+    "export_python": "",
+    "workbench": "ar5_08_g20_bench_bimanual",
+    "task": "empty",
+    "idle_timeout_s": 7200,
+    "resource_root": null,
+    "arm_startup": "spec"
+  },
+  "web": {
+    "pane_weights": {}
+  }
+}

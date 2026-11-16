@@ -1,0 +1,836 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/task.schema.json",
+  "type": "object",
+  "properties": {
+    "recording": {
+      "type": "object",
+      "description": "Task layer format name; required for any task other than empty. The task owns its format version.",
+      "properties": {
+        "format": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "format"
+      ],
+      "additionalProperties": false
+    },
+    "schema": {
+      "const": "dexhand-task-v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "workbenches": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "backends": {
+      "type": "object",
+      "properties": {
+        "sapien": {
+          "type": "object"
+        },
+        "mjcf_export": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sapien"
+      ],
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "rigid",
+              "static",
+              "articulation",
+              "xbox_gamepad_physics"
+            ]
+          },
+          "geometry": {
+            "type": "object",
+            "properties": {
+              "collision_mesh": {
+                "enum": [
+                  "sdf",
+                  "coacd"
+                ]
+              }
+            }
+          },
+          "inertial": {
+            "type": "object"
+          },
+          "material": {
+            "type": "object"
+          },
+          "initial_pose": {
+            "type": "object",
+            "properties": {
+              "frame": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pose": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 7,
+                "maxItems": 7
+              }
+            },
+            "required": [
+              "frame",
+              "pose"
+            ],
+            "additionalProperties": false
+          },
+          "randomize": {
+            "type": "object"
+          },
+          "collision": {
+            "type": "object",
+            "properties": {
+              "robots": {
+                "type": "boolean"
+              },
+              "environment": {
+                "type": "boolean"
+              },
+              "objects": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "robots",
+              "environment",
+              "objects"
+            ],
+            "additionalProperties": false
+          },
+          "release": false,
+          "profile": false,
+          "fixed_root": false,
+          "collision_policy": false,
+          "initial_joint_positions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "initial_pose",
+          "collision",
+          "geometry"
+        ],
+        "additionalProperties": true,
+        "oneOf": [
+          {
+            "properties": {
+              "type": {
+                "const": "articulation"
+              },
+              "geometry": {
+                "type": "object",
+                "properties": {
+                  "urdf": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "fixed_root": {
+                    "type": "boolean"
+                  },
+                  "collision_mesh": {
+                    "enum": [
+                      "sdf",
+                      "coacd"
+                    ]
+                  }
+                },
+                "required": [
+                  "urdf",
+                  "fixed_root"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "properties": {
+              "type": {
+                "const": "xbox_gamepad_physics"
+              },
+              "initial_joint_positions": false,
+              "geometry": {
+                "type": "object",
+                "properties": {
+                  "release": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "profile": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "collision_mesh": {
+                    "enum": [
+                      "sdf",
+                      "coacd"
+                    ]
+                  },
+                  "fixed_root": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "release",
+                  "profile",
+                  "collision_mesh",
+                  "fixed_root"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "rigid",
+                  "static"
+                ]
+              },
+              "initial_joint_positions": false
+            }
+          }
+        ]
+      }
+    },
+    "fixtures": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "const": "static"
+              },
+              "geometry": {
+                "type": "object",
+                "properties": {
+                  "collision_mesh": {
+                    "enum": [
+                      "sdf",
+                      "coacd"
+                    ]
+                  }
+                }
+              },
+              "inertial": {
+                "type": "object"
+              },
+              "material": {
+                "type": "object"
+              },
+              "initial_pose": {
+                "type": "object",
+                "properties": {
+                  "frame": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "pose": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 7,
+                    "maxItems": 7
+                  }
+                },
+                "required": [
+                  "frame",
+                  "pose"
+                ],
+                "additionalProperties": false
+              },
+              "randomize": {
+                "type": "object"
+              },
+              "collision": {
+                "type": "object",
+                "properties": {
+                  "robots": {
+                    "type": "boolean"
+                  },
+                  "environment": {
+                    "type": "boolean"
+                  },
+                  "objects": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "robots",
+                  "environment",
+                  "objects"
+                ],
+                "additionalProperties": false
+              },
+              "release": false,
+              "profile": false,
+              "fixed_root": false,
+              "collision_policy": false,
+              "initial_joint_positions": false
+            },
+            "required": [
+              "name",
+              "type",
+              "initial_pose",
+              "collision",
+              "geometry"
+            ],
+            "additionalProperties": true
+          }
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "object_pose",
+              "object_velocity",
+              "articulation_q",
+              "contact",
+              "contact_force",
+              "gamepad_sdl3_core_v1",
+              "plugin"
+            ]
+          },
+          "object": {
+            "type": "string",
+            "minLength": 1
+          },
+          "with": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "dtype": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": "string"
+          },
+          "plugin": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "kind"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "module": {
+            "type": "string",
+            "minLength": 1
+          },
+          "task_sets": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "module"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cell"
+      }
+    },
+    "actions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "builtin": {
+            "enum": [
+              "resample_objects",
+              "restore_initial"
+            ]
+          },
+          "plugin": {
+            "type": "string",
+            "minLength": 1
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "while_recording": {
+            "enum": [
+              "forbidden",
+              "allowed"
+            ]
+          }
+        },
+        "required": [
+          "while_recording"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "builtin"
+            ]
+          },
+          {
+            "required": [
+              "plugin"
+            ]
+          }
+        ]
+      }
+    },
+    "evaluation": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "No evaluation for empty."
+    },
+    "keep_out": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shape": {
+            "enum": [
+              "box"
+            ]
+          },
+          "frame": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pose": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 7,
+            "maxItems": 7
+          },
+          "half_extents_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "name",
+          "shape",
+          "frame",
+          "pose",
+          "half_extents_m"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "real_robot": {
+      "type": "object",
+      "properties": {
+        "twin_objects": {
+          "enum": [
+            "nominal",
+            "hidden",
+            "none"
+          ]
+        }
+      },
+      "required": [
+        "twin_objects"
+      ],
+      "additionalProperties": false
+    },
+    "appearance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "initial_robot_state": {
+      "type": "object",
+      "properties": {
+        "hand_q": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 21,
+              "maxItems": 21
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 21,
+              "maxItems": 21
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "hand_q"
+      ],
+      "additionalProperties": false
+    },
+    "auxiliary_cameras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "object": {
+            "type": "string",
+            "minLength": 1
+          },
+          "position": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "target": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "up": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "fit_render_meshes": {
+            "type": "boolean"
+          },
+          "framing_margin": {
+            "type": "number",
+            "exclusiveMinimum": 1
+          },
+          "atlas_slot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4
+          }
+        },
+        "required": [
+          "id",
+          "object",
+          "position",
+          "target",
+          "up",
+          "fit_render_meshes",
+          "framing_margin",
+          "atlas_slot"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "panes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "weight": {
+            "type": "integer"
+          },
+          "camera": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "module": {
+            "type": "string",
+            "minLength": 1
+          },
+          "css": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visible_when": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "camera"
+            ]
+          },
+          {
+            "required": [
+              "module"
+            ]
+          }
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "title",
+    "workbenches",
+    "backends",
+    "objects",
+    "fixtures",
+    "observations",
+    "sources",
+    "cells",
+    "actions",
+    "evaluation",
+    "keep_out",
+    "real_robot"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "cell": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "module": {
+          "type": "string",
+          "minLength": 1
+        },
+        "css": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visible_when": {
+          "type": "object"
+        },
+        "builtin": {
+          "enum": [
+            "values",
+            "lamps",
+            "banner",
+            "controls"
+          ]
+        },
+        "source": {
+          "type": "object"
+        },
+        "states": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "speak_on_change": {
+          "type": "boolean"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digits": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "key",
+              "label"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1
+              },
+              "hotkey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "label",
+              "action"
+            ],
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "module"
+          ]
+        },
+        {
+          "required": [
+            "builtin"
+          ]
+        }
+      ]
+    }
+  },
+  "description": "Design \u00a7\u00a73\u20135, 8. Profile cannot contain cameras or modify workbench fields. Plugin-specific payloads remain open. Reviewer rulings 1-2: task hand initial state; collision booleans separate from geometry.collision_mesh; articulation initial_joint_positions are radians (omitted = URDF zero). Operator-only auxiliary_cameras/panes do not enter the collection camera list."
+}

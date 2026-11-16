@@ -1,0 +1,1276 @@
+{
+  "name": "station-v3_3-fixture",
+  "color_space": "linear_rgb",
+  "materials": [
+    {
+      "name": "v3_collision_invisible",
+      "match": {
+        "link_glob": [
+          "v3_proxy_*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.2,
+        0.2,
+        0.2,
+        0.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7,
+      "status": "design",
+      "source": "Collision-only box proxies; actual appearance uses the v3 CAD meshes"
+    },
+    {
+      "name": "table_green",
+      "match": {
+        "link_glob": [
+          "table"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.3083225789316995,
+        0.32480503838353003,
+        0.06921920023201164,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.75,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [263, 988, 494, 1130]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "table_frame_white",
+      "match": {
+        "link_glob": [
+          "station_table_frame*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.140289308014614,
+        0.14003056323005983,
+        0.1075293844568034,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [1200, 1400, 1300, 1430]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "column_aluminium",
+      "match": {
+        "link_glob": [
+          "station_column*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.55,
+        0.56,
+        0.57,
+        1
+      ],
+      "metallic": 0.85,
+      "roughness": 0.32,
+      "status": "estimated",
+      "source": "photo0 central grooved column and horizontal mount; photo2 side view confirms silver aluminium. Linear RGB/PBR estimated, not measured reflectance."
+    },
+    {
+      "name": "ar5_base_gray",
+      "match": {
+        "link_glob": [
+          "AR5_*_base"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.08898152563840141,
+        0.08898152563840141,
+        0.08898152563840141,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "status": "estimated",
+      "source": "RobotHMI_5.153.11.0314/model/AR5*/param.json RGB(.33,.33,.33), shininess30; assumed sRGB to linear; roughness not inferred from shininess"
+    },
+    {
+      "name": "ar5_warm_white",
+      "match": {
+        "link_glob": [
+          "AR5_*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8796223968878317,
+        0.8620299489500751,
+        0.8356412770434397,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.48,
+      "status": "estimated",
+      "source": "photo0/3/4 white shell; render-only black ring partitions in visual_split_v1, seam positions estimated"
+    },
+    {
+      "name": "g20_dark",
+      "match": {
+        "link_glob": [],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.02956594820048581,
+        0.03047716193878364,
+        0.031004092384768773,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8,
+      "status": "estimated",
+      "source": "photo0/4 black palm and finger pads, photo3 wrist ring; geometric visual partitions estimated; hand links now take their materials from g20_pbr_description GLB visuals, so no hand link rules remain"
+    },
+    {
+      "name": "g20_silver",
+      "match": {
+        "link_glob": [],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.42212775778376393,
+        0.4247650004927726,
+        0.4229388845904321,
+        1.0
+      ],
+      "metallic": 0.9,
+      "roughness": 0.35,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [378, 729, 422, 752]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; photo0/3/4 silver shell, no PBR vendor asset; URDF red/yellow ignored; hand links now take their materials from g20_pbr_description GLB visuals, so no hand link rules remain"
+    },
+    {
+      "name": "realsense_shell",
+      "match": {
+        "link_glob": [
+          "camera_*_body"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8875915417964342,
+        0.9256467991693655,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.65,
+      "roughness": 0.4,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [973, 237, 1036, 251]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; D435 mesh Apache2.0; integrated black sensor strip not independently textured"
+    },
+    {
+      "name": "floor",
+      "match": {
+        "link_glob": [
+          "station_floor"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.11701133335388177,
+        0.09904500488271399,
+        0.09056435703506317,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [40, 1130, 120, 1210]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "backdrop_green",
+      "match": {
+        "link_glob": [
+          "station_backdrop*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.0173,
+        0.1706,
+        0.0623,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.95,
+      "status": "estimated",
+      "source": "2026-10-23 ego calibration image position_mid, median of green-screen ROIs [380,20,700,200] and [260,250,560,380], sRGB->linear; camera auto white balance, not neutralised like the photo-0 entries"
+    },
+    {
+      "name": "v33_base_acrylic",
+      "match": {
+        "link_glob": [
+          "v3_visual_base_acrylic"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.7912979403326302,
+        0.8962693533742664,
+        0.9215818562772946,
+        0.24
+      ],
+      "metallic": 0.0,
+      "roughness": 0.075,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_column_lower",
+      "match": {
+        "link_glob": [
+          "v3_visual_column_lower"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.03189603307301153,
+        0.33716361504833037,
+        0.2961382707983211,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_column_sleeve",
+      "match": {
+        "link_glob": [
+          "v3_visual_column_sleeve"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.09758734714186246,
+        0.25415209433082675,
+        0.5583403896342679,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_cradle_lower_jaw",
+      "match": {
+        "link_glob": [
+          "v3_visual_cradle_lower_jaw"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.7083757798916868,
+        0.3564001441459435,
+        0.1301364766903643,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_guide_rod_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_guide_rod_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_guide_rod_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_guide_rod_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M6_height_bolt",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M6_height_bolt"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M6_locknut",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M6_locknut"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M6_washer_-1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M6_washer_-1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M6_washer_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M6_washer_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_axis_bolt",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_axis_bolt"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_hub_washer",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_hub_washer"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_sliding_sleeve",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_sliding_sleeve"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_star_knob_envelope",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_star_knob_envelope"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_washer_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_washer_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_M8_washer_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_M8_washer_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_M5_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_M5_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_M5_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_M5_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_M5_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_M5_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_M5_3",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_M5_3"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_bottom_washer_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_bottom_washer_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_bottom_washer_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_bottom_washer_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_bottom_washer_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_bottom_washer_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_bottom_washer_3",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_bottom_washer_3"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_nut_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_nut_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_nut_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_nut_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_nut_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_nut_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_nut_3",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_nut_3"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_0_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_0_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_0_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_0_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_1_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_1_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_1_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_1_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_2_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_2_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_2_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_2_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_3_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_3_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_base_top_washer_3_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_base_top_washer_3_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_compression_spring_1",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_compression_spring_1"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_compression_spring_2",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_compression_spring_2"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_M3_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_M3_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_M3_120",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_M3_120"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_M3_240",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_M3_240"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_nut_0",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_nut_0"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_nut_120",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_nut_120"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_fixed_ring_nut_240",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_fixed_ring_nut_240"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_M3_180",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_M3_180"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_M3_300",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_M3_300"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_M3_60",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_M3_60"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_nut_180",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_nut_180"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_nut_300",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_nut_300"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hardware_moving_ring_nut_60",
+      "match": {
+        "link_glob": [
+          "v3_visual_hardware_moving_ring_nut_60"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.40197777983219574,
+        0.45078578283822346,
+        0.5028864580325687,
+        1.0
+      ],
+      "metallic": 0.72,
+      "roughness": 0.25,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hirth_fixed",
+      "match": {
+        "link_glob": [
+          "v3_visual_hirth_fixed"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.32314320911295075,
+        0.21586050011389926,
+        0.4620769996544071,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_hirth_moving",
+      "match": {
+        "link_glob": [
+          "v3_visual_hirth_moving"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.6938717612919899,
+        0.5088813208549338,
+        0.11443537382697373,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_pad_back",
+      "match": {
+        "link_glob": [
+          "v3_visual_pad_back"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_pad_lower_jaw",
+      "match": {
+        "link_glob": [
+          "v3_visual_pad_lower_jaw"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_pad_upper_jaw",
+      "match": {
+        "link_glob": [
+          "v3_visual_pad_upper_jaw"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.47353149614800955,
+        0.5088813208549338,
+        0.5520114015120001,
+        1.0
+      ],
+      "metallic": 0.15,
+      "roughness": 0.36,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    },
+    {
+      "name": "v33_slider_upper_jaw",
+      "match": {
+        "link_glob": [
+          "v3_visual_slider_upper_jaw"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.6724431569576875,
+        0.20863687014525575,
+        0.19120168274079138,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.38,
+      "status": "design",
+      "source": "config/colors.json; scripts/render_scene.py roughness; acrylic uses clear color/roughness and alpha .24 (technical transparency .76); raster alpha approximation, no refractive transmission"
+    }
+  ],
+  "visual_splits": []
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "dexhand-takeover-v1",
+  "parts": [
+    "left_arm",
+    "right_arm"
+  ],
+  "match_tolerance_deg": null,
+  "match_dwell_s": null,
+  "deviation_budget_deg": null,
+  "on_limit": "hold"
+}

@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/task/action",
+    "query": {},
+    "body": {
+      "action": "reset",
+      "params": {}
+    }
+  },
+  "response": {
+    "status": 409,
+    "content_type": "application/json",
+    "body": {
+      "accepted": false,
+      "error": "Task action is forbidden while recording"
+    }
+  }
+}

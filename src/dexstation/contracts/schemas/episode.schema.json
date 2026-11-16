@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/episode.schema.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "dexhand-episode-v1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rows": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "fps": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "layers": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "workbench"
+            },
+            "format": {
+              "const": "dexhand-workbench-rec-v1"
+            },
+            "path": {
+              "const": "workbench/"
+            }
+          },
+          "required": [
+            "name",
+            "format",
+            "path"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "task"
+            },
+            "task": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "format": {
+              "type": "string",
+              "minLength": 1
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "name",
+            "task",
+            "format",
+            "path"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "items": false,
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "clock": {
+      "type": "object",
+      "properties": {
+        "step": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sim_time_s": {
+          "type": "string",
+          "minLength": 1
+        },
+        "wall_time_ns": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "step",
+        "sim_time_s",
+        "wall_time_ns"
+      ],
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "workbench": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "name",
+            "revision",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        "task": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^[0-9]+\\.[0-9]+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        "backend": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "name",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "code": {
+          "type": "object",
+          "properties": {
+            "git_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "dirty": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "git_commit",
+            "dirty"
+          ],
+          "additionalProperties": false
+        },
+        "scene_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "workbench",
+        "task",
+        "backend",
+        "code",
+        "scene_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "input_source": {
+          "type": "object"
+        },
+        "scene_variant": {
+          "const": "full"
+        },
+        "motion_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retarget": {
+          "type": "string",
+          "minLength": 1
+        },
+        "started_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stopped_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "forced": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "input_source",
+        "scene_variant",
+        "motion_profile",
+        "retarget",
+        "started_by",
+        "stopped_by",
+        "forced"
+      ],
+      "additionalProperties": false
+    },
+    "operator_notes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "realtime_metrics": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "episode_id",
+    "status",
+    "rows",
+    "fps",
+    "layers",
+    "clock",
+    "identity",
+    "session",
+    "operator_notes",
+    "realtime_metrics"
+  ],
+  "additionalProperties": false,
+  "description": "Design §§7, 12. No operator id. Layer 0 is workbench; optional layer 1 is task. Task id/path consistency, empty having no task layer, clock alignment and integrity are WP4 semantic checks. free-space cannot be recorded."
+}

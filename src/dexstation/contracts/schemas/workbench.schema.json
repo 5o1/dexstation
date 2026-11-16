@@ -1,0 +1,774 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/workbench.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "dexhand-workbench-v1"
+    },
+    "manifest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "composer_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "upstream": {
+          "type": "object",
+          "properties": {
+            "repository": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "workstation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "repository",
+            "revision",
+            "workstation"
+          ],
+          "additionalProperties": false
+        },
+        "components": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "variant": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "name",
+              "variant",
+              "sha256"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "name",
+        "revision",
+        "composer_version",
+        "upstream",
+        "components",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "world_frame": {
+      "type": "string",
+      "minLength": 1
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "generated_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "table": {
+          "type": "object",
+          "properties": {
+            "pose": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "half_extents": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "pose",
+            "half_extents"
+          ],
+          "additionalProperties": false
+        },
+        "fixtures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pose": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 7,
+                "maxItems": 7
+              },
+              "collision": {
+                "type": "boolean"
+              },
+              "half_extents": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "mesh": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "pose",
+              "collision"
+            ],
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [
+        "generated_by",
+        "table",
+        "fixtures"
+      ],
+      "additionalProperties": false
+    },
+    "frames": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "parent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pose": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 7,
+            "maxItems": 7
+          }
+        },
+        "required": [
+          "parent",
+          "pose"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "robots": {
+      "type": "object",
+      "properties": {
+        "sides": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "left_arm": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urdf": {
+              "type": "string",
+              "minLength": 1
+            },
+            "base_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tip_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "joint_names": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "base_position": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "base_orientation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "model",
+            "urdf",
+            "base_link",
+            "tip_link",
+            "joint_names",
+            "base_position",
+            "base_orientation"
+          ],
+          "additionalProperties": false
+        },
+        "right_arm": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urdf": {
+              "type": "string",
+              "minLength": 1
+            },
+            "base_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tip_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "joint_names": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "base_position": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "base_orientation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "model",
+            "urdf",
+            "base_link",
+            "tip_link",
+            "joint_names",
+            "base_position",
+            "base_orientation"
+          ],
+          "additionalProperties": false
+        },
+        "left_hand": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "geometry": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urdf": {
+              "type": "string",
+              "minLength": 1
+            },
+            "root_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "mount_status": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "model",
+            "geometry",
+            "urdf",
+            "root_link",
+            "mount",
+            "mount_status"
+          ],
+          "additionalProperties": false
+        },
+        "right_hand": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "geometry": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urdf": {
+              "type": "string",
+              "minLength": 1
+            },
+            "root_link": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "mount_status": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "model",
+            "geometry",
+            "urdf",
+            "root_link",
+            "mount",
+            "mount_status"
+          ],
+          "additionalProperties": false
+        },
+        "home": {
+          "type": "object",
+          "properties": {
+            "intent": {
+              "type": "string",
+              "minLength": 1
+            },
+            "q_at_teleop_reference_mount": {
+              "type": "object",
+              "properties": {
+                "left": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 7,
+                  "maxItems": 7
+                },
+                "right": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 7,
+                  "maxItems": 7
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "intent",
+            "q_at_teleop_reference_mount"
+          ],
+          "additionalProperties": false
+        },
+        "hand_mapping": {
+          "type": "string",
+          "minLength": 1
+        },
+        "motion_model": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "sides",
+        "home",
+        "hand_mapping",
+        "motion_model"
+      ],
+      "additionalProperties": false
+    },
+    "cameras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "real": {
+            "type": "object",
+            "description": "2026-11-16 profile-structure change: host USB port_key replaces serial_key. Frozen workbench snapshots in recorded metadata follow this profile structure; no version bump. Other recorded camera metadata changes are additive.",
+            "properties": {
+              "port_key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start_by_default": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "port_key",
+              "model",
+              "start_by_default"
+            ],
+            "additionalProperties": false
+          },
+          "sim": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "parent": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "pose_optical": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 7,
+                    "maxItems": 7
+                  },
+                  "intrinsics": {
+                    "type": "object",
+                    "properties": {
+                      "width": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "height": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "fx": {
+                        "type": "number"
+                      },
+                      "fy": {
+                        "type": "number"
+                      },
+                      "cx": {
+                        "type": "number"
+                      },
+                      "cy": {
+                        "type": "number"
+                      },
+                      "distortion": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "model": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "width",
+                      "height",
+                      "fx",
+                      "fy",
+                      "cx",
+                      "cy",
+                      "distortion",
+                      "model"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "status": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "parent",
+                  "pose_optical",
+                  "intrinsics",
+                  "status",
+                  "source"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "real",
+          "sim"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "properties": {
+        "teleop": {
+          "type": "string",
+          "minLength": 1
+        },
+        "real_robot": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "teleop",
+        "real_robot"
+      ],
+      "additionalProperties": false
+    },
+    "limits": {
+      "type": "string",
+      "minLength": 1
+    },
+    "takeover": {
+      "type": "string",
+      "minLength": 1
+    },
+    "physics": {
+      "type": "object",
+      "properties": {
+        "sapien": {
+          "type": "object",
+          "properties": {
+            "timestep_s": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "timestep_s"
+          ],
+          "additionalProperties": false
+        },
+        "mujoco": {
+          "type": "object",
+          "properties": {
+            "timestep_s": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "timestep_s"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "sapien"
+      ],
+      "additionalProperties": false
+    },
+    "real_robot": {
+      "type": "object",
+      "properties": {
+        "arms": {
+          "type": "object",
+          "properties": {
+            "left_ip_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "right_ip_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "local_ip_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reader_key": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        },
+        "hands": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "object",
+              "properties": {
+                "can_key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "can_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "can_key",
+                "can_id"
+              ],
+              "additionalProperties": false
+            },
+            "right": {
+              "type": "object",
+              "properties": {
+                "can_key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "can_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "can_key",
+                "can_id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "impedance": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Optional real-robot impedance; null has no configured parameters."
+        }
+      },
+      "required": [
+        "arms",
+        "hands",
+        "impedance"
+      ],
+      "additionalProperties": false
+    },
+    "estop_script_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "appearance": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema",
+    "manifest",
+    "world_frame",
+    "geometry",
+    "frames",
+    "robots",
+    "cameras",
+    "calibration",
+    "limits",
+    "takeover",
+    "physics",
+    "real_robot",
+    "estop_script_key",
+    "appearance"
+  ],
+  "additionalProperties": false,
+  "description": "Design §§4.2, 5.5. Structural validation only; checksums, geometry, side completeness and calibration derivation belong to WP2."
+}

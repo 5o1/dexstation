@@ -1,0 +1,69 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/tasks/tabletop_cube_grasp/cells",
+    "query": {},
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json",
+    "body": {
+      "cells": [
+        {
+          "id": "result",
+          "title": "Result",
+          "builtin": "banner",
+          "source": {
+            "evaluation": "online"
+          },
+          "states": {
+            "true": "SUCCESS",
+            "false": "NOT YET"
+          },
+          "speak_on_change": true
+        },
+        {
+          "id": "cube",
+          "title": "Cube",
+          "builtin": "values",
+          "source": {
+            "channels": [
+              "cube_pose",
+              "cube_contact"
+            ]
+          },
+          "fields": [
+            {
+              "key": "cube_pose[2]",
+              "label": "Height",
+              "unit": "m",
+              "digits": 3
+            }
+          ]
+        },
+        {
+          "id": "controls",
+          "title": "Task",
+          "builtin": "controls",
+          "controls": [
+            {
+              "label": "Reset cube",
+              "action": "reset",
+              "hotkey": "T"
+            }
+          ]
+        }
+      ],
+      "actions": {
+        "reset": {
+          "builtin": "resample_objects",
+          "objects": [
+            "cube"
+          ],
+          "while_recording": "forbidden"
+        }
+      }
+    }
+  }
+}

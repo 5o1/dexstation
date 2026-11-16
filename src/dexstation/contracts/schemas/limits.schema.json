@@ -1,0 +1,460 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/limits.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "dexhand-workspace-limits-v1"
+    },
+    "workbench": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "spatial": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "checked_geometry": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            },
+            "right": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "obstacles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "margin_m": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "null = not configured; loader must refuse to enable"
+        }
+      },
+      "required": [
+        "enabled",
+        "checked_geometry",
+        "obstacles",
+        "margin_m"
+      ],
+      "additionalProperties": false
+    },
+    "angular": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "origin": {
+          "const": "shoulder_center"
+        },
+        "points": {
+          "anyOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "J1",
+                  "J2",
+                  "J3",
+                  "J4",
+                  "J5",
+                  "J6",
+                  "J7",
+                  "flange"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "null = not configured; loader must refuse to enable"
+        },
+        "exempt": {
+          "type": "object",
+          "properties": {
+            "r_min_m": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            },
+            "h_min_m": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            }
+          },
+          "required": [
+            "r_min_m",
+            "h_min_m"
+          ],
+          "additionalProperties": false
+        },
+        "azimuth": {
+          "type": "object",
+          "properties": {
+            "range": {
+              "const": "table_corners"
+            },
+            "margin_deg": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            }
+          },
+          "required": [
+            "range",
+            "margin_deg"
+          ],
+          "additionalProperties": false
+        },
+        "elevation": {
+          "type": "object",
+          "properties": {
+            "max_up_deg": {
+              "anyOf": [
+                {
+                  "const": 45.0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            },
+            "margin_deg": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "null = not configured; loader must refuse to enable"
+            }
+          },
+          "required": [
+            "max_up_deg",
+            "margin_deg"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "enabled",
+        "origin",
+        "points",
+        "exempt",
+        "azimuth",
+        "elevation"
+      ],
+      "additionalProperties": false
+    },
+    "joint": {
+      "type": "object",
+      "properties": {
+        "controller_soft_limits": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "object",
+              "properties": {
+                "lower_deg": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 7,
+                      "maxItems": 7
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "null = not configured; loader must refuse to enable"
+                },
+                "upper_deg": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 7,
+                      "maxItems": 7
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "null = not configured; loader must refuse to enable"
+                }
+              },
+              "required": [
+                "lower_deg",
+                "upper_deg"
+              ],
+              "additionalProperties": false
+            },
+            "right": {
+              "type": "object",
+              "properties": {
+                "lower_deg": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 7,
+                      "maxItems": 7
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "null = not configured; loader must refuse to enable"
+                },
+                "upper_deg": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 7,
+                      "maxItems": 7
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "null = not configured; loader must refuse to enable"
+                }
+              },
+              "required": [
+                "lower_deg",
+                "upper_deg"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "ik_branch": {
+          "type": "null",
+          "description": "Q1 pending. null means no IK-branch constraint; this is not a missing enable parameter."
+        }
+      },
+      "required": [
+        "controller_soft_limits",
+        "ik_branch"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "workbench",
+    "revision",
+    "spatial",
+    "angular",
+    "joint"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "report": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "spatial": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "string",
+                "minLength": 1
+              },
+              "link": {
+                "type": "string",
+                "minLength": 1
+              },
+              "obstacle": {
+                "type": "string",
+                "minLength": 1
+              },
+              "distance_m": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "side",
+              "link",
+              "obstacle",
+              "distance_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "angular": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "string",
+                "minLength": 1
+              },
+              "joint": {
+                "type": "string",
+                "minLength": 1
+              },
+              "azimuth_deg": {
+                "type": "number"
+              },
+              "elevation_deg": {
+                "type": "number"
+              },
+              "reason": {
+                "enum": [
+                  "azimuth",
+                  "elevation_up"
+                ]
+              }
+            },
+            "required": [
+              "side",
+              "joint",
+              "azimuth_deg",
+              "elevation_deg",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "joint": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 7,
+            "maxItems": 7
+          }
+        },
+        "angular_range": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "required": [
+        "ok",
+        "spatial",
+        "angular",
+        "joint",
+        "angular_range"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "description": "Design \u00a710.1 plus reviewer ruling 1. Null configurable parameters or enabled=false leave the relevant layer disabled; a loader must refuse an attempt to enable an unconfigured layer. angular_range is required in a report and is derived from current workbench geometry."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "dexhand-real-robot-calibration-v2",
+  "arm_base_links": {
+    "left": [
+      "AR5_left_5_08L_W4C4A6_base",
+      "AR5_left_5_08R_W4C4A6_base"
+    ],
+    "right": [
+      "AR5_right_5_08R_W4C4A6_base"
+    ]
+  },
+  "note": "Real robot -> sim calibration stores measured physical base orientations and hand motor reversal rules. Runtime arm J1 offsets are derived from current scene geometry, independent of scene name; the measured-mount scene has zero offsets. Relative z-axis tilt above 0.01 deg requires recalibration. Teleop reference orientations live in teleop_calibration.json. Calibration covers only the explicitly listed arm_base_links (verified 08-family base conventions); other arm models require recalibration. Missing arms receive zero offsets.",
+  "measured_base_orientation_wxyz": {
+    "left": [
+      0.706169740347,
+      -0.706169743317,
+      0.036390872801,
+      0.03639087548
+    ],
+    "right": [
+      0.706643120955,
+      0.706643123884,
+      0.025602684771,
+      -0.025602687495
+    ]
+  },
+  "measured_rotation_deg_about_vendor": {
+    "left": -84.1,
+    "right": 85.85
+  },
+  "hand_motor_reverse": {
+    "left": [],
+    "right": []
+  },
+  "evidence": {
+    "arm": "2026-11-12. Both controllers at q=(0,90,+/-90,0,0,0,0); vertical tape from the table-front underside (z=0.7522 m) to the top of the last-joint housing at x=0.7184 m: left 500 mm, right 520 mm (re-measured). Solved against the 08L/08R meshes in this scene: the real arms sit at -84.10 / +85.85 deg about each base z (J1) axis relative to the vendor mount, whereas the scene mounts are -90 / +105 deg. A rotation about J1 equals a J1 offset for every pose (checked to 1e-16), so real J1 + (+5.90 / -19.15 deg) reproduces the real arm in this scene. +/-5 mm tape error is about +/-0.44 deg. Since the real-mounts scene these angles are the scene mounts (vendor_bench_overrides.json arm_base_rotation_deg), so the J1 offset is zero.",
+    "hand": "2026-11-12. Real hands read back left slot 5 (thumb CMC roll) = 0, right = 253. The sim (HandCore-inverse decode, left slot 5 reversed) put both thumbs upright; the user saw the real left thumb folded across the palm, matching the vendor decode (255 -> joint lower, 0 -> upper, no left/right reversal). The left finger side swings (slots 6-9) already agree: their reversal is cancelled by the left URDF axis. Real values for the listed slots are mirrored (255 - m) before the teleop decode. Since the real-mounts scene the sim decodes left slot 5 by the real rule (g20_mapping), and teleop values are mirrored on that slot instead (TELEOP_MOTOR_REVERSE)."
+  }
+}

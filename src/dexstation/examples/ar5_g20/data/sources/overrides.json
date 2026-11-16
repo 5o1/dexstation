@@ -1,0 +1,65 @@
+{
+  "scene_name": "station-g20-fixture-v3_3-vendor-bench-real-mounts",
+  "base_scene": "configs/workcell/placement_trials/gamepad_fixture_v3_3.json",
+  "output_scene": "configs/workcell/placement_trials/gamepad_fixture_v3_3_vendor_bench.json",
+  "baseline": "references/vendor_bench_baseline.json",
+  "bench_workspace": "workspace://assets/linker_sim_bench_d0224b8d",
+  "arms": {
+    "left": {
+      "urdf": "workspace://assets/derived/ar5_08_d0224b8d/left_arm.urdf",
+      "source": "linker-sim-assets d0224b8d arms/ar5_08/variants/left, derived by scripts/derive_ar5_08_arms.py"
+    },
+    "right": {
+      "urdf": "workspace://assets/derived/ar5_08_d0224b8d/right_arm.urdf",
+      "source": "linker-sim-assets d0224b8d arms/ar5_08/variants/right, derived by scripts/derive_ar5_08_arms.py"
+    }
+  },
+  "replaced_fixtures": [
+    "station_column",
+    "station_column_top_mount",
+    "station_table_frame_leg00",
+    "station_table_frame_leg01",
+    "station_table_frame_leg10",
+    "station_table_frame_leg11",
+    "v3_table_apron"
+  ],
+  "vendor_parts_not_used": [
+    "bench_table_tabletop"
+  ],
+  "arm_base_rotation_deg": {
+    "left": -84.1,
+    "right": 85.85
+  },
+  "gamepad_release": "xbox_gamepad_physics==0.4.3",
+  "deviations": [
+    {
+      "field": "left_arm.base_pose orientation / right_arm.base_pose orientation / home_q J1",
+      "vendor": "workstations/ar5_08_l25_bench_bimanual mounts, quaternion (0.5,-0.5,0.5,0.5) left / (0.5,0.5,0.5,-0.5) right",
+      "ours": "left rotated -84.10 deg, right +85.85 deg about each base z (J1) axis relative to the vendor mount (arm_base_rotation_deg). home_q J1 = base-scene home J1 + j1_offset_deg(scene base, teleop_calibration.json reference_base_orientation_wxyz), so the home pose stays where it was in the world.",
+      "evidence": "Measured on the real station 2026-11-12: with both arms at q=(0,90,+/-90,0,0,0,0) a vertical tape from the table-front underside to the top of the last-joint housing read 500 mm (left) / 520 mm (right); the arm meshes put that at -84.10 / +85.85 deg (+/-0.44 deg for +/-5 mm). The scene used the original workstation values -90 / +105 until then; teleop was calibrated on those (reference_base_orientation_wxyz in configs/workcell/teleop_calibration.json) and configs/workcell/teleop_calibration.json shifts teleop J1 by the difference."
+    },
+    {
+      "field": "left_hand.urdf / right_hand.urdf",
+      "vendor": "components/hands/linkerhand_l25 (same meshes; thumb_cmc_pitch origin, left finger roll axes, DIP mimic 0.7879 and limits differ)",
+      "ours": "g20_pbr_description v0.1.1 = public linkerhand-urdf L25 parameters, as on the original workstation",
+      "evidence": "Retargeting and the G20 motor mapping are built on the public parameters; user decision 2026-11-11 to keep them until a real-hand comparison."
+    },
+    {
+      "field": "table top surface",
+      "vendor": "bench_table_tabletop collision mesh",
+      "ours": "the scene table box with the same extents (vendor tabletop bounding box)",
+      "evidence": "Representation only; the box keeps the table material and existing table handling. Extents are the vendor's."
+    }
+  ],
+  "not_taken_from_vendor": [
+    "top_camera (workstation_zed2i): the station uses camera_3 (RealSense) with its own calibration",
+    "vendor collision_exclusions and whole-bench collision: our collision variants (gamepad-contact) are kept",
+    "vendor L25 white placeholder colours: our appearance file is kept"
+  ],
+  "notes": [
+    "Composed by scripts/vendor_bench_scene.py: vendor baseline (references/vendor_bench_baseline.json, linker-sim-assets d0224b8d ar5_08_l25_bench_bimanual) + deviations (configs/workcell/vendor_bench_overrides.json) + the gamepad_fixture_v3_3.json layers the vendor model lacks.",
+    "From the vendor: table extents (15 mm plate, top 767.2 mm), column (60 mm deep), mount plates and crossbar, frame/legs/casters/panels/shelves as collision parts, arm base positions, hand mounts (20.5 mm, +/-90 deg), arm models 08L/08R (J6/J7 +/-60 deg).",
+    "Station controllers report AR5-5_0.8L-W4C1C5 (left) and AR5-5_0.8R-W4C1C5 (right), 2026-11-11; at q=(0,90,+/-90,0,0,0,0) the controller flange pose equals the 08L/08R tcp FK.",
+    "Arm base orientation, hand models and every layer the vendor model lacks (gamepad, fixture v3.3, camera_3 and its calibration, home_q, floor, backdrop, appearance) are unchanged from gamepad_fixture_v3_3.json; see its notes for their provenance."
+  ]
+}

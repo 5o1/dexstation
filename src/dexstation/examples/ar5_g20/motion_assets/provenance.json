@@ -1,0 +1,64 @@
+{
+  "ownership": "Project-authored Python/numpy implementation; MIT; no station source or binaries distributed",
+  "files": [
+    {
+      "file": "../station_math.py",
+      "status": "rewritten by this project",
+      "basis": [
+        {
+          "repository": "https://github.com/linker-bot/linkerbot-teleop-arm",
+          "revision": "109766554f56728da458aac6d74780d30378d1b1",
+          "path": "src/linkerta/src/TeleArmNode.cpp",
+          "lines": "164-189",
+          "license": "Apache-2.0",
+          "use": "Degrees in legacy output and radians in JointState; interface reference only"
+        },
+        {
+          "repository": "https://github.com/RokaeRobot/xCoreSDK-CPP",
+          "revision": "061c2fb11f360f1585aae2776a4bb713b9e7c49c",
+          "path": "example/rt/joint_impedance_control.cpp",
+          "lines": "60-96",
+          "license": "Apache-2.0",
+          "use": "Radian joint command interface and example 1 ms cycle; interface reference only"
+        },
+        {
+          "repository": "https://github.com/frankarobotics/libfranka",
+          "revision": "e88d08f64cbf842b8f53c0b551963684064038d6",
+          "path": "src/lowpass_filter.cpp",
+          "lines": "11-29",
+          "license": "Apache-2.0",
+          "use": "Public scalar first-order RC equation; mathematical reference, no source lines copied"
+        }
+      ]
+    },
+    {
+      "file": "../arm_mapping.py",
+      "status": "rewritten by this project",
+      "basis": [
+        {
+          "repository": "https://github.com/linker-bot/linkerbot-teleop-arm",
+          "revision": "109766554f56728da458aac6d74780d30378d1b1",
+          "path": "src/linkerta/src/TeleArmNode.cpp",
+          "lines": "164-189",
+          "license": "Apache-2.0",
+          "use": "Degrees in legacy output and radians in JointState; interface reference only"
+        },
+        {
+          "repository": "https://github.com/RokaeRobot/xCoreSDK-CPP",
+          "revision": "061c2fb11f360f1585aae2776a4bb713b9e7c49c",
+          "path": "example/rt/joint_impedance_control.cpp",
+          "lines": "60-96",
+          "license": "Apache-2.0",
+          "use": "Radian joint command interface and example 1 ms cycle; interface reference only"
+        }
+      ]
+    },
+    {
+      "file": "station.json",
+      "status": "project configuration; numeric values and bytes retained"
+    }
+  ],
+  "behavior": "PV1 section 2.2 and frozen f07aa4c behavioral oracle; configuration is not copied code",
+  "validation": "tests/fixtures/rewrite_equivalence/f07aa4c.json.gz; local C++17 oracle only, no hardware validation",
+  "compatibility": "The provenance() clone key is retained for metadata schema compatibility; code_sha256 now identifies station_math.py."
+}

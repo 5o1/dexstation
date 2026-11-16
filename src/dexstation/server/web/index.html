@@ -1,0 +1,313 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Simulation Collection Station</title>
+
+<link rel="stylesheet" href="/overlay/collection.css">
+<!-- service-presentation -->
+<main>
+<header id="controls">
+<div class="control-row task-identity"><strong id="taskTitle">Task: Empty table</strong><span id="workbenchRevision">Workbench: —</span></div>
+<div class="control-row"><div id="modeSwitch" role="radiogroup" aria-label="Mode"><button type="button" id="modeSim" role="radio" aria-checked="true" class="mode-on">Simulation</button><!-- service-modes --></div><span id="safety" role="alert" hidden></span>
+<button id="launch" type="submit" form="sessionForm">Start simulation</button><button id="endSession" type="button">Stop simulation</button><label>Retarget<select id="retarget" aria-label="Retarget"></select></label><label>Source<select id="signalSource" aria-label="Signal source"></select></label><small id="sessionStatus">Loading…</small><small id="motionStatus" role="status">Motion: —</small>
+<small id="rtf" role="status" aria-label="Real time factor">—</small><span id="gloveControls"></span>
+<div id="inputChain" role="status" aria-live="polite"></div>
+<div id="recording" role="status">Idle</div>
+<button id="startRecord" data-action="start">Record (R)</button><button id="stopRecord" data-action="stop">Stop (S)</button>
+<input id="note" placeholder="Note (N)" aria-label="Note"><button id="addNote" data-action="note">Add note</button>
+<label><input type="checkbox" id="remoteToggle">Remote: <strong id="remoteState">Waiting</strong></label>
+<details class="drawer"><summary>Session / camera</summary><div class="drawer-body">
+<details id="cameraPanel"><summary>Camera</summary>
+<style>
+#cameraPanel{border:1px solid #50606a;padding:12px;margin:16px 0}#cameraMode{font-size:22px}#cameraMessage{color:#ffd591;white-space:pre-wrap}.cameraPreview{position:relative;background:#090d10;max-width:100%;aspect-ratio:16/9}.cameraPreview img{display:block;width:100%;height:100%;object-fit:contain}.cameraGuide{position:absolute;inset:0;pointer-events:none}.cameraGuide.grid{background-image:linear-gradient(to right,transparent calc(100% - 1px),#ffffff80 0),linear-gradient(to bottom,transparent calc(100% - 1px),#ffffff80 0);background-size:33.333% 33.333%}.cameraGuide.cross:before,.cameraGuide.cross:after{content:"";position:absolute;background:#ffde59}.cameraGuide.cross:before{left:50%;top:0;width:1px;height:100%}.cameraGuide.cross:after{top:50%;left:0;height:1px;width:100%}#cameraPhotos{display:flex;gap:12px;flex-wrap:wrap}#cameraPhotos figure{margin:0;width:220px;overflow-wrap:anywhere}#cameraPhotos img{width:220px}#cameraLastPhoto{max-width:240px}#cameraInfo,#cameraReport{white-space:pre-wrap;overflow-wrap:anywhere}#cameraReport{max-height:300px;overflow:auto}#cameraPanel summary{cursor:pointer;font-size:24px}
+</style>
+<div id="cameraMode" role="status">Idle</div><div id="cameraMessage" role="alert"></div>
+<fieldset><legend>Preview and guides</legend>
+<button type="button" id="cameraStart">Start camera</button><button type="button" id="cameraStop">Stop camera</button>
+<label><input id="cameraGrid" type="checkbox">Grid</label><label><input id="cameraCross" type="checkbox">Crosshair</label>
+<div id="cameraMetrics">Preview not started</div><div class="cameraPreview"><img id="cameraPreview" alt="Live ego camera preview"><div id="cameraGuide" class="cameraGuide"></div></div><pre id="cameraInfo"></pre>
+</fieldset>
+<fieldset><legend>Calibration photos</legend><label>Label<input id="cameraLabel" value="position_1" maxlength="200"></label><button type="button" id="cameraSnapshot">Take photo</button>
+<img id="cameraLastPhoto" alt="Latest calibration photo" hidden><p id="cameraOutput"></p><div id="cameraPhotos"></div>
+</fieldset>
+<fieldset><legend>RGB-D recording</legend>
+<button type="button" id="cameraRecordStart">Start RGB-D recording</button><button type="button" id="cameraRecordStop">Stop and save recording</button><pre id="cameraReport"></pre>
+</fieldset></details>
+<script type="module" src="/camera-panel.mjs"></script>
+<form id="sessionForm"><fieldset><legend>Simulation session</legend>
+<label>Task<select id="task"><option value="empty">Empty table</option></select></label><label>Input<select id="source"></select></label>
+<label>Motion<select id="motionProfile"></select></label>
+<label>Backend<select id="backend"></select></label>
+<label id="replayLabel">Replay file<select id="replay"></select></label>
+<span id="taskSessionControls"></span>
+<label>Duration (s)<input id="duration" type="number" min="0.1" step="any" style="width:130px"></label>
+</fieldset></form></div></details></div>
+<div id="recordDetails"></div>
+<div class="control-row" id="snapshotPanel">
+<label>Delay (s)<input id="snapshotDelay" type="number" min="0" max="3600" step="1" value="30" style="width:60px"></label>
+<label>Label<input id="snapshotLabel" maxlength="120" placeholder="Snapshot label"></label>
+<button id="snapshotStart" type="button">Snapshot in 30 s</button><button id="snapshotCancel" type="button" hidden>Cancel snapshot</button>
+<div id="snapshotStatus" role="status" aria-live="polite">Snapshot idle</div>
+<details class="drawer"><summary>Saved snapshots</summary><div class="drawer-body" id="snapshotList"></div></details>
+<span id="gloveRecordingControls"><strong>Glove recording</strong>
+<select id="gloveHand" aria-label="Hand to record"><option value="right">Right hand</option><option value="left">Left hand</option></select>
+<label>Label<input id="gloveLabel" value="subject01" maxlength="94"></label>
+<label><input id="gloveSound" type="checkbox" checked>Sound</label>
+<button id="gloveStart" type="button">Record right hand 108 s</button><button id="gloveCancel" type="button" hidden>Cancel recording</button></span></div>
+<div class="control-row status-row"><span id="videoStatus"></span><div id="metrics">Stream idle</div><div id="disk"></div><div id="integrity"></div></div>
+<div id="message" role="alert"></div>
+<!-- service-dialogs -->
+<div id="viewToolbar" aria-label="Positioning view controls"><span id="auxiliaryStatus">Waiting for simulation</span></div>
+</header>
+<div id="videoWorkspace"><section class="view video-pane" aria-label="camera_3"><canvas id="video" width="1280" height="720" aria-label="Simulation video"></canvas><span class="pane-label">CAM 3</span><div id="mainPrompts"><div id="armInputBanner" role="status" aria-live="assertive" hidden style="font-size:clamp(22px,3vw,40px);font-weight:700;color:#fff;background:#8b1717;padding:8px"></div><div id="takeoverBanner" role="status" aria-live="polite" hidden></div><div id="taskBanner" role="status" aria-live="polite" hidden></div></div></section><div id="auxiliaryViews"></div>
+<section id="signalTile" data-core-pane="arm_takeover" class="info-pane" aria-label="Arm takeover"><div id="takeoverLabels"></div><span class="pane-label">Arm takeover</span></section>
+<section id="statusTile" data-core-pane="status" class="info-pane" aria-label="Teleoperation status"><div id="teleopSummary" role="status" aria-live="polite"></div><div class="teleop-content"><div id="teleopTables"></div></div><span class="pane-label">Status</span><span id="gridRecording">Idle</span></section>
+<section id="gloveGuide" hidden role="status" aria-live="polite"><div id="glovePrompt"></div><div id="gloveSeconds"></div><div id="gloveProgress"></div><div id="gloveNext"></div></section>
+</div>
+<footer><div id="health"></div><div id="clamps"></div>
+<details class="drawer"><summary>Events / episodes</summary><div class="drawer-body">
+<p id="notesState"></p><details open><summary>Recent control events</summary><ol id="recentEvents"></ol></details><section id="library"><h2>Episodes</h2><table><thead><tr><th>Time / ID</th><th>Duration / Rows</th><th>Notes</th><th>Integrity / Void</th><th>Actions</th></tr></thead><tbody id="episodes"></tbody></table></section>
+<p id="stopHint"></p>
+</div></details></footer>
+<script type="module">
+import {operatorVideo} from '/web/video.mjs';
+import {auxiliaryPanel,installPaneZoom} from '/auxiliary-panel.mjs';
+import {teleopTable} from '/teleop-table.mjs';
+import {taskCells,configureTaskSelection,takeoverView,CLIENT_HEADER} from '/task-cells.mjs';
+const $=id=>document.getElementById(id), query=new URLSearchParams(location.search);
+const showTeleop=teleopTable($('teleopTables'),$('teleopSummary'));showTeleop({});
+query.set('theme','research');query.set('source','canonical');history.replaceState(null,'',`/?${query}`);
+const video=operatorVideo($('video'),{onStatus:s=>$('videoStatus').textContent=s});window.operatorStats=video.stats;
+const auxiliary=auxiliaryPanel($('auxiliaryViews'),$('auxiliaryStatus'),$('viewToolbar'));window.auxiliaryStats=auxiliary.stats;installPaneZoom($('videoWorkspace'));
+async function api(path,value){const r=await fetch(path,value===undefined?{headers:{[CLIENT_HEADER]:'web'}}:{method:'POST',headers:{'Content-Type':'application/json',[CLIENT_HEADER]:'web'},body:JSON.stringify(value)});const body=await r.json();if(!r.ok)throw Object.assign(Error(body.error||body.message||r.statusText),{body});return body}
+function message(e){$('message').textContent=String(e)}
+async function action(fn){try{$('message').textContent='';await fn()}catch(e){message(e)}}
+const config=await api('/api/v1/config');const managed=config.managed??true;let lastState={},videoSession=null,listSignature='';
+configureTaskSelection($('task'),config);
+$('task').onchange=()=>show(lastState);
+$('sessionForm').hidden=$('library').hidden=!managed;$('stopHint').textContent=`Software stop: ${config.estop_hint}`;
+let gloveLayers={enabled:true,A:true,C:true};
+try{const saved=JSON.parse(localStorage.getItem('collection.gloveLayers'));for(const key of Object.keys(gloveLayers))if(typeof saved?.[key]==='boolean')gloveLayers[key]=saved[key];}catch{}
+async function sendGloveLayers(){await api('/api/v1/glove-overlay',{layers:gloveLayers});}
+for(const [key,label] of [['enabled','Glove overlay'],['A','Glove skeleton · tubes'],['C','Dexhand · joint rings']]){
+ const wrap=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=gloveLayers[key];
+ check.onchange=()=>{gloveLayers[key]=check.checked;localStorage.setItem('collection.gloveLayers',JSON.stringify(gloveLayers));if(videoSession)action(sendGloveLayers);};
+ wrap.append(check,document.createTextNode(label));$('gloveControls').append(wrap);
+}
+const d=config.defaults||{};
+function showRTF(state={}){
+ const rtf=state.realtime_metrics?.rtf;
+ $('rtf').textContent=Number.isFinite(rtf)?rtf.toFixed(2):'—';
+ $('rtf').style.color=Number.isFinite(rtf)?rtf<.9?'#ef5350':rtf<.98?'#ffbf47':'':'';
+}
+function showMotion(state={}){
+ if(!managed){$('motionStatus').textContent=`Motion: ${state.motion_profile_resolved||'—'}`;return;}
+ let mode=state.session_state==='running'?state.motion_profile_resolved:null;
+ if(!mode){const selected=$('motionProfile').value||d.motion_profile||'auto';mode=selected==='auto'?($('source').value==='replay'?'auto (recorded/legacy)':'station (auto)'):selected;}
+ $('motionStatus').textContent=`Motion: ${mode}`;
+ $('motionStatus').title=state.motion_profile_name||'Auto uses station for live input and recorded settings for saved episodes. Station applies the migrated workstation motion rules.';
+}
+$('snapshotDelay').value=config.snapshot_defaults?.delay_s??30;
+function snapshotButton(){$('snapshotStart').textContent=`Snapshot in ${$('snapshotDelay').value} s`;}
+$('snapshotDelay').oninput=snapshotButton;snapshotButton();
+$('snapshotStart').onclick=()=>action(()=>api('/api/v1/snapshot',{delay_s:Number($('snapshotDelay').value),label:$('snapshotLabel').value}));
+$('snapshotCancel').onclick=()=>action(()=>api('/api/v1/snapshot/cancel',{}));
+function gloveButton(){$('gloveStart').textContent=`Record ${$('gloveHand').value==='right'?'right':'left'} hand ${config.glove_recording_defaults?.duration_s??108} s`;}
+$('gloveHand').onchange=()=>{gloveButton();showGloveRecording(lastState);};gloveButton();
+$('gloveStart').onclick=()=>action(async()=>{gloveAudio.unlock();const result=await api('/api/v1/glove-recording',{hand:$('gloveHand').value,label:$('gloveLabel').value});showGloveRecording(result.state);});
+$('gloveCancel').onclick=()=>action(async()=>{const result=await api('/api/v1/glove-recording/cancel',{});showGloveRecording(result.state);});
+// Kept as a pure dependency-injected controller so audio transitions can be
+// exercised without a browser, ROS or physical inputs.
+function createGloveAudio(host){
+ let enabled=true,context=null,lastCue=null,activated=false;
+ try{enabled=host.localStorage.getItem('collection.gloveSound')!=='off';}catch{}
+ function unlock(){
+  if(!enabled)return;activated=true;
+  try{const AC=host.AudioContext||host.webkitAudioContext;if(AC&&!context)context=new AC();context?.resume()?.catch(()=>{});}catch{}
+ }
+ function beep(start=false){
+  if(!enabled||!context)return;
+  try{const tone=context.createOscillator(),gain=context.createGain();tone.frequency.value=start?1046:660;gain.gain.value=.08;tone.connect(gain);gain.connect(context.destination);tone.start();tone.stop(context.currentTime+.09);}catch{}
+ }
+ function speak(text,alreadyCued=false){
+  if(!enabled||!activated)return;
+  try{
+   const synth=host.speechSynthesis,voice=synth?.getVoices().find(v=>/^en[-_]/i.test(v.lang));
+   if(!voice||!host.SpeechSynthesisUtterance){if(!alreadyCued)beep();return;}
+   synth.cancel();const utterance=new host.SpeechSynthesisUtterance(text);utterance.lang=voice.lang;utterance.voice=voice;
+   utterance.onerror=()=>{if(!alreadyCued)beep();};synth.speak(utterance);
+  }catch{if(!alreadyCued)beep();}
+ }
+ return {get enabled(){return enabled;},unlock,speak,setEnabled(value){enabled=value;try{host.localStorage.setItem('collection.gloveSound',enabled?'on':'off');}catch{}if(enabled)unlock();else host.speechSynthesis?.cancel();},
+  update(g){
+   const cue=g.phase==='countdown'?`countdown:${Math.ceil(g.remaining_s||0)}`:g.phase==='recording'?`step:${g.step}`:g.phase==='completed'?'completed':null;
+   const key=cue?`${g.id}:${cue}`:null;if(!key||key===lastCue)return;
+   lastCue=key;if(!enabled)return;
+   if(g.phase==='countdown')beep();
+   else if(g.phase==='recording'){if(g.step===1)beep(true);speak((g.prompt||'').split(':')[0],g.step===1);}
+   else speak('Done');
+  }};
+}
+const gloveAudio=createGloveAudio(window);$('gloveSound').checked=gloveAudio.enabled;
+const taskBanners=new Map();
+function taskBanner(text,id){if(text)taskBanners.set(id,String(text));else taskBanners.delete(id);$('taskBanner').textContent=[...taskBanners.values()].join(' · ');$('taskBanner').hidden=!taskBanners.size;}
+const cells=taskCells($('taskCells'),{config,grid:auxiliary,sessionControls:$('taskSessionControls'),request:api,banner:taskBanner,speak:text=>gloveAudio.speak(text)});
+const showTakeover=takeoverView($('takeoverBanner'),{speak:text=>gloveAudio.speak(text)});
+const showTakeoverLabels=takeoverView($('takeoverLabels'));
+$('gloveSound').onchange=()=>gloveAudio.setEnabled($('gloveSound').checked);
+document.addEventListener('pointerdown',()=>gloveAudio.unlock(),{once:true});
+let gloveTerminalKey=null,gloveTerminalUntil=0,gloveRestore=null;
+function placeGloveGuide(){
+ const guide=$('gloveGuide');if(guide.hidden)return;
+ const workspace=$('videoWorkspace').getBoundingClientRect();
+ const cell=id=>{const r=$(id).getBoundingClientRect();return {x:r.x-workspace.x,y:r.y-workspace.y,w:r.width,h:r.height};};
+ const a=cell('signalTile'),b=cell('statusTile');
+ let x=Math.min(a.x,b.x),y=Math.min(a.y,b.y);
+ let right=Math.max(a.x+a.w,b.x+b.w),bottom=Math.max(a.y+a.h,b.y+b.h);
+ // One auxiliary selection leaves L-shaped information cells. Keep text in
+ // the wide final cell; its partner becomes the same blank panel background.
+ // A bounding rectangle across that L would cover part of camera_3.
+ if((right-x)*(bottom-y)>a.w*a.h+b.w*b.h+4){x=b.x;y=b.y;right=x+b.w;bottom=y+b.h;}
+ Object.assign(guide.style,{left:x+'px',top:y+'px',width:(right-x)+'px',height:(bottom-y)+'px'});
+}
+new ResizeObserver(placeGloveGuide).observe($('videoWorkspace'));
+new MutationObserver(placeGloveGuide).observe($('statusTile'),{attributes:true,attributeFilter:['style']});
+function showGloveRecording(state={}){
+ const g=state.glove_recording||{phase:'idle'},busy=['countdown','recording'].includes(g.phase),terminal=['completed','failed','cancelled'].includes(g.phase);
+ gloveAudio.update(g);
+ const hand=g.hand==='left'?'Left hand':'Right hand',selected=$('gloveHand').value;
+ $('gloveStart').disabled=busy||state.session_state!=='running'||state.source!=='ros2'||state.glove_health?.[selected]?.state!=='ready';
+ $('gloveCancel').hidden=!busy;$('gloveHand').disabled=$('gloveLabel').disabled=busy;
+ const key=terminal?`${g.id}:${g.phase}`:null;
+ if(key&&key!==gloveTerminalKey){gloveTerminalKey=key;gloveTerminalUntil=Date.now()+6000;clearTimeout(gloveRestore);gloveRestore=setTimeout(()=>showGloveRecording(lastState),6100);}
+ const visible=busy||(terminal&&Date.now()<gloveTerminalUntil);
+ $('gloveGuide').hidden=!visible;$('videoWorkspace').classList.toggle('glove-guiding',visible);
+ if(!visible)return;
+ $('gloveGuide').dataset.phase=g.phase;
+ $('glovePrompt').textContent=g.phase==='countdown'?`${hand} · starts in ${Math.ceil(g.remaining_s||0)} s`:g.phase==='recording'?g.prompt:g.phase==='completed'?'Done':g.phase==='cancelled'?'Cancelled':g.error||'Recording failed';
+ $('gloveSeconds').textContent=busy?Math.ceil(g.remaining_s||0):'';
+ $('gloveProgress').textContent=g.phase==='recording'?`${g.step} / ${g.total_steps}`:terminal?`${g.count??0} messages`:'';
+ $('gloveNext').textContent=busy?(g.next_prompt?`Next · ${g.next_prompt}`:''):g.output_dir?.split('/').pop()||'';
+ placeGloveGuide();
+}
+let snapshotSignature='';
+async function savedSnapshots(){const rows=await api('/api/v1/snapshots');$('snapshotList').replaceChildren();for(const row of rows){const line=document.createElement('p');const title=document.createElement('strong');title.textContent=row.name;line.append(title);for(const file of row.files){const a=document.createElement('a');a.href='/api/v1/snapshots/'+row.name.split('/').map(encodeURIComponent).join('/')+'/'+encodeURIComponent(file);a.textContent=file;a.style.marginLeft='12px';a.download=file;line.append(a);}$('snapshotList').append(line);}}
+await savedSnapshots().catch(message);
+function options(id,values=[],selected){for(const value of values){const o=document.createElement('option');o.value=value;o.textContent=id==='retarget'?(JSON.parse(document.getElementById('service-presentation')?.textContent||'{}').retarget_labels?.[value]||value):id==='replay'?value.split('/').pop():value;$(id).append(o)}if(selected!==undefined)$(id).value=selected}
+const retargetMethods=config.retarget_methods||['manus_anatomical'];
+const retargetStorageKey='dexstation.input.retarget';
+let savedRetarget=localStorage.getItem(retargetStorageKey);
+if(savedRetarget===null){savedRetarget=localStorage.getItem('retarget');localStorage.setItem(retargetStorageKey,retargetMethods.includes(savedRetarget)?savedRetarget:(d.retarget||'manus_anatomical'));}
+if(!retargetMethods.includes(savedRetarget))savedRetarget=undefined;
+if(managed){options('backend',(config.backends||[]).filter(item=>item.available).map(item=>item.name),d.backend);options('source',config.sources,d.source);options('replay',config.replay_files,d.replay);options('motionProfile',config.motion_profiles,d.motion_profile);options('retarget',retargetMethods,savedRetarget||d.retarget||'manus_anatomical');
+for(const item of config.signal_sources||[]){const o=document.createElement('option');o.value=item.value;o.textContent=item.label;$('signalSource').append(o);}
+$('signalSource').onchange=()=>{if(lastState.session_state==='running')action(()=>api('/api/v1/signal-source/switch',{source:$('signalSource').value}));};
+$('retarget').onchange=()=>{localStorage.setItem(retargetStorageKey,$('retarget').value);if(lastState.session_state==='running')action(()=>api('/api/v1/retarget/switch',{method:$('retarget').value}));};$('duration').value=d.duration??'';
+$('source').onchange=()=>{$('replayLabel').hidden=$('source').value!=='replay';show(lastState)};$('replayLabel').hidden=$('source').value!=='replay';
+$('motionProfile').onchange=()=>showMotion(lastState);
+$('remoteToggle').onchange=()=>action(()=>api('/api/v1/remote-control',{enabled:$('remoteToggle').checked}));
+/* service-controls */
+function offerCan(error){throw error;}
+$('sessionForm').onsubmit=e=>{e.preventDefault();action(async()=>{gloveAudio.unlock();const values={...await cells.sessionOptions(),task:$('task').value,backend:$('backend').value,scene_variant:'full',source:$('source').value,motion_profile:$('motionProfile').value,retarget:$('retarget').value,replay:$('replay').value,duration_s:$('duration').value===''?null:Number($('duration').value)};try{await api('/api/v1/session/start',values);videoSession=null;}catch(error){offerCan(error,values);}})};
+$('endSession').onclick=()=>action(async()=>{video.stop();auxiliary.stop();await api('/api/v1/session/stop',{});videoSession=null;await episodes()})}
+for(const button of document.querySelectorAll('[data-action]'))button.onclick=()=>action(async()=>{await api(button.dataset.action==='note'?'/api/v1/notes':'/api/v1/recording/'+button.dataset.action,button.dataset.action==='note'?{text:$('note').value}:{});if(button.dataset.action==='note')$('note').value=''});
+document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const key=e.key.toLowerCase();if(key==='r')$('startRecord').click();if(key==='s')$('stopRecord').click();if(key==='n'){e.preventDefault();$('note').focus()}});
+const labels={idle:'Idle',recording:'Recording',saving:'Saving',checking:'Checking',saved:'Saved',failed:'Failed'};
+const inputLamps=new Map();let lampMode=null;
+function showInputLamps(state){
+ const active=state.input_chain?.retarget||state.retarget;
+ if($('retarget'))$('retarget').disabled=['recording','saving','checking'].includes(state.recording_status?.state)||state.session_state==='starting';
+ if($('retarget')&&active&&state.session_state==='running'&&document.activeElement!==$('retarget')){$('retarget').value=active;localStorage.setItem(retargetStorageKey,active);}
+ const root=$('inputChain'),chain=state.input_chain||{};
+ const real=state.signal_source==='real_robot',busy=['recording','saving','checking'].includes(state.recording_status?.state);
+ if($('signalSource')){
+  $('signalSource').disabled=busy||state.session_state!=='running'||state.source!=='ros2';
+  if(document.activeElement!==$('signalSource'))$('signalSource').value=state.signal_source||'teleop';
+ }
+ const record=$('startRecord');if(record){record.disabled=real;record.title=real?'Recording is off while the signal source is Real robot':'';}
+ const mode=state.source!=='ros2'?'none':real?'real':'teleop';
+ if(lampMode!==mode){
+  for(const entry of inputLamps.values())entry.animation?.cancel();
+  inputLamps.clear();root.replaceChildren();lampMode=mode;
+ }
+ if(mode==='none')return;
+ const lamps=real?[['left_arm','ARM L',['left_arm']],['right_arm','ARM R',['right_arm']],['left_hand','HAND L',['left_hand']],['right_hand','HAND R',['right_hand']]]
+  :[['left','GLOVE L',[]],['right','GLOVE R',[]],['retarget','RETARGET',['left_hand','right_hand']],['linkerta','LTA',['left_arm','right_arm']]];
+ for(const [key,label,channels] of lamps){
+  const component=(real?state.real_robot?.[key]:key==='left'||key==='right'?state.glove_health?.[key]:chain.components?.[key])||{};
+  let status=real?component.state||'starting':chain.state==='failed'?'failed':chain.state==='stopped'?'stopped':component.state||'starting';
+  const reasons=[];
+  if(status==='ready')for(const channel of channels){
+   const health=state.input_health?.[channel];
+   if(!health||health.age_s==null){status='starting';reasons.push(`Waiting ${channel}`);}
+   else if(health.warning){status='starting';reasons.push(`Stale ${channel} ${health.age_s.toFixed(3)} s`);}
+  }
+  let entry=inputLamps.get(key);
+  if(!entry){
+   const lamp=document.createElement('span'),dot=document.createElement('span');
+   lamp.className='signal-lamp';lamp.textContent=label;
+   dot.className='signal-dot';dot.setAttribute('aria-hidden','true');lamp.prepend(dot);
+   entry={lamp,dot,animation:null};inputLamps.set(key,entry);root.append(lamp);
+  }
+  if(!real&&key==='retarget'&&entry.lamp.lastChild){entry.lamp.lastChild.textContent='RETARGET '+(active||'—');}
+  const previous=entry.lamp.dataset.state;
+  if(previous!==status){
+   entry.lamp.dataset.state=status;
+   if(previous!==undefined){entry.animation?.cancel();entry.animation=entry.dot.animate([{opacity:.25},{opacity:1}],{duration:140});}
+  }
+  entry.lamp.title=(real?component.error:chain.error||component.error)||`${label}: ${status}${reasons.length?' · '+reasons.join(' · '):component.age_s==null?'':' · '+component.age_s.toFixed(3)+' s'}${chain.ownership==='manual'?' · Manual':''}`;
+ }
+}
+function armInputText(state){
+ if(state.source!=='ros2'||state.signal_source==='real_robot'||!['starting','running'].includes(state.session_state))return '';
+ return ['left','right'].filter(side=>state.arm_input?.[side]?.available===false).map(side=>`${side.toUpperCase()} ARM INPUT: no CAN data (${state.arm_input[side].reason||'no reply'})`).join(' · ');
+}
+let lastArmInputText='';
+function showArmInput(state){
+ const text=armInputText(state),banner=$('armInputBanner');banner.textContent=text;banner.hidden=!text;
+ const cue=text.replace(/ for [0-9.]+ s/g,'');
+ if(cue&&cue!==lastArmInputText)gloveAudio.speak(cue);
+ lastArmInputText=cue;
+}
+function show(state){lastState=state;showArmInput(state);showTeleop(state);showGloveRecording(state);showMotion(state);showRTF(state);showTakeover(state);showTakeoverLabels(state);cells.update({...state,source:['starting','running','stopping'].includes(state.session_state)?state.source:$('source').value,task:{...state.task,id:['starting','running','stopping'].includes(state.session_state)?state.task?.id:$('task').value}}).catch(message);const recording=state.recording_status||{};const safety=state.safety;
+if(state.task?.id&&['starting','running','stopping'].includes(state.session_state))$('task').value=state.task.id;
+$('taskTitle').textContent=`Task: ${state.task?.title||config.tasks?.find(task=>task.id===$('task').value)?.title||'Empty table'}`;
+const bench=state.workbench||config.workbench;$('workbenchRevision').textContent=`Workbench: ${bench?.name||'—'} · ${bench?.revision||'—'}`;
+$('task').disabled=['starting','running','stopping'].includes(state.session_state);
+$('safety').hidden=!safety||safety.safe;$('safety').textContent=safety&&!safety.safe?`Warning: ${safety.matches.map(p=>`PID ${p.pid} ${(p.identity||p.command).split('/').slice(-2).join('/')}`).join('; ')||safety.errors.join('; ')}`:'';
+const duration=Number(recording.duration_s||0),tenths=Math.floor(duration*10);$('recording').textContent=`${recording.state==='recording'?'REC '+String(Math.floor(tenths/600)).padStart(2,'0')+':'+((tenths%600)/10).toFixed(1).padStart(4,'0'):labels[recording.state]||'Unknown'}`;$('recording').classList.toggle('active',recording.state==='recording');$('videoWorkspace').classList.toggle('recording',recording.state==='recording');
+$('gridRecording').textContent=recording.state==='recording'?'':labels[recording.state]||'—';
+$('remoteToggle').checked=!!state.remote_control_enabled;$('remoteState').textContent=state.remote_control_enabled?'On':'Off';$('remoteState').classList.toggle('selected',!!state.remote_control_enabled);
+$('notesState').textContent='Notes: '+(recording.notes||[]).map(n=>n.text).join('; ');
+$('recentEvents').replaceChildren();const eventLabels={'recording/start':'Start recording','recording/stop':'Stop recording','session/start':'Start session','session/stop':'Stop session',notes:'Notes','episodes/void':'Void','episodes/export':'Export','remote-control':'Toggle remote control',view:'Change view',snapshot:'Schedule snapshot','snapshot/cancel':'Cancel snapshot'};for(const e of [...(state.recent_control_events||[])].reverse()){const li=document.createElement('li');li.textContent=`${new Date(e.wall_time_ns/1e6).toLocaleTimeString('en-US')} ${eventLabels[e.operation]||e.operation} (${e.client})`;$('recentEvents').append(li)}
+$('recordDetails').textContent=`${recording.episode||'No episode yet'} · ${duration.toFixed(2)} s · ${recording.rows??0} rows`;
+const active=managed?state.session_state==='running':!!state.overlay;
+const snap=state.scene_snapshot||{state:'idle'},busy=['countdown','capturing'].includes(snap.state);
+$('snapshotStart').disabled=!active||busy;$('snapshotCancel').hidden=snap.state!=='countdown';
+$('snapshotStatus').classList.toggle('countdown',snap.state==='countdown');
+$('snapshotStatus').textContent=snap.state==='countdown'?`Snapshot in ${Math.ceil(snap.remaining_s||0)} s${snap.label?' · '+snap.label:''}`:snap.state==='capturing'?'Capturing all views…':snap.state==='saved'?`Snapshot saved: ${snap.name}`:snap.state==='failed'?`Snapshot failed: ${snap.error}`:snap.state==='cancelled'?'Snapshot cancelled':'Snapshot idle';
+const snapKey=JSON.stringify([snap.id,snap.state]);if(snap.state==='saved'&&snapKey!==snapshotSignature){snapshotSignature=snapKey;savedSnapshots().catch(message);}
+$('sessionStatus').textContent=`Session: ${state.session_state||'CLI'}`;$('launch').disabled=managed&&['starting','running','stopping'].includes(state.session_state);$('endSession').disabled=!managed||!['starting','running','stopping'].includes(state.session_state);
+$('startRecord').disabled=!active||['recording','saving','checking'].includes(recording.state);$('stopRecord').disabled=!active||recording.state!=='recording';$('addNote').disabled=!active;
+const check=state.integrity||recording.integrity;
+$('integrity').dataset.episodeId=check?.episode_id||'';$('integrity').dataset.state=check?.state||'pending';
+const checkLabels={pending:recording.state==='recording'?'pending (recording)':'pending (saving)',running:'checking',passed:'passed',failed:'failed'};
+$('integrity').textContent=check?.episode_id?`Integrity: ${checkLabels[check.state]||'Unknown'} (${check.episode_id}) ${(check.errors||[]).join('; ')}`:'';
+$('integrity').classList.toggle('warn',check?.state==='failed');
+if(state.disk){$('disk').textContent=`Disk free: ${(state.disk.free_bytes/2**30).toFixed(1)} GiB${state.disk.warning?' · Below 10 GiB':''}`;$('disk').classList.toggle('warn',state.disk.warning)}
+showInputLamps(state);
+$('health').replaceChildren();for(const [channel,c] of Object.entries(state.input_health||{})){const el=document.createElement('div');el.className='channel'+(c.warning?' warn':'');el.textContent=`${channel}: ${c.hz.toFixed(1)} Hz`;const line=document.createElement('small');line.textContent=`Age ${c.age_s===null?'Never received':c.age_s.toFixed(3)+' s'} · Total ${c.count} · Decode errors ${c.decode_errors}`;el.append(line);$('health').append(el)}
+const flags=[];for(const [side,masks] of Object.entries(state.arm_clamps||{}))if(masks)for(const [kind,mask] of Object.entries(masks))mask.forEach((hit,i)=>{if(hit)flags.push(`${side} joint_${i+1} ${kind==='startup'?'Startup clamp':'Absolute limit'}`)});$('clamps').textContent=flags.length?`Arm clamps: ${flags.join(', ')}`:Object.values(state.arm_clamps||{}).some(v=>v)?'Clamps clear':'Clamps —';$('clamps').classList.toggle('warn',flags.length>0);
+const stream=state.stream;$('metrics').textContent=stream?`${stream.fps.toFixed(1)} fps · Apply → encode P50 ${stream.apply_to_encode_p50_ms?.toFixed(1)??'—'} ms / P95 ${stream.apply_to_encode_p95_ms?.toFixed(1)??'—'} ms`:'Stream idle';$('metrics').classList.toggle('warn',!!stream?.warning||(active&&!stream));
+
+const id=state.session_id||'cli';if(active&&videoSession!==id){video.connect(id);auxiliary.setSession(id);videoSession=id;action(sendGloveLayers)}
+if(!active&&videoSession){video.stop();auxiliary.stop();videoSession=null;}
+if(state.error)message(state.error);
+}
+async function episodes(){if(!managed)return;const list=await api('/api/v1/episodes');const signature=JSON.stringify(list);if(signature===listSignature)return;listSignature=signature;$('episodes').replaceChildren();for(const ep of list){const tr=document.createElement('tr');for(const text of [new Date(ep.created_wall_time_ns/1e6).toLocaleString('en-US')+' / '+ep.id,`${ep.duration_s==null?'Unknown':Number(ep.duration_s).toFixed(2)+' s'} / ${ep.rows??'Unknown'} rows`,(ep.notes||[]).map(n=>n.text).join('; '),`${ep.integrity?({pending:'Pending',running:'Checking',passed:'Passed',failed:'Failed'}[ep.integrity.state]||'Unknown'):'Not checked'}${ep.discarded?' · Void':''}`]){const td=document.createElement('td');td.textContent=text;tr.append(td)}const actions=document.createElement('td');for(const [label,fn] of [['Replay',()=>api('/api/v1/session/start',{episode:ep.id})],['Void',()=>api('/api/v1/episodes/'+encodeURIComponent(ep.id)+'/void',{reason:'Marked as void via web page'})],['Export LeRobot',async()=>{message('Exporting…');const result=await api('/api/v1/episodes/'+encodeURIComponent(ep.id)+'/export',{});message(`Exported: ${result.output}`)}]]){const b=document.createElement('button');b.textContent=label;b.onclick=()=>action(async()=>{await fn();await episodes()});actions.append(b)}tr.append(actions);$('episodes').append(tr)}}
+let episodeKey='';
+async function receive(state){show(state);const key=JSON.stringify([state.revision,state.recording_status?.state,state.recording_status?.episode]);if(key!==episodeKey){episodeKey=key;await episodes()}}
+const events=new EventSource('/api/v1/events');
+events.onopen=()=>action(async()=>receive(await api('/api/v1/status')));
+events.onmessage=e=>{try{receive(JSON.parse(e.data)).catch(message)}catch(error){message(error)}};
+events.onerror=()=>{showInputLamps({source:lastState.source,input_chain:{state:'starting',error:'Status disconnected'}});message('Status disconnected. Reconnecting…');$('safety').textContent='Server disconnected · Simulation mode unconfirmed';$('safety').classList.add('warn');for(const id of ['startRecord','stopRecord','launch','gloveStart','gloveCancel'])$(id).disabled=true};
+</script></main>
+<div id="taskCells" aria-label="Task cells" hidden></div></html>

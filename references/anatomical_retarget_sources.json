@@ -1,0 +1,83 @@
+{
+  "snapshot_date": "2026-11-09",
+  "sources": [
+    {
+      "owned": "src/dexstation/inputs/retarget_assets/g20_left.urdf",
+      "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+      "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+      "license": "MIT",
+      "source": "src/linkerhand_retarget/linkerhand_retarget/assets/robots/hands/linker_hand/g20_left/linkerhand_g20_left.urdf",
+      "sha256": "51578cb1ece676324983d4076aae6de8d9c623cf437df786f4322134d0c7d305",
+      "edits": "Visual/collision elements removed and XML reserialized; full MIT notice added; nine tip/pad landmark frames are our configuration used by retarget objectives."
+    },
+    {
+      "owned": "src/dexstation/inputs/retarget_assets/g20_right.urdf",
+      "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+      "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+      "license": "MIT",
+      "source": "src/linkerhand_retarget/linkerhand_retarget/assets/robots/hands/linker_hand/g20_right/linkerhand_g20_right.urdf",
+      "sha256": "eeb6ffb0e95d2a6acd4c26331ae68062e0d74160de4b552b4f6d395cce5ca4e8",
+      "edits": "Visual/collision elements removed and XML reserialized; full MIT notice added; nine tip/pad landmark frames are our configuration used by retarget objectives."
+    },
+    {
+      "owned": "src/dexstation/inputs/retarget_motor_clone.py",
+      "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+      "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+      "license": "MIT",
+      "source": "src/linkerhand_retarget/linkerhand_retarget/linkerhand/handcore.py",
+      "sha256": "ebb5d6fabbdcd50e944e8c5994f3d480b0f9cea4ed5f56633150cf59da5a8b87",
+      "parts": [
+        "trans_to_motor_left",
+        "trans_to_motor_right"
+      ],
+      "lines": "236-265",
+      "edits": "Exact MIT function copies retained; module header includes full upstream MIT notice."
+    },
+    {
+      "owned": "src/dexstation/inputs/retarget_motor_clone.py",
+      "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+      "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+      "license": "MIT",
+      "source": "src/linkerhand_retarget/linkerhand_retarget/linkerhand/utils.py",
+      "sha256": "bdfe4c85897afb8e140f89a9d42bb145e54231da0bdae168e474e58d962b1f4b",
+      "parts": [
+        "scale_value",
+        "is_within_range"
+      ],
+      "lines": "147-152",
+      "edits": "Exact MIT function copies retained; module header includes full upstream MIT notice."
+    },
+    {
+      "owned": "src/dexstation/inputs/retarget_motor_clone.py",
+      "status": "slot dictionaries and logical_qpos_from_dex rewritten by this project",
+      "license": "MIT",
+      "basis": {
+        "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+        "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+        "license": "MIT",
+        "source": [
+          "src/linkerhand_retarget/linkerhand_retarget/config/hand_config.yml",
+          "src/linkerhand_retarget/linkerhand_retarget/assets/robots/hands/linker_hand/g20_{left,right}/linkerhand_g20_{left,right}.urdf"
+        ]
+      },
+      "edits": "Joint names paired with public command-source and URDF indices; public mimic relationships define passive slots."
+    },
+    {
+      "owned": "src/dexstation/inputs/retarget_assets/motor_mapping.json",
+      "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+      "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+      "license": "MIT",
+      "source": "src/linkerhand_retarget/linkerhand_retarget/config/hand_config.yml",
+      "edits": "Public G20 arrays converted to JSON; our left-thumb upper value 255 supplies the HandCore command convention."
+    }
+  ],
+  "installed_library": {
+    "version": "0.5.0",
+    "source_url": "https://github.com/dexsuite/dex-retargeting",
+    "files": {
+      "optimizer.py": "6b816d65c81f2e959ea6b76876bb03c2b768be95064a1b4b9e1563d36262cdf8",
+      "seq_retarget.py": "72cc74f1a0ff91fafc9421d3d6766a7dd2279b0964e0b376718ec385fbb94482",
+      "retargeting_config.py": "498427e26c34ec68127ee3986a0c650e428151b28f7c60dfbac69a502a49e526"
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "dexhand-workbench-v1",
+  "manifest": {
+    "schema_version": 1,
+    "name": "ar5_08_g20_bench_bimanual",
+    "revision": "2026-11-12",
+    "composer_version": "0.1.0",
+    "upstream": {
+      "repository": "https://github.com/linker-bot/linker-sim-assets",
+      "revision": "d0224b8da58802fe7cb2e35dcc9771693c4543b6",
+      "workstation": "ar5_08_l25_bench_bimanual"
+    },
+    "components": {
+      "arm_left": {
+        "name": "arms/ar5_08",
+        "variant": "left",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "world_frame": "world",
+  "geometry": {
+    "generated_by": "scripts/vendor_bench_scene.py compose --workbench",
+    "table": {
+      "pose": [
+        0.405914966,
+        0.625200016,
+        0.759654999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.312499996,
+        0.625000017,
+        0.007499993
+      ]
+    },
+    "fixtures": []
+  },
+  "frames": {
+    "table_top": {
+      "parent": "world",
+      "pose": [
+        0.405914966,
+        0.6252,
+        0.767155,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "robots": {
+    "sides": [
+      "left",
+      "right"
+    ],
+    "home": {
+      "intent": "both arms horizontal, pointing world +x",
+      "q_at_teleop_reference_mount": {
+        "left": [
+          0,
+          1.5707963267948966,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "right": [
+          0,
+          1.5707963267948966,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "hand_mapping": "station-g20-20261014",
+    "motion_model": "motion_assets/station.json",
+    "left_arm": {
+      "model": "AR5-5_0.8L",
+      "urdf": "workspace://assets/derived/ar5_08_d0224b8d/left_arm.urdf",
+      "base_link": "example_left_base",
+      "tip_link": "example_left_tcp",
+      "joint_names": [
+        "example_left_joint_1",
+        "example_left_joint_2",
+        "example_left_joint_3",
+        "example_left_joint_4",
+        "example_left_joint_5",
+        "example_left_joint_6",
+        "example_left_joint_7"
+      ],
+      "base_position": [
+        0.0637,
+        0.719,
+        1.267
+      ],
+      "base_orientation": "calibration/real_robot.json"
+    },
+    "left_hand": {
+      "model": "G20",
+      "geometry": "L25 (g20_pbr_description v0.1.1)",
+      "urdf": "workspace://assets/tasks/example/left_hand.urdf",
+      "root_link": "example_hand_base",
+      "mount": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mount_status": "unverified"
+    },
+    "right_arm": {
+      "model": "AR5-5_0.8R",
+      "urdf": "workspace://assets/derived/ar5_08_d0224b8d/right_arm.urdf",
+      "base_link": "example_right_base",
+      "tip_link": "example_right_tcp",
+      "joint_names": [
+        "example_right_joint_1",
+        "example_right_joint_2",
+        "example_right_joint_3",
+        "example_right_joint_4",
+        "example_right_joint_5",
+        "example_right_joint_6",
+        "example_right_joint_7"
+      ],
+      "base_position": [
+        0.0637,
+        0.536,
+        1.267
+      ],
+      "base_orientation": "calibration/real_robot.json"
+    },
+    "right_hand": {
+      "model": "G20",
+      "geometry": "L25 (g20_pbr_description v0.1.1)",
+      "urdf": "workspace://assets/tasks/example/right_hand.urdf",
+      "root_link": "example_hand_base",
+      "mount": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mount_status": "unverified"
+    }
+  },
+  "cameras": [
+    {
+      "name": "camera_3",
+      "real": {
+        "port_key": "camera.usb_ports.camera_3",
+        "model": "RealSense D435",
+        "start_by_default": true
+      },
+      "sim": null
+    },
+    {
+      "name": "camera_1",
+      "real": {
+        "port_key": "camera.usb_ports.camera_1",
+        "model": "example uncalibrated camera",
+        "start_by_default": false
+      },
+      "sim": null
+    }
+  ],
+  "calibration": {
+    "teleop": "calibration/teleop.json",
+    "real_robot": "calibration/real_robot.json"
+  },
+  "limits": "limits.json",
+  "takeover": "takeover.json",
+  "physics": {
+    "sapien": {
+      "timestep_s": 0.001
+    },
+    "mujoco": {
+      "timestep_s": 0.001
+    }
+  },
+  "real_robot": {
+    "arms": {
+      "left_ip_key": "real_robot.left_arm_ip",
+      "right_ip_key": "real_robot.right_arm_ip",
+      "local_ip_key": "real_robot.local_ip",
+      "reader_key": "real_robot.arm_reader"
+    },
+    "hands": {
+      "left": {
+        "can_key": "station.left_can",
+        "can_id": "0x28"
+      },
+      "right": {
+        "can_key": "station.right_can",
+        "can_id": "0x27"
+      }
+    },
+    "impedance": null
+  },
+  "estop_script_key": "station.estop_script",
+  "appearance": "src/dexstation/examples/ar5_g20/appearance/station_v3_3_fixture.json"
+}

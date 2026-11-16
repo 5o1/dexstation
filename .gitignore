@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+site.local.json
+configs/site.local.json
+.local/
+/workspace/
+/data/

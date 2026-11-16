@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/contracts/calibration.schema.json",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "dexhand-teleop-calibration-v2"
+        },
+        "arm_base_links": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_base_orientation_wxyz": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "reference_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema",
+        "arm_base_links",
+        "note",
+        "reference_base_orientation_wxyz",
+        "reference_description",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "dexhand-real-robot-calibration-v2"
+        },
+        "arm_base_links": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "measured_base_orientation_wxyz": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "measured_rotation_deg_about_vendor": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "number"
+            },
+            "right": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "hand_motor_reverse": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 19
+              }
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 19
+              }
+            }
+          },
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "arm": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hand": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "arm",
+            "hand"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema",
+        "arm_base_links",
+        "note",
+        "measured_base_orientation_wxyz",
+        "measured_rotation_deg_about_vendor",
+        "hand_motor_reverse",
+        "evidence"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "description": "Design §5.5; physical facts exactly compatible with 1bab677. No stored scene-name matching or derived J1 offsets. Quaternion normalization, tilt and model coverage checks remain in existing loaders."
+}

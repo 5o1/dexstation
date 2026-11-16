@@ -1,0 +1,1588 @@
+{
+  "name": "station-g20-fixture-v3_3",
+  "world_frame": "world",
+  "table": {
+    "pose": [
+      0.405915,
+      0.6252,
+      0.7545000000000001,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "half_extents": [
+      0.3125,
+      0.625,
+      0.0125
+    ]
+  },
+  "left_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/left_arm.urdf",
+    "base_link": "AR5_left_5_08R_W4C4A6_base",
+    "tip_link": "AR5_left_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.7112,
+      1.262,
+      0.707106781187,
+      -0.707106781182,
+      0.0,
+      2.597348e-06
+    ],
+    "home_q": [
+      0.0,
+      1.5707963267948966,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "joint_names": [
+      "AR5_left_5_08R_W4C4A6_joint_1",
+      "AR5_left_5_08R_W4C4A6_joint_2",
+      "AR5_left_5_08R_W4C4A6_joint_3",
+      "AR5_left_5_08R_W4C4A6_joint_4",
+      "AR5_left_5_08R_W4C4A6_joint_5",
+      "AR5_left_5_08R_W4C4A6_joint_6",
+      "AR5_left_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "left_hand": {
+    "urdf": "workspace://assets/g20_pbr_description_v0.1.1/g20_pbr_description/urdf/g20_left.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0.0,
+      0.0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      0.7071080798594737
+    ],
+    "mount_status": "unverified"
+  },
+  "gamepad": {
+    "release": "xbox_gamepad_physics==0.4.2",
+    "profile": "full_controls",
+    "collision": "sdf",
+    "root_pose": [
+      0.6649622227161496,
+      0.6252000000000001,
+      0.9876608653492692,
+      -0.6532814824381882,
+      -0.2705980500730985,
+      0.2705980500730985,
+      0.6532814824381882
+    ],
+    "fixed_root": true
+  },
+  "notes": [
+    "User adopted the rendered dual AR5_5_08R_W4C4A6 scene on 2026-10-21; upstream commit e6bcf44ff0203534e14500cb836f57e9f9492292.",
+    "Both arms use the R variant. Unique link and joint names; original mesh geometry and kinematics retained.",
+    "Upstream joint_1 rpy is zero; no additional station-candidate 90-degree rotation applied.",
+    "Base mounting poses, home joint angles and hand mounts inherited from v4.3, not independently verified for this model.",
+    "Static loading and three-view rendering verified. Existing 07-model home/IK/clearance certificates do not apply; dynamics and physical alignment remain unverified.",
+    "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3.",
+    "v4.5 (2026-10-22): arm mounts rotated about each base z (J1) axis, left -90 deg and right +90 deg, relative to the vendor design value used through v4.4. Evidence: with the master arm hanging naturally, the station map_left/right gives slave J1 = +/-90 deg, and the station's real slave hangs in that pose, whereas the v4.4 mount hangs at J1 = 0 and folded the sim arm backward. home_q J1 shifted by +/-90 deg to keep the same physical home pose.",
+    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg.",
+    "camera_3 re-aimed and recalibrated on 2026-10-23 (tilted forward about 43 deg, position nearly unchanged); see references/calibration/2026-10-23-ego-upright/.",
+    "Collection placement (user decision 2026-10-23, revised): gamepad on the edge post, root [0.709415, 0.6252, 0.986859] (220 mm above the table), yaw -90 deg, tilted 39.8 deg about its left-right axis (bumper edge up) so the face normal points at camera_3 (2.7 deg residual; camera 29 mm off the table centre line). Back-shell support point 211.3 mm above the table.",
+    "2026-10-29: back to the edge-post placement. The real fixture is planned at the calibration-board position (far table edge, centre), which camera_3 sees; the elbow-90 trial placement is withdrawn.",
+    "2026-11-03 placement trial d050-h220-t+10 (task X): gamepad centre 50 mm in from the far edge, 220 mm above the table, tilt 46.67 deg; straight 30x40 mm post on a 20 mm edge base. For teleop trials only.",
+    "V3 vertical post axis from integer base/flange/post dimensions. Camera_3 calibration unchanged. This is a trial spec only; no service/default switch.",
+    "AB: fixed-root CAD assembly; fixture-gamepad collision disabled. Static CAD triangles in SAPIEN; per-object convex meshes in MuJoCo. gamepad-contact continues to disable robot/environment contact.",
+    "2026-11-09: user-requested simulation home with both arms straight and horizontal along world +X. Left joints [0,90,0,0,0,0,0] deg; right [-15,90,0,0,0,0,0] deg compensates the existing right mount rotation. FK TCP height 1.262m, forward reach 0.7m from the shoulder. Teleop mapping, mounts and gains unchanged.",
+    "AR v3.3.0: same world gamepad pose; table-up assembly root derived by inverse composition; acrylic gap 0.75mm. Default launcher selected by AR review; v3 horizontal arm homes preserved. SAPIEN triangle proxies; MuJoCo convex proxies not supplied.",
+    "2026-11-10: hands load g20_pbr_description v0.1.1 (per-material GLB visuals). Link/joint names, inertials and collision meshes are byte-identical in content to the previous G20 URDF; only visuals and robot names differ."
+  ],
+  "right_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
+    "base_link": "AR5_right_5_08R_W4C4A6_base",
+    "tip_link": "AR5_right_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.5292,
+      1.262,
+      0.701057723672,
+      0.701057384645,
+      -0.092295955641,
+      0.092293380514
+    ],
+    "home_q": [
+      -0.2617993877991494,
+      1.5707963267948966,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "joint_names": [
+      "AR5_right_5_08R_W4C4A6_joint_1",
+      "AR5_right_5_08R_W4C4A6_joint_2",
+      "AR5_right_5_08R_W4C4A6_joint_3",
+      "AR5_right_5_08R_W4C4A6_joint_4",
+      "AR5_right_5_08R_W4C4A6_joint_5",
+      "AR5_right_5_08R_W4C4A6_joint_6",
+      "AR5_right_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "right_hand": {
+    "urdf": "workspace://assets/g20_pbr_description_v0.1.1/g20_pbr_description/urdf/g20_right.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0,
+      0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      -0.7071080798594737
+    ],
+    "mount_status": "unverified",
+    "home_q": [
+      0.7195294117647059,
+      0.7203529411764705,
+      0.4654509803921569,
+      0.25,
+      0.2575,
+      0.23,
+      0.7272156862745098,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.17047058823529412,
+      0.6937254901960784,
+      0.1784313725490196,
+      0.15880392156862747,
+      0.17227450980392153,
+      0.7941960784313725,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.23,
+      0.6793725490196079,
+      0.7137254901960784,
+      0.6352156862745099
+    ]
+  },
+  "fixtures": [
+    {
+      "name": "station_column",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        0.6946549999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.06,
+        0.5375
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "C1/C2/C3 measured, C5 unmeasured113mm per task/v3 (original mesh body60mm,113mm is top disc depth); vertical extent design adjusted -5mm"
+    },
+    {
+      "name": "station_column_top_mount",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        1.262,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.091,
+        0.0564275
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "URDF mounting discs113mm depth, measured mount faces182mm; simplified enclosing box; may overapproximate contacts"
+    },
+    {
+      "name": "station_floor",
+      "type": "box",
+      "pose": [
+        0.4,
+        0.62,
+        -0.025,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        3,
+        3,
+        0.025
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "world z=0; finite plane proxy5cm slab"
+    },
+    {
+      "name": "station_table_frame_leg00",
+      "type": "box",
+      "pose": [
+        0.113415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg01",
+      "type": "box",
+      "pose": [
+        0.113415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg10",
+      "type": "box",
+      "pose": [
+        0.698415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg11",
+      "type": "box",
+      "pose": [
+        0.698415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "camera_3_body",
+      "type": "mesh",
+      "parent": "world",
+      "pose": [
+        0.321860546,
+        0.619791644,
+        1.454657384,
+        0.269642534,
+        0.64928106,
+        0.649380498,
+        0.289882696
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "2026-10-23 ego optical pose with the existing nominal optical-to-D435-shell transform preserved; visual only."
+    },
+    {
+      "name": "station_backdrop_green",
+      "type": "box",
+      "parent": "world",
+      "pose": [
+        1.5,
+        0.62,
+        1.25,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.01,
+        1.6,
+        1.25
+      ],
+      "collision": false,
+      "status": "design",
+      "source": "2026-10-23 visual-only green screen beyond the far table edge, so the re-aimed camera_3 no longer sees empty background past the floor; colour from the calibration photo (appearance backdrop_green)."
+    },
+    {
+      "name": "v3_table_apron",
+      "type": "box",
+      "pose": [
+        0.6834,
+        0.6252000000000001,
+        0.6819999999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.005,
+        0.625,
+        0.06
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "V3 edge-to-apron default 30 mm, table thickness25 mm; apron thickness10/drop120 provisional, caliper required"
+    },
+    {
+      "name": "v3_proxy_base_acrylic",
+      "type": "mesh",
+      "pose": [
+        0.6534,
+        0.6252000000000001,
+        0.77575,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/base_acrylic.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_base_acrylic",
+      "type": "mesh",
+      "pose": [
+        0.6534,
+        0.6252000000000001,
+        0.77575,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/base_acrylic.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_column_lower",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6252000000000001,
+        0.81875,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/column_lower.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_column_lower",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6252000000000001,
+        0.81875,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/column_lower.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_column_sleeve",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6252000000000001,
+        0.86224999995,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/column_sleeve.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_column_sleeve",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6252000000000001,
+        0.86224999995,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/column_sleeve.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_cradle_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6897352074508504,
+        0.6252000000000001,
+        0.9442366555948862,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/cradle_lower_jaw.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_cradle_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6897352074508504,
+        0.6252000000000001,
+        0.9442366555948862,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/cradle_lower_jaw.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_guide_rod_1",
+      "type": "mesh",
+      "pose": [
+        0.712338377055648,
+        0.6352000000000001,
+        0.97564005006909,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/guide_rod_1.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_guide_rod_1",
+      "type": "mesh",
+      "pose": [
+        0.712338377055648,
+        0.6352000000000001,
+        0.97564005006909,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/guide_rod_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_guide_rod_2",
+      "type": "mesh",
+      "pose": [
+        0.712338377055648,
+        0.6152000000000001,
+        0.97564005006909,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/guide_rod_2.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_guide_rod_2",
+      "type": "mesh",
+      "pose": [
+        0.712338377055648,
+        0.6152000000000001,
+        0.97564005006909,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/guide_rod_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M6_height_bolt",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6198000000000001,
+        0.84375,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M6_height_bolt.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M6_locknut",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.5946,
+        0.84375,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M6_locknut.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M6_washer_-1",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.6520000000000001,
+        0.84375,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M6_washer_-1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M6_washer_1",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999999,
+        0.5984,
+        0.84375,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M6_washer_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M8_axis_bolt",
+      "type": "mesh",
+      "pose": [
+        0.6884000000000017,
+        0.6088500000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_axis_bolt.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M8_hub_washer",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6152000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_hub_washer.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M8_sliding_sleeve",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6032000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_sliding_sleeve.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_hardware_M8_star_knob_envelope",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.5777000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_star_knob_envelope.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_hardware_M8_star_knob_envelope",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.5777000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_star_knob_envelope.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M8_washer_1",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6552000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_washer_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_M8_washer_2",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.5912000000000001,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_M8_washer_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_0",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.6602000000000001,
+        0.7837500000000001,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_M5_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_1",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.6602000000000001,
+        0.7837500000000001,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_M5_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_2",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.5902000000000001,
+        0.7837500000000001,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_M5_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_3",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.5902000000000001,
+        0.7837500000000001,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_M5_3.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_bottom_washer_0",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.6602000000000001,
+        0.77625,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_bottom_washer_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_bottom_washer_1",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.6602000000000001,
+        0.77625,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_bottom_washer_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_bottom_washer_2",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.5902000000000001,
+        0.77625,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_bottom_washer_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_bottom_washer_3",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.5902000000000001,
+        0.77625,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_bottom_washer_3.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_nut_0",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.6601999999999951,
+        0.7729,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_nut_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_nut_1",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.6601999999999951,
+        0.7729,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_nut_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_nut_2",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.5902000000000001,
+        0.7729,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_nut_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_nut_3",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.5902000000000001,
+        0.7729,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_nut_3.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_0_0",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.6602000000000001,
+        0.79225,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_0_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_0_1",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.6602000000000001,
+        0.79325,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_0_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_1_0",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.6602000000000001,
+        0.79225,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_1_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_1_1",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.6602000000000001,
+        0.79325,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_1_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_2_0",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.5902000000000001,
+        0.79225,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_2_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_2_1",
+      "type": "mesh",
+      "pose": [
+        0.6723999999999999,
+        0.5902000000000001,
+        0.79325,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_2_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_3_0",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.5902000000000001,
+        0.79225,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_3_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_base_top_washer_3_1",
+      "type": "mesh",
+      "pose": [
+        0.7043999999999999,
+        0.5902000000000001,
+        0.79325,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_base_top_washer_3_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_compression_spring_1",
+      "type": "mesh",
+      "pose": [
+        0.7285759052043146,
+        0.6352,
+        0.9905152202926344,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_compression_spring_1.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_compression_spring_2",
+      "type": "mesh",
+      "pose": [
+        0.7285759052043146,
+        0.6152,
+        0.9905152202926344,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_compression_spring_2.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_0",
+      "type": "mesh",
+      "pose": [
+        0.696885281374238,
+        0.6467,
+        0.905235281374237,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_M3_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_120",
+      "type": "mesh",
+      "pose": [
+        0.6768088900845329,
+        0.6467,
+        0.8998558285412264,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_M3_120.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_240",
+      "type": "mesh",
+      "pose": [
+        0.6915058285412273,
+        0.6467,
+        0.8851588900845319,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_M3_240.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_0",
+      "type": "mesh",
+      "pose": [
+        0.696885281374238,
+        0.6528,
+        0.905235281374237,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_nut_0.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_120",
+      "type": "mesh",
+      "pose": [
+        0.6768088900845329,
+        0.6528,
+        0.8998558285412264,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_nut_120.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_240",
+      "type": "mesh",
+      "pose": [
+        0.6915058285412309,
+        0.6528,
+        0.8851588900845284,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_fixed_ring_nut_240.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_180",
+      "type": "mesh",
+      "pose": [
+        0.6799147186257608,
+        0.6287,
+        0.8882647186257598,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_M3_180.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_300",
+      "type": "mesh",
+      "pose": [
+        0.699991109915466,
+        0.6287,
+        0.8936441714587704,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_M3_300.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_60",
+      "type": "mesh",
+      "pose": [
+        0.6852941714587715,
+        0.6287,
+        0.9083411099154649,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_M3_60.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_180",
+      "type": "mesh",
+      "pose": [
+        0.6799147186257608,
+        0.6190000000000001,
+        0.8882647186257598,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_nut_180.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_300",
+      "type": "mesh",
+      "pose": [
+        0.6999911099154694,
+        0.6190000000000001,
+        0.8936441714587668,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_nut_300.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_60",
+      "type": "mesh",
+      "pose": [
+        0.6852941714587715,
+        0.6190000000000001,
+        0.9083411099154649,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hardware_moving_ring_nut_60.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_hirth_fixed",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6428016527846199,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hirth_fixed.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_hirth_fixed",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6428016527846199,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hirth_fixed.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_hirth_moving",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6381000000000053,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hirth_moving.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_hirth_moving",
+      "type": "mesh",
+      "pose": [
+        0.6883999999999995,
+        0.6381000000000053,
+        0.8967499999999984,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/hirth_moving.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_pad_back",
+      "type": "mesh",
+      "pose": [
+        0.6890668857729106,
+        0.6252000000000001,
+        0.9961089942543896,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_back.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_pad_back",
+      "type": "mesh",
+      "pose": [
+        0.6890668857729106,
+        0.6252000000000001,
+        0.9961089942543896,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_back.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_pad_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6452647606378554,
+        0.6252000000000001,
+        0.9722060439580896,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_lower_jaw.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_pad_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6452647606378554,
+        0.6252000000000001,
+        0.9722060439580896,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_lower_jaw.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_pad_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6918664903043483,
+        0.6252000000000001,
+        1.030828588904749,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_upper_jaw.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_pad_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6918664903043483,
+        0.6252000000000001,
+        1.030828588904749,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/pad_upper_jaw.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    },
+    {
+      "name": "v3_proxy_slider_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.7046038239184459,
+        0.6252000000000001,
+        0.9960129914840512,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/slider_upper_jaw.stl",
+      "collision": true,
+      "status": "design",
+      "source": "Exact v3.3.0 metre STL triangles; invisible static proxy; unchanged fixture/gamepad pair filter"
+    },
+    {
+      "name": "v3_visual_slider_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.7046038239184459,
+        0.6252000000000001,
+        0.9960129914840512,
+        0.7071067811865475,
+        1.2610638064597776e-16,
+        -2.416823328363228e-17,
+        -0.7071067811865476
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_3/meshes/slider_upper_jaw.stl",
+      "collision": false,
+      "status": "design",
+      "source": "v3.3.0 frozen visual reference; owner-edited slider preserved"
+    }
+  ],
+  "cameras": [
+    {
+      "name": "camera_3",
+      "serial": "camera_3",
+      "model": "D435 (recorded, physical model unverified)",
+      "parent": "world",
+      "pose_optical": [
+        0.318363773,
+        0.652165064,
+        1.458461886,
+        0.289882696,
+        -0.649380498,
+        0.64928106,
+        -0.269642534
+      ],
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 906.561,
+        "fy": 905.986,
+        "cx": 647.896,
+        "cy": 362.233,
+        "distortion": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "none"
+      },
+      "status": "estimated",
+      "source": "references/calibration/2026-10-23-ego-upright/ (second photo, position_mid_2, after a small camera adjustment): single upright ChArUco image, 20 corners, reprojection median 0.24 px. K/D unchanged."
+    }
+  ],
+  "appearance": "../../appearance/station_v3_3_fixture.json"
+}

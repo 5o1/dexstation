@@ -1,0 +1,979 @@
+{
+  "files": [
+    "episode.json",
+    "integrity.json",
+    "task/xbox_gamepad_v3_3/events.jsonl",
+    "task/xbox_gamepad_v3_3/meta.json",
+    "task/xbox_gamepad_v3_3/steps.jsonl",
+    "workbench/commands.jsonl",
+    "workbench/events.jsonl",
+    "workbench/meta.json",
+    "workbench/steps.jsonl"
+  ],
+  "keys": {
+    "episode.json": {
+      "clock": {
+        "sim_time_s": null,
+        "step": null,
+        "wall_time_ns": null
+      },
+      "episode_id": null,
+      "format": null,
+      "fps": null,
+      "identity": {
+        "backend": {
+          "name": null,
+          "version": null
+        },
+        "code": {
+          "dirty": null,
+          "git_commit": null
+        },
+        "scene_sha256": null,
+        "task": {
+          "id": null,
+          "sha256": null,
+          "version": null
+        },
+        "workbench": {
+          "name": null,
+          "revision": null,
+          "sha256": null
+        }
+      },
+      "layers": [
+        {
+          "format": null,
+          "name": null,
+          "path": null
+        },
+        {
+          "format": null,
+          "name": null,
+          "path": null,
+          "task": null
+        }
+      ],
+      "operator_notes": [
+        {
+          "text": null,
+          "wall_time_ns": null
+        }
+      ],
+      "realtime_metrics": {},
+      "rows": null,
+      "session": {
+        "forced": null,
+        "input_source": {
+          "kind": null
+        },
+        "scene_variant": null,
+        "started_by": null,
+        "stopped_by": null
+      },
+      "status": null
+    },
+    "task/xbox_gamepad_v3_3/events.jsonl": {
+      "kind": null,
+      "payload": {
+        "seed": null
+      }
+    },
+    "task/xbox_gamepad_v3_3/meta.json": {
+      "channels": [
+        {
+          "dtype": null,
+          "kind": null,
+          "name": null,
+          "object": null,
+          "shape": [
+            null
+          ],
+          "unit": null
+        }
+      ],
+      "format": null,
+      "initial_poses": {
+        "gamepad": [
+          null
+        ],
+        "v3_proxy_base_acrylic": [
+          null
+        ],
+        "v3_proxy_column_lower": [
+          null
+        ],
+        "v3_proxy_column_sleeve": [
+          null
+        ],
+        "v3_proxy_cradle_lower_jaw": [
+          null
+        ],
+        "v3_proxy_guide_rod_1": [
+          null
+        ],
+        "v3_proxy_guide_rod_2": [
+          null
+        ],
+        "v3_proxy_hardware_M8_star_knob_envelope": [
+          null
+        ],
+        "v3_proxy_hirth_fixed": [
+          null
+        ],
+        "v3_proxy_hirth_moving": [
+          null
+        ],
+        "v3_proxy_pad_back": [
+          null
+        ],
+        "v3_proxy_pad_lower_jaw": [
+          null
+        ],
+        "v3_proxy_pad_upper_jaw": [
+          null
+        ],
+        "v3_proxy_slider_upper_jaw": [
+          null
+        ],
+        "v3_visual_base_acrylic": [
+          null
+        ],
+        "v3_visual_column_lower": [
+          null
+        ],
+        "v3_visual_column_sleeve": [
+          null
+        ],
+        "v3_visual_cradle_lower_jaw": [
+          null
+        ],
+        "v3_visual_guide_rod_1": [
+          null
+        ],
+        "v3_visual_guide_rod_2": [
+          null
+        ],
+        "v3_visual_hardware_M6_height_bolt": [
+          null
+        ],
+        "v3_visual_hardware_M6_locknut": [
+          null
+        ],
+        "v3_visual_hardware_M6_washer_-1": [
+          null
+        ],
+        "v3_visual_hardware_M6_washer_1": [
+          null
+        ],
+        "v3_visual_hardware_M8_axis_bolt": [
+          null
+        ],
+        "v3_visual_hardware_M8_hub_washer": [
+          null
+        ],
+        "v3_visual_hardware_M8_sliding_sleeve": [
+          null
+        ],
+        "v3_visual_hardware_M8_star_knob_envelope": [
+          null
+        ],
+        "v3_visual_hardware_M8_washer_1": [
+          null
+        ],
+        "v3_visual_hardware_M8_washer_2": [
+          null
+        ],
+        "v3_visual_hardware_base_M5_0": [
+          null
+        ],
+        "v3_visual_hardware_base_M5_1": [
+          null
+        ],
+        "v3_visual_hardware_base_M5_2": [
+          null
+        ],
+        "v3_visual_hardware_base_M5_3": [
+          null
+        ],
+        "v3_visual_hardware_base_bottom_washer_0": [
+          null
+        ],
+        "v3_visual_hardware_base_bottom_washer_1": [
+          null
+        ],
+        "v3_visual_hardware_base_bottom_washer_2": [
+          null
+        ],
+        "v3_visual_hardware_base_bottom_washer_3": [
+          null
+        ],
+        "v3_visual_hardware_base_nut_0": [
+          null
+        ],
+        "v3_visual_hardware_base_nut_1": [
+          null
+        ],
+        "v3_visual_hardware_base_nut_2": [
+          null
+        ],
+        "v3_visual_hardware_base_nut_3": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_0_0": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_0_1": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_1_0": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_1_1": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_2_0": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_2_1": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_3_0": [
+          null
+        ],
+        "v3_visual_hardware_base_top_washer_3_1": [
+          null
+        ],
+        "v3_visual_hardware_compression_spring_1": [
+          null
+        ],
+        "v3_visual_hardware_compression_spring_2": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_M3_0": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_M3_120": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_M3_240": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_nut_0": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_nut_120": [
+          null
+        ],
+        "v3_visual_hardware_fixed_ring_nut_240": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_M3_180": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_M3_300": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_M3_60": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_nut_180": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_nut_300": [
+          null
+        ],
+        "v3_visual_hardware_moving_ring_nut_60": [
+          null
+        ],
+        "v3_visual_hirth_fixed": [
+          null
+        ],
+        "v3_visual_hirth_moving": [
+          null
+        ],
+        "v3_visual_pad_back": [
+          null
+        ],
+        "v3_visual_pad_lower_jaw": [
+          null
+        ],
+        "v3_visual_pad_upper_jaw": [
+          null
+        ],
+        "v3_visual_slider_upper_jaw": [
+          null
+        ]
+      },
+      "initial_state": {
+        "channels": {
+          "control_joint_positions": {
+            "button_a": null
+          },
+          "gamepad_mask": [
+            null
+          ],
+          "gamepad_signal": [
+            null
+          ]
+        },
+        "object_poses": {},
+        "object_twists": {}
+      },
+      "seed": null,
+      "task_profile": {
+        "actions": {},
+        "appearance": null,
+        "auxiliary_cameras": [
+          {
+            "atlas_slot": null,
+            "fit_render_meshes": null,
+            "framing_margin": null,
+            "id": null,
+            "object": null,
+            "position": [
+              null
+            ],
+            "target": [
+              null
+            ],
+            "up": [
+              null
+            ]
+          }
+        ],
+        "backends": {
+          "mjcf_export": {
+            "note": null,
+            "package": null
+          },
+          "sapien": {
+            "package": null
+          }
+        },
+        "cells": [],
+        "evaluation": {
+          "offline": null
+        },
+        "fixtures": [],
+        "id": null,
+        "initial_robot_state": {
+          "hand_q": {
+            "right": [
+              null
+            ]
+          }
+        },
+        "keep_out": [],
+        "objects": [
+          {
+            "collision": {
+              "environment": null,
+              "objects": null,
+              "robots": null
+            },
+            "geometry": {
+              "collision_mesh": null,
+              "fixed_root": null,
+              "profile": null,
+              "release": null
+            },
+            "initial_pose": {
+              "frame": null,
+              "pose": [
+                null
+              ]
+            },
+            "name": null,
+            "type": null
+          },
+          {
+            "collision": {
+              "environment": null,
+              "objects": null,
+              "robots": null
+            },
+            "geometry": {
+              "fixture_type": null,
+              "mesh": null
+            },
+            "initial_pose": {
+              "frame": null,
+              "pose": [
+                null
+              ]
+            },
+            "name": null,
+            "source": null,
+            "status": null,
+            "type": null
+          }
+        ],
+        "observations": [
+          {
+            "kind": null,
+            "name": null,
+            "object": null
+          }
+        ],
+        "panes": [
+          {
+            "camera": null,
+            "id": null,
+            "title": null,
+            "weight": null
+          },
+          {
+            "id": null,
+            "module": null,
+            "title": null,
+            "visible_when": {
+              "source": null
+            },
+            "weight": null
+          },
+          {
+            "id": null,
+            "module": null,
+            "title": null,
+            "weight": null
+          }
+        ],
+        "real_robot": {
+          "twin_objects": null
+        },
+        "recording": {
+          "format": null
+        },
+        "schema": null,
+        "sources": [
+          {
+            "id": null,
+            "module": null,
+            "task_sets": null
+          }
+        ],
+        "title": null,
+        "version": null,
+        "workbenches": [
+          null
+        ]
+      },
+      "task_profile_sha256": null,
+      "task_profile_text": null
+    },
+    "task/xbox_gamepad_v3_3/steps.jsonl": {
+      "control_joint_positions": {
+        "button_a": null
+      },
+      "gamepad_mask": [
+        null
+      ],
+      "gamepad_signal": [
+        null
+      ],
+      "sim_time_s": null,
+      "step": null
+    },
+    "workbench/commands.jsonl": {
+      "channel": null,
+      "converted_command": {
+        "clamp_flags": {
+          "absolute": [
+            null
+          ],
+          "startup": [
+            null
+          ]
+        },
+        "positions": [
+          null
+        ],
+        "raw_master_deg": [
+          null
+        ],
+        "side": null,
+        "stamp": null
+      },
+      "error": null,
+      "header": {
+        "frame_id": null,
+        "stamp": {
+          "nanosec": null,
+          "sec": null
+        }
+      },
+      "raw": {
+        "clamp_flags": {
+          "absolute": [
+            null
+          ],
+          "startup": [
+            null
+          ]
+        },
+        "positions": [
+          null
+        ],
+        "raw_master_deg": [
+          null
+        ],
+        "side": null,
+        "stamp": null
+      },
+      "received_monotonic_ns": null,
+      "received_wall_time_ns": null,
+      "sequence": null
+    },
+    "workbench/events.jsonl": {
+      "kind": null,
+      "payload": {
+        "text": null,
+        "wall_time_ns": null
+      }
+    },
+    "workbench/meta.json": {
+      "arm_mapping": null,
+      "asset_versions": {
+        "robot": null
+      },
+      "backend_name": null,
+      "backend_version": null,
+      "calibration": {
+        "base_position_delta_m": null,
+        "base_position_delta_note": null,
+        "measured_rotation_deg_about_vendor": {
+          "left": null,
+          "right": null
+        },
+        "real_robot": {
+          "arm": {
+            "left": [
+              null
+            ],
+            "right": [
+              null
+            ]
+          },
+          "hand": {
+            "left": [],
+            "right": []
+          }
+        },
+        "sha256": {
+          "real_robot": null,
+          "teleop": null
+        },
+        "teleop": {
+          "left": [
+            null
+          ],
+          "right": [
+            null
+          ]
+        }
+      },
+      "cameras": [
+        {
+          "name": null,
+          "real": {
+            "model": null,
+            "port_key": null,
+            "start_by_default": null
+          },
+          "sim": {
+            "intrinsics": {
+              "cx": null,
+              "cy": null,
+              "distortion": [
+                null
+              ],
+              "fx": null,
+              "fy": null,
+              "height": null,
+              "model": null,
+              "width": null
+            },
+            "parent": null,
+            "pose_optical": [
+              null
+            ],
+            "source": null,
+            "status": null
+          }
+        }
+      ],
+      "controller_placeholders": {
+        "ARM_GAINS": {},
+        "HAND_GAINS": {}
+      },
+      "created_wall_time_ns": null,
+      "finger_order": [
+        null
+      ],
+      "fingertip_definition": null,
+      "fingertip_offsets_m": {},
+      "forced": null,
+      "format": null,
+      "geometry": {
+        "appearance": null,
+        "cameras": [
+          {
+            "intrinsics": {
+              "cx": null,
+              "cy": null,
+              "distortion": [
+                null
+              ],
+              "fx": null,
+              "fy": null,
+              "height": null,
+              "model": null,
+              "width": null
+            },
+            "model": null,
+            "name": null,
+            "parent": null,
+            "pose_optical": [
+              null
+            ],
+            "serial": null,
+            "source": null,
+            "status": null
+          }
+        ],
+        "fixtures": [
+          {
+            "collision": null,
+            "convex_mesh": null,
+            "half_extents": [
+              null
+            ],
+            "mesh": null,
+            "name": null,
+            "parent": null,
+            "pose": [
+              null
+            ],
+            "source": null,
+            "status": null,
+            "type": null
+          },
+          {
+            "collision": null,
+            "convex_mesh": null,
+            "half_extents": null,
+            "mesh": null,
+            "name": null,
+            "parent": null,
+            "pose": [
+              null
+            ],
+            "source": null,
+            "status": null,
+            "type": null
+          }
+        ],
+        "gamepad": {
+          "collision": null,
+          "fixed_root": null,
+          "profile": null,
+          "release": null,
+          "root_pose": [
+            null
+          ]
+        },
+        "left_arm": {
+          "base_link": null,
+          "base_pose": [
+            null
+          ],
+          "home_q": [
+            null
+          ],
+          "joint_names": [
+            null
+          ],
+          "tip_link": null,
+          "urdf": null
+        },
+        "left_hand": {
+          "home_q": [
+            null
+          ],
+          "mount": [
+            null
+          ],
+          "mount_status": null,
+          "root_link": null,
+          "urdf": null
+        },
+        "name": null,
+        "notes": [],
+        "right_arm": {
+          "base_link": null,
+          "base_pose": [
+            null
+          ],
+          "home_q": [
+            null
+          ],
+          "joint_names": [
+            null
+          ],
+          "tip_link": null,
+          "urdf": null
+        },
+        "right_hand": {
+          "home_q": [
+            null
+          ],
+          "mount": [
+            null
+          ],
+          "mount_status": null,
+          "root_link": null,
+          "urdf": null
+        },
+        "source_dir": null,
+        "table": {
+          "half_extents": [
+            null
+          ],
+          "pose": [
+            null
+          ]
+        },
+        "world_frame": null
+      },
+      "initial_state": {
+        "commands": null,
+        "robot": {
+          "arm_q": [
+            [
+              null
+            ]
+          ],
+          "fingertip_pose_world": [
+            [
+              [
+                null
+              ]
+            ]
+          ],
+          "hand_q": [
+            [
+              null
+            ]
+          ],
+          "palm_pose_world": [
+            [
+              null
+            ]
+          ],
+          "robot_contact": null,
+          "sim_time_s": null,
+          "wall_time_ns": null
+        }
+      },
+      "input_messages": null,
+      "input_source": {
+        "kind": null
+      },
+      "mapping_versions": {
+        "arm": null,
+        "hand": null
+      },
+      "physics_timestep_s": null,
+      "pose_convention": null,
+      "receive_end_sequence": null,
+      "receive_start_sequence": null,
+      "received_input_messages": null,
+      "recording_end_sim_time_s": null,
+      "recording_start_health": {},
+      "recording_start_sim_time_s": null,
+      "right_hand_mount_status": null,
+      "scene_check": {
+        "checked": null,
+        "reason": null
+      },
+      "scene_spec_sha256": null,
+      "scene_spec_text": null,
+      "scene_variant": {
+        "definition": null,
+        "environment_collisions": null,
+        "gamepad_collisions": null,
+        "name": null,
+        "robot_self_collision": null
+      },
+      "side_order": [
+        null
+      ],
+      "solver_record": {},
+      "started_by": null,
+      "stopped_by": null,
+      "timestep_source": null,
+      "units": {
+        "arm_q": null,
+        "control_joints": null,
+        "hand_motor": null,
+        "hand_q": null,
+        "pose_position": null,
+        "raw_master": null,
+        "slave_target": null,
+        "wall_time_ns": null
+      },
+      "workbench_profile_sha256": null,
+      "workbench_profile_text": null
+    },
+    "workbench/steps.jsonl": {
+      "applied_monotonic_ns": null,
+      "arm_clamps": {
+        "left": {
+          "absolute": [
+            null
+          ],
+          "startup": [
+            null
+          ]
+        },
+        "right": {
+          "absolute": [
+            null
+          ],
+          "startup": [
+            null
+          ]
+        }
+      },
+      "arm_q": [
+        [
+          null
+        ]
+      ],
+      "commands": {
+        "left_arm": {
+          "clamp_flags": {
+            "absolute": [
+              null
+            ],
+            "startup": [
+              null
+            ]
+          },
+          "positions": [
+            null
+          ],
+          "raw_master_deg": [
+            null
+          ],
+          "side": null,
+          "stamp": null
+        },
+        "left_hand": {
+          "joint_positions": {
+            "index_dip": null,
+            "index_mcp_pitch": null,
+            "index_mcp_roll": null,
+            "index_pip": null,
+            "middle_dip": null,
+            "middle_mcp_pitch": null,
+            "middle_mcp_roll": null,
+            "middle_pip": null,
+            "pinky_dip": null,
+            "pinky_mcp_pitch": null,
+            "pinky_mcp_roll": null,
+            "pinky_pip": null,
+            "ring_dip": null,
+            "ring_mcp_pitch": null,
+            "ring_mcp_roll": null,
+            "ring_pip": null,
+            "thumb_cmc_pitch": null,
+            "thumb_cmc_roll": null,
+            "thumb_cmc_yaw": null,
+            "thumb_ip": null,
+            "thumb_mcp": null
+          },
+          "motor_positions": [
+            null
+          ],
+          "side": null,
+          "stamp": null
+        },
+        "right_arm": {
+          "clamp_flags": {
+            "absolute": [
+              null
+            ],
+            "startup": [
+              null
+            ]
+          },
+          "positions": [
+            null
+          ],
+          "raw_master_deg": [
+            null
+          ],
+          "side": null,
+          "stamp": null
+        },
+        "right_hand": {
+          "joint_positions": {
+            "index_dip": null,
+            "index_mcp_pitch": null,
+            "index_mcp_roll": null,
+            "index_pip": null,
+            "middle_dip": null,
+            "middle_mcp_pitch": null,
+            "middle_mcp_roll": null,
+            "middle_pip": null,
+            "pinky_dip": null,
+            "pinky_mcp_pitch": null,
+            "pinky_mcp_roll": null,
+            "pinky_pip": null,
+            "ring_dip": null,
+            "ring_mcp_pitch": null,
+            "ring_mcp_roll": null,
+            "ring_pip": null,
+            "thumb_cmc_pitch": null,
+            "thumb_cmc_roll": null,
+            "thumb_cmc_yaw": null,
+            "thumb_ip": null,
+            "thumb_mcp": null
+          },
+          "motor_positions": [
+            null
+          ],
+          "side": null,
+          "stamp": null
+        }
+      },
+      "fingertip_pose_world": [
+        [
+          [
+            null
+          ]
+        ]
+      ],
+      "hand_q": [
+        [
+          null
+        ]
+      ],
+      "input_sequences": {
+        "left_arm": null
+      },
+      "motion_reference": null,
+      "palm_pose_world": [
+        [
+          null
+        ]
+      ],
+      "robot_contact": null,
+      "sim_time_s": null,
+      "step": null,
+      "wall_time_ns": null
+    }
+  }
+}

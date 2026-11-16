@@ -1,0 +1,10 @@
+include README.md LICENSE THIRD_PARTY_NOTICES.md CONTRIBUTING.md CHANGELOG.md PUBLIC_MANIFEST.json
+recursive-include src *
+recursive-include docs *
+recursive-include tests *
+recursive-include scripts *
+recursive-include configs *
+recursive-include references *
+recursive-include constraints *
+global-exclude *.pyc
+global-exclude __pycache__

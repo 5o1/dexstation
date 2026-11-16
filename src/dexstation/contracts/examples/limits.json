@@ -1,0 +1,48 @@
+{
+  "schema": "dexhand-workspace-limits-v1",
+  "workbench": "ar5_08_g20_bench_bimanual",
+  "revision": "example-unconfigured",
+  "spatial": {
+    "enabled": false,
+    "checked_geometry": {
+      "left": null,
+      "right": null
+    },
+    "obstacles": [
+      "table",
+      "station_table_frame_*",
+      "station_column*"
+    ],
+    "margin_m": null
+  },
+  "angular": {
+    "enabled": false,
+    "origin": "shoulder_center",
+    "points": null,
+    "exempt": {
+      "r_min_m": null,
+      "h_min_m": null
+    },
+    "azimuth": {
+      "range": "table_corners",
+      "margin_deg": null
+    },
+    "elevation": {
+      "max_up_deg": 45.0,
+      "margin_deg": null
+    }
+  },
+  "joint": {
+    "controller_soft_limits": {
+      "left": {
+        "lower_deg": null,
+        "upper_deg": null
+      },
+      "right": {
+        "lower_deg": null,
+        "upper_deg": null
+      }
+    },
+    "ik_branch": null
+  }
+}

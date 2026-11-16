@@ -1,0 +1,74 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/status",
+    "query": {},
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json",
+    "body": {
+      "session_state": "running",
+      "task": {
+        "id": "tabletop_cube_grasp",
+        "title": "Tabletop cube grasp",
+        "version": "0.1",
+        "cell_state": {
+          "result": {
+            "success": false
+          },
+          "cube": {
+            "cube_pose": [
+              0.505914966,
+              0.6252,
+              0.792155,
+              1,
+              0,
+              0,
+              0
+            ],
+            "cube_contact": [
+              false,
+              false
+            ]
+          }
+        }
+      },
+      "workbench": {
+        "name": "ar5_08_g20_bench_bimanual",
+        "revision": "2026-11-12"
+      },
+      "takeover": {
+        "left": {
+          "state": "waiting",
+          "release": false,
+          "deviation_deg": [],
+          "reason": "No fresh master input"
+        },
+        "right": {
+          "state": "waiting",
+          "release": false,
+          "deviation_deg": [],
+          "reason": "No fresh master input"
+        }
+      },
+      "limits": {
+        "spatial": "disabled",
+        "angular": "disabled",
+        "joint": "disabled",
+        "report": {
+          "ok": true,
+          "spatial": [],
+          "angular": [],
+          "joint": {},
+          "angular_range": {}
+        }
+      },
+      "hardware_lease": {
+        "held": false,
+        "owner": null
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+LinkerTA input example — project attribution and rewrite notice
+
+The LinkerTA protocol reference is linker-bot/linkerbot-teleop-arm (formerly
+linkerhand-tele-arm), commit 4354083b27fd69f9d042d78edb6924e67f7f03fc:
+https://github.com/linker-bot/linkerbot-teleop-arm
+Its src/linkerta/package.xml declares Apache-2.0. The complete pinned tree
+contains no upstream LICENSE or NOTICE file. No upstream copyright statement
+or NOTICE has been invented here. APACHE-2.0.txt contains the full license text.
+
+The Python reader and ROS adapter were independently rewritten by this project
+from the public protocol contract and the project's validity specification.
+The station CAN setup service is project code extracted from the prior service.
+These project-authored implementations are MIT, Copyright (c) 2026 5o1.
+Project configuration includes signs, offsets, rates, timeouts, topics and QoS.
+
+This file is a project-authored attribution notice, not an upstream NOTICE.
+Exact source paths, hashes, configuration and behavioral differences are
+recorded in PROVENANCE.md and sources.json in this directory.

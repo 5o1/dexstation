@@ -1,0 +1,65 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/config",
+    "query": {},
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json",
+    "body": {
+      "workbench": {
+        "name": "ar5_08_g20_bench_bimanual",
+        "revision": "2026-11-12",
+        "cameras": [
+          {
+            "name": "camera_3",
+            "real": {
+              "port_key": "camera.usb_ports.camera_3",
+              "model": "RealSense D435",
+              "start_by_default": true
+            },
+            "sim": null
+          },
+          {
+            "name": "camera_1",
+            "real": {
+              "port_key": "camera.usb_ports.camera_1",
+              "model": "example uncalibrated camera",
+              "start_by_default": false
+            },
+            "sim": null
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "id": "empty",
+          "title": "Empty table",
+          "version": "1.0"
+        },
+        {
+          "id": "xbox_gamepad_v3_3",
+          "title": "Xbox gamepad on fixture v3.3",
+          "version": "1.0"
+        },
+        {
+          "id": "tabletop_cube_grasp",
+          "title": "Tabletop cube grasp",
+          "version": "0.1"
+        }
+      ],
+      "backends": [
+        {
+          "name": "sapien",
+          "available": true,
+          "reason": null
+        }
+      ],
+      "defaults": {
+        "task": "empty"
+      }
+    }
+  }
+}

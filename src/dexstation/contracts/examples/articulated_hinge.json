@@ -1,0 +1,54 @@
+{
+  "schema": "dexhand-task-v1",
+  "id": "articulated_hinge",
+  "version": "0.1",
+  "title": "Articulated hinge example",
+  "workbenches": [
+    "*"
+  ],
+  "backends": {
+    "sapien": {},
+    "mjcf_export": {}
+  },
+  "objects": [
+    {
+      "name": "hinge",
+      "type": "articulation",
+      "geometry": {
+        "urdf": "workspace://assets/tasks/articulated_hinge/hinge.urdf",
+        "fixed_root": true,
+        "collision_mesh": "coacd"
+      },
+      "initial_pose": {
+        "frame": "world",
+        "pose": [
+          0.4,
+          0.6,
+          0.8,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "initial_joint_positions": {
+        "hinge_joint": 0.25
+      },
+      "collision": {
+        "robots": true,
+        "environment": true,
+        "objects": true
+      }
+    }
+  ],
+  "fixtures": [],
+  "observations": [],
+  "sources": [],
+  "cells": [],
+  "actions": {},
+  "evaluation": null,
+  "keep_out": [],
+  "real_robot": {
+    "twin_objects": "none"
+  }
+}

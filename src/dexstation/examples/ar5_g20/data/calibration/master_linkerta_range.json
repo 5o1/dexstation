@@ -1,0 +1,322 @@
+{
+ "schema": "dexhand-master-range-reference-v1",
+ "kind": "calibration reference (not loaded at runtime)",
+ "device": "LinkerTA master arms (hardware v2.1.2, software v1.0.3), CAN can2 1 Mbps, read by the original linkerta_node",
+ "recorded": "2026-11-15 01:21-01:29 +0800 on the station; operator moved every joint of both arms to both ends, one joint at a time",
+ "raw_definition": "raw_deg = (published_deg - offset_deg) / negation, where published = /<side>_arm_joint_control position (deg) from linkerta_node with the config below; raw is the encoder value folded to [-180, 180) by the vendor SDK",
+ "config_used": {
+  "negation": {
+   "left": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1
+   ],
+   "right": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "offset_deg": {
+   "left": [
+    -5.9,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "right": [
+    4.15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "lta_yaml_sha256": "729a0e874f5bf37cbdf5118d3b16598fa857e399eb32cb6885dfe67458fe0713"
+ },
+ "raw_data": {
+  "station_path": "private raw recording (not distributed)",
+  "sha256": "57ab7ab9eb2f05ac268577041941c16eb9d7243a35c7d9b2389eb3f3dff74b25"
+ },
+ "comparison_robot": {
+  "model": "Rokae AR5 (reference AR5 URDF joint limits; identical to the recorded clamp constants)",
+  "joint_lower_deg": [
+   -178,
+   -120,
+   -178,
+   -60,
+   -178,
+   -60,
+   -60
+  ],
+  "joint_upper_deg": [
+   178,
+   120,
+   178,
+   145,
+   178,
+   60,
+   60
+  ],
+  "controller_soft_limits": "not read"
+ },
+ "original_mapping_deg": {
+  "left": [
+   90,
+   90,
+   -90,
+   0,
+   0,
+   0,
+   0
+  ],
+  "right": [
+   -90,
+   90,
+   90,
+   0,
+   0,
+   0,
+   0
+  ],
+  "note": "original teleop: robot_deg = published_deg + mapping (then clamped)"
+ },
+ "sides": {
+  "left": {
+   "samples_total": 32412,
+   "samples_nonzero": 32412,
+   "duration_s": 324.1,
+   "joints": [
+    {
+     "joint": "J1",
+     "min_deg": -168.3,
+     "max_deg": 165.7,
+     "p001_deg": -168.1,
+     "p999_deg": 165.6,
+     "span_deg": 334.0,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 2.8,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J2",
+     "min_deg": -40.9,
+     "max_deg": 70.6,
+     "p001_deg": -40.9,
+     "p999_deg": 70.4,
+     "span_deg": 111.5,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 6.4,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J3",
+     "min_deg": -172.6,
+     "max_deg": 170.9,
+     "p001_deg": -172.0,
+     "p999_deg": 170.7,
+     "span_deg": 343.5,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 10.8,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J4",
+     "min_deg": -116.1,
+     "max_deg": 127.3,
+     "p001_deg": -116.1,
+     "p999_deg": 127.3,
+     "span_deg": 243.4,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 6.5,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J5",
+     "min_deg": -171.0,
+     "max_deg": 172.1,
+     "p001_deg": -170.5,
+     "p999_deg": 172.0,
+     "span_deg": 343.1,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 7.7,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J6",
+     "min_deg": -105.9,
+     "max_deg": 107.4,
+     "p001_deg": -105.5,
+     "p999_deg": 106.9,
+     "span_deg": 213.3,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 12.8,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J7",
+     "min_deg": -10.9,
+     "max_deg": 178.6,
+     "p001_deg": -10.9,
+     "p999_deg": 178.6,
+     "span_deg": 189.5,
+     "fraction_beyond_175": 0.0053,
+     "max_step_deg": 179.5,
+     "crosses_pm180": true
+    }
+   ]
+  },
+  "right": {
+   "samples_total": 32412,
+   "samples_nonzero": 32412,
+   "duration_s": 324.1,
+   "joints": [
+    {
+     "joint": "J1",
+     "min_deg": -167.2,
+     "max_deg": 167.9,
+     "p001_deg": -167.0,
+     "p999_deg": 167.9,
+     "span_deg": 335.1,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 2.2,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J2",
+     "min_deg": -69.1,
+     "max_deg": 41.2,
+     "p001_deg": -69.0,
+     "p999_deg": 41.2,
+     "span_deg": 110.3,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 4.5,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J3",
+     "min_deg": -168.6,
+     "max_deg": 174.9,
+     "p001_deg": -168.6,
+     "p999_deg": 174.9,
+     "span_deg": 343.5,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 2.6,
+     "crosses_pm180": false,
+     "held_stop_values_deg": [
+      174.9,
+      -168.5
+     ],
+     "source": {
+      "file": "right_j3_after_reinstall.jsonl",
+      "sha256": "4dad5353f9ee5050d3a87dd963990e9aa4df3cc28c0d8ac34b3032c97f475ef4",
+      "recorded": "2026-11-15 02:23-02:24 +0800, after the second re-installation and device re-zero of right J3 (see ../linkerta-maintenance-20261115-right-j3/)"
+     },
+     "history": [
+      {
+       "joint": "J3",
+       "min_deg": -179.8,
+       "max_deg": 179.8,
+       "p001_deg": -179.8,
+       "p999_deg": 179.8,
+       "span_deg": 359.6,
+       "fraction_beyond_175": 0.373,
+       "max_step_deg": 179.3,
+       "crosses_pm180": true,
+       "superseded_by": "revision 2",
+       "reason": "right J3 was re-installed twice after this recording; this entry also shows readings frozen near +-180 deg by the SDK step filter"
+      }
+     ]
+    },
+    {
+     "joint": "J4",
+     "min_deg": -117.6,
+     "max_deg": 125.9,
+     "p001_deg": -117.6,
+     "p999_deg": 125.9,
+     "span_deg": 243.5,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 5.0,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J5",
+     "min_deg": -171.0,
+     "max_deg": 172.1,
+     "p001_deg": -170.3,
+     "p999_deg": 172.1,
+     "span_deg": 343.1,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 99.2,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J6",
+     "min_deg": -107.1,
+     "max_deg": 108.5,
+     "p001_deg": -106.6,
+     "p999_deg": 108.0,
+     "span_deg": 215.6,
+     "fraction_beyond_175": 0.0,
+     "max_step_deg": 34.2,
+     "crosses_pm180": false
+    },
+    {
+     "joint": "J7",
+     "min_deg": -179.5,
+     "max_deg": 4.9,
+     "p001_deg": -179.5,
+     "p999_deg": 4.9,
+     "span_deg": 184.4,
+     "fraction_beyond_175": 0.0166,
+     "max_step_deg": 179.9,
+     "crosses_pm180": true
+    }
+   ]
+  }
+ },
+ "revision": 2,
+ "revisions": [
+  {
+   "revision": 1,
+   "date": "2026-11-15",
+   "change": "initial recording of all joints"
+  },
+  {
+   "revision": 2,
+   "date": "2026-11-15",
+   "change": "right J3 replaced by a measurement after its second re-installation and re-zero; previous values kept in its history"
+  }
+ ],
+ "operator_observations": [
+  {
+   "date": "2026-11-15",
+   "joint": "J7 (last wrist rotation joint), both arms",
+   "observation": "rotates continuously through 360 deg, any number of turns (no mechanical stop)",
+   "consistent_with_data": "J7 crosses_pm180=true on both arms, single-step jumps of about 179-180 deg",
+   "implications": [
+    "the reported value is single-turn in [-180, 180); turn count is lost and the value jumps by about 360 deg at each wrap",
+    "the vendor SDK keeps the previous value when one step changes by >= 180 deg, so a wrap can freeze the reading near +-180 until the joint returns past the opposite half",
+    "a joint-copy mapping to AR5 J7 (+-60 deg) cannot represent it; a pose-based mapping should treat J7 modulo 360 deg"
+   ]
+  }
+ ],
+ "notes": [
+  "Observed ranges are what the operator reached in this session; true mechanical limits may be slightly wider.",
+  "crosses_pm180=true: the joint turned past +-180 deg, so the encoder value wrapped (single-step jumps near 360 deg); its real range exceeds what [-180, 180) can show directly.",
+  "With the original joint-copy mapping only J5 stays inside the AR5 range; J4/J6/J7 ranges are wider on LinkerTA, and the J1-J3 mapping constants shift the LinkerTA ranges past the AR5 ends."
+ ]
+}

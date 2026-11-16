@@ -1,0 +1,432 @@
+{
+ "schema": "dexhand-autopilot-controls-v1",
+ "frame": "gamepad controller_body",
+ "units": "m;rad",
+ "source": {
+  "package": "xbox_gamepad_physics==0.4.3",
+  "resource": "robotwin/full_controls",
+  "sha256": {
+   "collision/sdf/a_0.obj": "d8598dc072c0ade81bfd74b7890048c12a96732c6f73d4f2f094cc41f148e13c",
+   "collision/sdf/b_0.obj": "3271aa47da8a8f926ea08bcbef843df12f2664cadedb22d575dac927e82f4da7",
+   "collision/sdf/x_0.obj": "1f1d61d54c36f5e2119691fc8fb20c041c0f9c61ff2f924b782bd39884e5b509",
+   "collision/sdf/y_0.obj": "00c76b2d199bb5d79a7913cedf8db5d12082f9dec0fbf0f27a5df671d4b65922",
+   "collision/sdf/left_shoulder_0.obj": "a454d03645676fa10e89e3df6617c7dd064801020a8ab540e4f728f2aadbf4c5",
+   "collision/sdf/right_shoulder_0.obj": "b8a8292110a78ab3039ad1fe0aa1f4ac6b611673d557c9736e9587419843890d",
+   "collision/sdf/dpad_0.obj": "08f1632386a93df3d2a233ee56d66c2bf69b13fda2f2d75e711a919a89646add",
+   "collision/sdf/left_stick_0.obj": "01fea83af6dd8b0d2e9191ba6dd0f44ce689a2f0f6d811729e49346bded71804",
+   "collision/sdf/left_stick_1.obj": "5122af9d2046ae4dd8aee787f179dc8b0bfb6f8753eba6f64b7904c43a5ecdff",
+   "collision/sdf/right_stick_0.obj": "af1379389eca5744e79282a8a8c28b35baf39e223495006d19f496fb769780f2",
+   "collision/sdf/right_stick_1.obj": "4dab95fa0e6ea9d8c3f845630b73ee5c495d6c2e07ab2ad8e53bf1dc0272440c",
+   "collision/sdf/left_trigger_0.obj": "5a2824679f1a85bcfa61a9e995ab8c1d0bbe00d3c81f75c7ffb98374f05bf539",
+   "collision/sdf/right_trigger_0.obj": "b724eb8aaa74f3f6309e213d97d1425aaf05fa1099bd65b01ca8df5c841f93fa",
+   "collision/sdf/shell_0.obj": "35060d2041495f9160cf49b9d439836130c8a61bd5a90b12b46da52814cb5856",
+   "collision/sdf/shell_front_plate_0.obj": "a41b02fb4f80034069062051f2959836180796f047ef6161636c15e7e33a647a",
+   "mobility.urdf": "9dfcac1e93ae8d2baa05bf1412bcd6ea239705321b0e404885336b3cc06459dd"
+  },
+  "rules": "2026-11-11 intent-IK feasibility study scripts/geom.py control_states"
+ },
+ "body_bounds": [
+  [
+   -0.076635782,
+   -0.055539362,
+   -0.029858976
+  ],
+  [
+   0.076364218,
+   0.04904946,
+   0.020358815
+  ]
+ ],
+ "controls": {
+  "a": {
+   "kind": "button",
+   "link": "a",
+   "joint": "a_press",
+   "channel": "south",
+   "point": [
+    0.03930334105842413,
+    0.012977415856003807,
+    0.02045625553537366
+   ],
+   "push": [
+    6.1918180872594985e-06,
+    6.503695254777861e-09,
+    -0.9999999999808307
+   ],
+   "travel_m": 0.00122
+  },
+  "b": {
+   "kind": "button",
+   "link": "b",
+   "joint": "b_press",
+   "channel": "east",
+   "point": [
+    0.04814751320863727,
+    0.022517553693689466,
+    0.019492472792269382
+   ],
+   "push": [
+    4.159575491912942e-06,
+    -2.454064437998588e-07,
+    -0.9999999999913188
+   ],
+   "travel_m": 0.00122
+  },
+  "x": {
+   "kind": "button",
+   "link": "x",
+   "joint": "x_press",
+   "channel": "west",
+   "point": [
+    0.028800618333622442,
+    0.023512484652030093,
+    0.02124091463329047
+   ],
+   "push": [
+    3.091441171355075e-06,
+    2.3874884179948e-06,
+    -0.9999999999923714
+   ],
+   "travel_m": 0.00122
+  },
+  "y": {
+   "kind": "button",
+   "link": "y",
+   "joint": "y_press",
+   "channel": "north",
+   "point": [
+    0.03878693927765759,
+    0.03277166999658181,
+    0.02036131718015256
+   ],
+   "push": [
+    3.5046663869181082e-06,
+    2.706741970457415e-06,
+    -0.9999999999901955
+   ],
+   "travel_m": 0.00122
+  },
+  "lb": {
+   "kind": "button",
+   "link": "left_shoulder",
+   "joint": "left_shoulder_press",
+   "channel": "left_shoulder",
+   "point": [
+    -0.03256432269039764,
+    0.05156478509405928,
+    0.011658236046682658
+   ],
+   "push": [
+    -1.1277621912932724e-06,
+    -0.9999999999990331,
+    8.136039719607227e-07
+   ],
+   "travel_m": 0.0022283242790158146
+  },
+  "rb": {
+   "kind": "button",
+   "link": "right_shoulder",
+   "joint": "right_shoulder_press",
+   "channel": "right_shoulder",
+   "point": [
+    0.032564312726979905,
+    0.05156479417327269,
+    0.011658252806241807
+   ],
+   "push": [
+    1.8706082217508553e-06,
+    -0.9999999999981528,
+    4.418766319515719e-07
+   ],
+   "travel_m": 0.002228327410900139
+  },
+  "dpad_up": {
+   "kind": "dpad",
+   "link": "dpad",
+   "joint": "dpad_vertical",
+   "channel": "dpad_up",
+   "point": [
+    -0.020312119547937303,
+    0.0056612607434711765,
+    0.018606299
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "pivot": [
+    -0.020312119547937303,
+    -0.0018082593043680696,
+    0.011209441263671056
+   ],
+   "tilt_limit_rad": 0.17453241348266602
+  },
+  "dpad_down": {
+   "kind": "dpad",
+   "link": "dpad",
+   "joint": "dpad_vertical",
+   "channel": "dpad_down",
+   "point": [
+    -0.020312119547937303,
+    -0.009276003806528824,
+    0.018606351
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "pivot": [
+    -0.020312119547937303,
+    -0.0018082593043680696,
+    0.011209441263671056
+   ],
+   "tilt_limit_rad": 0.17453241348266602
+  },
+  "dpad_left": {
+   "kind": "dpad",
+   "link": "dpad",
+   "joint": "dpad_horizontal",
+   "channel": "dpad_left",
+   "point": [
+    -0.027545839191778054,
+    -0.0018082593043680696,
+    0.018619993
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "pivot": [
+    -0.020312119547937303,
+    -0.0018082593043680696,
+    0.011209441263671056
+   ],
+   "tilt_limit_rad": 0.17453241348266602
+  },
+  "dpad_right": {
+   "kind": "dpad",
+   "link": "dpad",
+   "joint": "dpad_horizontal",
+   "channel": "dpad_right",
+   "point": [
+    -0.013064379991778056,
+    -0.0018082593043680696,
+    0.018620055
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "pivot": [
+    -0.020312119547937303,
+    -0.0018082593043680696,
+    0.011209441263671056
+   ],
+   "tilt_limit_rad": 0.17453241348266602
+  },
+  "ls": {
+   "kind": "stick",
+   "link": "left_stick",
+   "joints": [
+    "left_stick_x",
+    "left_stick_y"
+   ],
+   "channels": [
+    "left_x",
+    "left_y"
+   ],
+   "pivot": [
+    -0.038035359991741326,
+    0.024133629044164898,
+    0.01212386322086352
+   ],
+   "point": [
+    -0.038035359991741326,
+    0.024133629044164898,
+    0.028839706
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "cap_rim_top_z": 0.03003861,
+   "cap_radius_m": 0.00958991700826,
+   "cap_side_z": [
+    0.027337912,
+    0.029466537
+   ],
+   "tilt_limit_rad": 0.4014257279586958,
+   "x_axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "y_axis": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "l3": {
+   "kind": "button",
+   "link": "left_stick",
+   "joint": "left_stick_click",
+   "channel": "left_stick",
+   "point": [
+    -0.038035359991741326,
+    0.024133629044164898,
+    0.028839706
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "travel_m": 0.0004
+  },
+  "rs": {
+   "kind": "stick",
+   "link": "right_stick",
+   "joints": [
+    "right_stick_x",
+    "right_stick_y"
+   ],
+   "channels": [
+    "right_x",
+    "right_y"
+   ],
+   "pivot": [
+    0.02055769754292734,
+    0.0004891360302522314,
+    0.011667980577973374
+   ],
+   "point": [
+    0.02055769754292734,
+    0.0004891360302522314,
+    0.028383827
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "cap_rim_top_z": 0.029582735,
+   "cap_radius_m": 0.009704370524157124,
+   "cap_side_z": [
+    0.026882039,
+    0.029010658
+   ],
+   "tilt_limit_rad": 0.4014257279586958,
+   "x_axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "y_axis": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "r3": {
+   "kind": "button",
+   "link": "right_stick",
+   "joint": "right_stick_click",
+   "channel": "right_stick",
+   "point": [
+    0.02055769754292734,
+    0.0004891360302522314,
+    0.028383827
+   ],
+   "push": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "travel_m": 0.0004
+  },
+  "lt": {
+   "kind": "trigger",
+   "link": "left_trigger",
+   "joint": "left_trigger_hinge",
+   "channel": "left_trigger",
+   "point": [
+    -0.045953876103056415,
+    0.04947261650609444,
+    -0.01915548818309973
+   ],
+   "push": [
+    -4.427593622590814e-08,
+    -0.8451698564338952,
+    -0.5344978145656977
+   ],
+   "hinge": [
+    -0.045677991465952174,
+    0.036019095885088136,
+    0.002095871962884713
+   ],
+   "axis": [
+    -0.9999999999999929,
+    9.65386395709277e-08,
+    -6.981433956076549e-08
+   ],
+   "travel_rad": 0.29531940817832947,
+   "lever_m": 0.02515188906660707
+  },
+  "rt": {
+   "kind": "trigger",
+   "link": "right_trigger",
+   "joint": "right_trigger_hinge",
+   "channel": "right_trigger",
+   "point": [
+    0.045953894446832254,
+    0.049472636454266604,
+    -0.019155459586361497
+   ],
+   "push": [
+    9.131339377798343e-07,
+    -0.8451692979463765,
+    -0.5344986976672583
+   ],
+   "hinge": [
+    0.04567799814730121,
+    0.03601910256643717,
+    0.002095871962884713
+   ],
+   "axis": [
+    -0.999999999999387,
+    -1.1065271471320052e-06,
+    4.12888458235824e-08
+   ],
+   "travel_rad": 0.29531940817832947,
+   "lever_m": 0.025151871858535225
+  }
+ },
+ "signal_axes": {
+  "ls": {
+   "x": [
+    "left_x",
+    1
+   ],
+   "y": [
+    "left_y",
+    -1
+   ]
+  },
+  "rs": {
+   "x": [
+    "right_x",
+    1
+   ],
+   "y": [
+    "right_y",
+    -1
+   ]
+  }
+ }
+}

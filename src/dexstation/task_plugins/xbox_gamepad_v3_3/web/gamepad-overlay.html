@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Gamepad signals</title>
+<link rel="stylesheet" href="overlay-shell.css"><link rel="stylesheet" href="overlay-theme-research.css">
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#1d2023}#overlayRoot{width:100%;height:100%}</style>
+<svg id="overlayRoot" xmlns="http://www.w3.org/2000/svg"></svg>
+<script src="overlay-core.js"></script><script src="overlay-spec.js"></script><script src="overlay-renderer-svg.js"></script><script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
+<script type="module">
+import {installCanonicalSource} from './canonical_adapter.mjs';
+const adapter = installCanonicalSource();
+let latest;
+window.addEventListener('message', event => {
+ if(event.origin !== location.origin || event.source !== parent || event.data?.type !== 'task-signals') return;
+ latest = event.data;apply();
+});
+function apply(){if(!latest || !adapter.ready)return;const available=latest.mask||Array(32).fill(true);adapter.applyFrame({layout_id:'sdl3-gamepad-core-v1',values:latest.values,available_mask:available,task_mask:Array(32).fill(false),device_id:0}).catch(console.error);}
+await window.OverlayApp.init({svgId:'overlayRoot'});adapter.markReady();apply();
+</script></html>

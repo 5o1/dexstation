@@ -1,0 +1,18 @@
+{
+  "scope": "Workstation-wide stylesheet and fonts split from the task overlay during R3",
+  "source_commit": "f07aa4c19ecd2a97967dc972d7a9003287e3cc35",
+  "source_directory": "src/dexstation/server/web/overlay",
+  "retained_files": {
+    "collection.css": "ad8dacc6a828822c852d507a25692492d0b1234f030b312144e51ecb6849e07a",
+    "ASSET_PROJECT_LICENSE": "c3f1449547cb9a72674f153bc8ff104e1a5a96df7339ca3d0db9805b84c91bdb",
+    "fonts/IBM-Plex-LICENSE.txt": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+    "fonts/JetBrainsMono-OFL.txt": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
+    "fonts/JetBrainsMono-Regular.woff2": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+    "fonts/IBMPlexSansCondensed-Regular.woff2": "a71a56e516751883cb7877112d39f9c13b92c2dc15caaf00277b7f9d941d673a"
+  },
+  "edits": [
+    "Removed two task-overlay-only CSS selectors from the core stylesheet; task renderer retains its original styles.",
+    "R3-2: task cells are outside main; enable vertical page scrolling without changing the operator viewport width."
+  ],
+  "task_asset_provenance": "../../task_plugins/xbox_gamepad_v3_3/web/upstream.json"
+}

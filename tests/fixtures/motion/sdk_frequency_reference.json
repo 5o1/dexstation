@@ -1,0 +1,25 @@
+{
+  "source": "actual owned station SDK0.5.1 pure lowpassFilter; dt1ms/cutoff100Hz; 1000 warmup + 2000 measured samples",
+  "samples": [
+    {
+      "frequency_hz": 5,
+      "gain": 0.9979709614814187,
+      "phase_rad": -0.04991106027232648
+    },
+    {
+      "frequency_hz": 50,
+      "gain": 0.844026865595658,
+      "phase_rad": -0.42805905558029883
+    },
+    {
+      "frequency_hz": 100,
+      "gain": 0.6231226289536771,
+      "phase_rad": -0.6223233828901864
+    },
+    {
+      "frequency_hz": 250,
+      "gain": 0.32881293960220315,
+      "phase_rad": -0.5507448032166761
+    }
+  ]
+}

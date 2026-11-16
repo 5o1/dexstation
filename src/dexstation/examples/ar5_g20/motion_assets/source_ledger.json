@@ -1,0 +1,87 @@
+{
+  "scope": "File-level provenance; parameter sets are project configuration, without upstream numeric comparison",
+  "sources": [
+    {
+      "repository": "https://github.com/linker-bot/linkerbot-teleop-arm",
+      "revision": "109766554f56728da458aac6d74780d30378d1b1",
+      "path": "src/linkerta/src/TeleArmNode.cpp",
+      "lines": "164-189",
+      "license": "Apache-2.0",
+      "use": "Degrees in legacy output and radians in JointState; interface reference only"
+    },
+    {
+      "repository": "https://github.com/RokaeRobot/xCoreSDK-CPP",
+      "revision": "061c2fb11f360f1585aae2776a4bb713b9e7c49c",
+      "path": "example/rt/joint_impedance_control.cpp",
+      "lines": "60-96",
+      "license": "Apache-2.0",
+      "use": "Radian joint command interface and example 1 ms cycle; interface reference only"
+    },
+    {
+      "repository": "https://github.com/frankarobotics/libfranka",
+      "revision": "e88d08f64cbf842b8f53c0b551963684064038d6",
+      "path": "src/lowpass_filter.cpp",
+      "lines": "11-29",
+      "license": "Apache-2.0",
+      "use": "Public scalar first-order RC equation; mathematical reference, no source lines copied"
+    }
+  ],
+  "files": [
+    {
+      "file": "src/dexstation/model/station_math.py",
+      "status": "ours; rewritten",
+      "license": "MIT"
+    },
+    {
+      "file": "src/dexstation/inputs/arm_mapping.py",
+      "status": "ours; rewritten",
+      "license": "MIT"
+    },
+    {
+      "file": "src/dexstation/examples/ar5_g20/mapping.py",
+      "status": "ours; rewritten with MIT public table/model basis",
+      "basis": {
+        "repository": "https://github.com/linker-bot/linkerhand-telop-ros2",
+        "revision": "12300b1e45b263a253cc88fdb7635f95587d0741",
+        "license": "MIT"
+      }
+    },
+    {
+      "file": "src/dexstation/examples/ar5_g20/motion_assets/station.json",
+      "status": "ours; configuration, unchanged bytes"
+    }
+  ],
+  "configuration": [
+    "Arm offsets and degree limit envelope in arm_mapping.py/constants.py map master commands and bound motion targets.",
+    "Margin, startup max_delta, home poses and calibration offsets in ArmMapper arguments/profile calibration bound startup targets and correct mounting.",
+    "Speed, ramp duration/update period, deadband and filter cutoffs in station.json control the 1 ms JointMotion trajectory; the 5% ramp floor and nanosecond elapsed-time quantization are retained in StationMath.",
+    "Arm/hand stiffness, damping, effort caps and armature in station.json are the unchanged simulation drive configuration used by JointMotion.drive_parameters; no vendor-file runtime dependency existed.",
+    "SAPIEN hand armature floor in station.json is explicit numerical regularization used by the SAPIEN drive adapter; historical stock-engine tests did not establish hardware inertia.",
+    "G20 motor endpoints, default pose and left-thumb reversal in g20_mapping.py define decode/encode and reserved-slot defaults.",
+    "motor_mapping.json retains the public hand_config.yml G20 arrays and our left-thumb upper value 255 for the HandCore command convention.",
+    "The nine tip/pad landmark translations in each retarget_assets/g20_{left,right}.urdf are our calibration configuration used by retarget objectives.",
+    "Observed settings in station.json are historical configuration records, not measured hardware equivalence; physical speed/current conversion remains unspecified."
+  ],
+  "filter_contract": "StationMath.lowpass has no cutoff bypass or added validation; JointMotion retains its existing null/1000 Hz bypass policy. The robot controller internal filter is unresolved.",
+  "test_data": [
+    {
+      "file": "tests/fixtures/motion/sdk_filter_reference.json",
+      "status": "Historical numerical SDK0.5.1 scalar call outputs moved out of runtime assets; not SDK code",
+      "source_library_sha256": "9d991a21e08363680436a9b042863b8729269256d904cc85f952a8408033a741"
+    },
+    {
+      "file": "tests/fixtures/motion/sdk_frequency_reference.json",
+      "status": "Existing historical SDK numerical frequency response reference"
+    },
+    {
+      "file": "tests/fixtures/rewrite_equivalence/f07aa4c.json.gz",
+      "status": "Frozen old runtime numerical outputs, not source code"
+    }
+  ],
+  "limitations": [
+    "Hardware damping, torque caps, controller filtering, friction/backlash and contact compliance remain unverified.",
+    "No physical rpm/mm/s/mA conversions are asserted from the removed spreadsheet excerpt.",
+    "station.json evidence strings are historical labels retained byte-for-byte because the workbench identity hashes this file; this ledger describes the current implementation.",
+    "No simulation engine or hardware execution was performed in RW1."
+  ]
+}

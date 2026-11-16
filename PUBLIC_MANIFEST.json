@@ -1,0 +1,2514 @@
+{
+  "files": [
+    {
+      "executable": false,
+      "path": ".github/workflows/test.yml",
+      "sha256": "2f2b775bea4767012a6dd6f499f1204c8ad4a765b63dcdd78cc45f7f16fcda55",
+      "size": 475,
+      "source": ".github/workflows/test.yml"
+    },
+    {
+      "executable": false,
+      "path": ".gitignore",
+      "sha256": "fd0a6d3a52db8aec9bec266c7d893cc9cdb2482e1a1bd6c90c1f5cb0116312ea",
+      "size": 137,
+      "source": ".gitignore"
+    },
+    {
+      "executable": false,
+      "path": "CHANGELOG.md",
+      "sha256": "d03e292889cd7e008ac659648ee5e8c5a62dee05514685304d3d02c3c27c0ca5",
+      "size": 359,
+      "source": "CHANGELOG.md"
+    },
+    {
+      "executable": false,
+      "path": "CONTRIBUTING.md",
+      "sha256": "34d64830be238bf8cf88e52b7bdd22036ced7dca95e285e35924035b49db169c",
+      "size": 761,
+      "source": "CONTRIBUTING.md"
+    },
+    {
+      "executable": false,
+      "path": "LICENSE",
+      "sha256": "c3f1449547cb9a72674f153bc8ff104e1a5a96df7339ca3d0db9805b84c91bdb",
+      "size": 1060,
+      "source": "LICENSE"
+    },
+    {
+      "executable": false,
+      "path": "MANIFEST.in",
+      "sha256": "8c7abe009a3ab191f699910cbf3aa4238a7d42d7c7b5965e62774c0fdacf5e99",
+      "size": 341,
+      "source": "MANIFEST.in"
+    },
+    {
+      "executable": false,
+      "path": "README.md",
+      "sha256": "31c039cf93a71129e5d71be733e0c022fcd2c9661a7611fe0b731b9e4afb4b46",
+      "size": 3785,
+      "source": "README.md"
+    },
+    {
+      "executable": false,
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "d3a37280d5f3c146c7b3bc957729e6dd696336df24c079cceded5497642e5d33",
+      "size": 13797,
+      "source": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "executable": false,
+      "path": "configs/site.example.json",
+      "sha256": "c0fde0bfb5f511221b7e546d5e4b106b22bf71cb70ac3bfc90462338db78c8d2",
+      "size": 1197,
+      "source": "configs/site.example.json"
+    },
+    {
+      "executable": false,
+      "path": "constraints/sapien-py310.txt",
+      "sha256": "7cf18bfdfe2ca087acc7c9f7cdc7e02f2bae71dfdd2a17f06caeceb580970372",
+      "size": 907,
+      "source": "constraints/sapien-py310.txt"
+    },
+    {
+      "executable": false,
+      "path": "docs/architecture.md",
+      "sha256": "721cfa8c4297b9b7e559f9adb7baff80c8cc1d89bf77ef6e25cb983bbf65594f",
+      "size": 3004,
+      "source": "docs/architecture.md"
+    },
+    {
+      "executable": false,
+      "path": "docs/design/master-mapping.md",
+      "sha256": "813539eee366e8411f1e2abf019ed884951cef3fa6ded56f32d66df874ed21ea",
+      "size": 10858,
+      "source": "docs/design/master-mapping.md"
+    },
+    {
+      "executable": false,
+      "path": "docs/dev/plugins.md",
+      "sha256": "18d836de9bcd374d13d0fcb61b7d68784136332c07ac444f7ffe0169db869c82",
+      "size": 20834,
+      "source": "docs/dev/plugins.md"
+    },
+    {
+      "executable": false,
+      "path": "docs/usage/anatomical-retarget.md",
+      "sha256": "d82931b0b3298b6ec1590ddd665d2afef62faaea17edce5c3179ded3a6411ae6",
+      "size": 1671,
+      "source": "docs/usage/anatomical-retarget.md"
+    },
+    {
+      "executable": false,
+      "path": "docs/usage/collection-api.md",
+      "sha256": "e2f43338e48e4c295ddfc48a462405aa644aa10a494d81c54103aa819c3c2096",
+      "size": 12368,
+      "source": "docs/usage/collection-api.md"
+    },
+    {
+      "executable": false,
+      "path": "docs/usage/collection.md",
+      "sha256": "b698e50ec4a0918ba0b46ede24a2e501efcdda73e729ce17c111cd854ac224d6",
+      "size": 3385,
+      "source": "docs/usage/collection.md"
+    },
+    {
+      "executable": false,
+      "path": "pyproject.toml",
+      "sha256": "684e40471a97e8259eb8e21bfac4e109d3ff58ecdb55bffcdbfdefb246f4eed0",
+      "size": 1950,
+      "source": "pyproject.toml"
+    },
+    {
+      "executable": false,
+      "path": "references/anatomical_retarget_sources.json",
+      "sha256": "97e625d7e3ff071ab1cb2faa5d502aeaa784b819b084b22938c7f76513e7ca78",
+      "size": 4200,
+      "source": "references/anatomical_retarget_sources.json"
+    },
+    {
+      "executable": false,
+      "path": "references/external_resources.json",
+      "sha256": "172bd8b7bb24f6d83a0c323d12d75c4cca177b053da91faca71f65f6cab451b8",
+      "size": 53305,
+      "source": "references/external_resources.json"
+    },
+    {
+      "executable": false,
+      "path": "references/robot_assets.md",
+      "sha256": "18e5e2c5b28ac47a83e3e542213f7a358aefd13e0b13664c79921c4b409dcdb1",
+      "size": 1517,
+      "source": "references/robot_assets.md"
+    },
+    {
+      "executable": false,
+      "path": "references/vendor_bench_baseline.json",
+      "sha256": "a6c1f448e0b0c520b652b2cd3d03c16aead9e977784d9a77f2df180c255d9043",
+      "size": 19297,
+      "source": "references/vendor_bench_baseline.json"
+    },
+    {
+      "executable": false,
+      "path": "scripts/check_collection.py",
+      "sha256": "b63a3840b5e066d80fa9d25d3c2a44e6f08f52c7b20b50175db36b319b7a85b5",
+      "size": 5242,
+      "source": "scripts/check_collection.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/check_distribution.py",
+      "sha256": "13169d550ae358b81dd83366010d3f0398258522efd903da80f72932cddb6e8f",
+      "size": 2216,
+      "source": "scripts/check_distribution.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/check_public_tree.py",
+      "sha256": "62a64a66d3acf0c3c0f1f41bdfb2df12a4f9036bc6cd641cd6b402ed4813ece7",
+      "size": 2939,
+      "source": "scripts/check_public_tree.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/collection_ctl.py",
+      "sha256": "3742dcaeb5bf1970a7b8cf72d54aeb2ea4a1506efd90e6d3e18aa08529f87a4b",
+      "size": 9931,
+      "source": "scripts/collection_ctl.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/collection_server.py",
+      "sha256": "e14c267cdd5ed0d6c1e63951e87eaaa0ac239ded21d740c5d55b1df6440d8fb1",
+      "size": 182,
+      "source": "scripts/collection_server.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/derive_ar5_08_arms.py",
+      "sha256": "e7ead97ff0211b6629abdf30a4f08454da2e4d5b2136eddf7f3d34ad7316f053",
+      "size": 3962,
+      "source": "scripts/derive_ar5_08_arms.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/export_lerobot.py",
+      "sha256": "adc9688dcabb4fc10e4fcb50c8124b80a7bd90c91058c3cc8d54f4b78e0ae24b",
+      "size": 590,
+      "source": "scripts/export_lerobot.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/export_scene.py",
+      "sha256": "e50eca341bce9f41cc1ea953a7d94c0a2741288bc324029c9c68bf51971daf70",
+      "size": 1574,
+      "source": "scripts/export_scene.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/fetch_resources.py",
+      "sha256": "96cb34aca761b28eaf2647f2fedefc72f056e026324fe16553770dc906f119f4",
+      "size": 3280,
+      "source": "scripts/fetch_resources.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/limits_replay.py",
+      "sha256": "4b2a2fab812d351a1e44cf629afee71b296e6db5dfd73f84b73495f14b6fca37",
+      "size": 15676,
+      "source": "scripts/limits_replay.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/linkerta_reader_node.py",
+      "sha256": "9b1fa3da00874e7664c1d54b68071fb5abae3a495a5ad4a37b9c4384c118cfe1",
+      "size": 3600,
+      "source": "scripts/linkerta_reader_node.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/record_glove.py",
+      "sha256": "d680cfecb71abeb9ef52990959bb60d5e75ce769f11bf370f8ef642c35483572",
+      "size": 6071,
+      "source": "scripts/record_glove.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/rehash_workbench.py",
+      "sha256": "6c028fee2dc9c46b20b0d1b41aad85cd99c81504c69486345c6fa724583c4b03",
+      "size": 2743,
+      "source": "scripts/rehash_workbench.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/render_g20_appearance.py",
+      "sha256": "390f0d6b825c17c3dc7759d2bc87df98134cea308ab700812473f5d6031a15a9",
+      "size": 2639,
+      "source": "scripts/render_g20_appearance.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/research/gamepad_vision/README.md",
+      "sha256": "c66bb6d127845c091105e3678f98b78bfd3f17986169648b589f27323b9acc72",
+      "size": 408,
+      "source": "scripts/research/gamepad_vision/README.md"
+    },
+    {
+      "executable": false,
+      "path": "scripts/research/gamepad_vision/gamepad_marker.py",
+      "sha256": "39443f8b259ff80cdb53cd6dcb6f6997231cd1e021e25fb7a8a683e10eea168a",
+      "size": 25199,
+      "source": "scripts/research/gamepad_vision/gamepad_marker.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/research/gamepad_vision/gamepad_marker_card_v1.json",
+      "sha256": "6d740fb6e912ff420bfac5d167ba5ee249f65923db07cb54d1e64f744e6c5e9c",
+      "size": 4007,
+      "source": "scripts/research/gamepad_vision/gamepad_marker_card_v1.json"
+    },
+    {
+      "executable": false,
+      "path": "scripts/research/gamepad_vision/gamepad_pose_check.py",
+      "sha256": "39e1a3084885c5f2a157aa38ad6400e0cf55ee8f8a278c5a2e14c9d3493bb5d2",
+      "size": 22395,
+      "source": "scripts/research/gamepad_vision/gamepad_pose_check.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/research/linkerta_equivalence.py",
+      "sha256": "6a2715f2fe2638261eb134d21a377f79266cb742b29f9c5245c123df118223c8",
+      "size": 23507,
+      "source": "scripts/research/linkerta_equivalence.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/run_collection.py",
+      "sha256": "7ec3487a59d19e87a638429e67ce034b8bb8f17c0a3cd9c0df05b71971687a99",
+      "size": 4541,
+      "source": "scripts/run_collection.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/assemble_autopilot_poses.py",
+      "sha256": "746ffa58163ed21c68fa52d4b37bbd419e5ba8ee0b55b231df03f6a1a5e28a5b",
+      "size": 2967,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/assemble_autopilot_poses.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/autopilot_clearance.py",
+      "sha256": "61eb57a8ab95a9a6f428f80af10230714f7be460b4b30ed6c738cc36df6f0b80",
+      "size": 8794,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/autopilot_clearance.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/derive_autopilot_controls.py",
+      "sha256": "241753fc6bd3ea00232090e8d29d96f24f7f03e3f286566eb2095e5fd0b60145",
+      "size": 9109,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/derive_autopilot_controls.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/derive_autopilot_pads.py",
+      "sha256": "6e9ce8f90765e323125f30a068f2dc1b920bc0789b26b35b59644351d0cee577",
+      "size": 4768,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/derive_autopilot_pads.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/evaluate_autopilot.py",
+      "sha256": "70ef5b88fdf0ebeabb7d6709432cef7ac16c67b0f45929b93fcda44bdd4f2d62",
+      "size": 1079,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/evaluate_autopilot.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/solve_autopilot_micro.py",
+      "sha256": "1e75282d71b589ed7073fe27c37f276912e2aad1e2c85ded30c085c4b4e04325",
+      "size": 5080,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/solve_autopilot_micro.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/tasks/xbox_gamepad_v3_3/solve_autopilot_poses.py",
+      "sha256": "33db6aabf367128905d068f12df2031dbd1663a3d31216de0da9e22b5716ade3",
+      "size": 32487,
+      "source": "scripts/tasks/xbox_gamepad_v3_3/solve_autopilot_poses.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/validate_collection_startup.py",
+      "sha256": "9eac92ef6b3aea12a722a59d2cdabf164faeb5bef91feef777f547d9712c6217",
+      "size": 5093,
+      "source": "scripts/validate_collection_startup.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/validate_export.py",
+      "sha256": "bd29bf24d18444a469d52e27987e95a7d7253bdc5a308ae918e1b6c3b493af7b",
+      "size": 1069,
+      "source": "scripts/validate_export.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/validate_joint_motion.py",
+      "sha256": "9ba20f4c091cd83b10a3a312af7d17166234fecf55a16ff9b8f66ad78255cf9a",
+      "size": 13574,
+      "source": "scripts/validate_joint_motion.py"
+    },
+    {
+      "executable": false,
+      "path": "scripts/vendor_bench_scene.py",
+      "sha256": "4761a0b4345cb372ddb2afa476f51aa7038d53c1ee44081f55e725a4d7e2a2dc",
+      "size": 1152,
+      "source": "scripts/vendor_bench_scene.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/__init__.py",
+      "sha256": "f5f16d36ac944350f26e27371f899e0ff1d37a4cf92e8ea0fc95f22d001fe298",
+      "size": 78,
+      "source": "src/dexstation/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/api.py",
+      "sha256": "37467cb3512bf50df0399e2805b703001e3705cec3cde24bb0fec9c07cd90960",
+      "size": 904,
+      "source": "src/dexstation/api.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/backends/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/channel_types.py",
+      "sha256": "d898dab7bd4306cdb4d8600e8eef616a421adf0647ef89026b25b90777860475",
+      "size": 3369,
+      "source": "src/dexstation/backends/channel_types.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/mujoco_export.py",
+      "sha256": "93267991de5b6d6e4a53c2152dcb4cc4358ed51564822545d6d14aecc05174dd",
+      "size": 24787,
+      "source": "src/dexstation/backends/mujoco_export.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/object_types.py",
+      "sha256": "4dd777e992ff768ae8dd8eddc9dcdbb30692315d7e2f5a6b75e26cdc638fc669",
+      "size": 3718,
+      "source": "src/dexstation/backends/object_types.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/observation.py",
+      "sha256": "36b10b5e9d6a965dfb4f7ed274e5b4e1f39d6036c50c7aa683a8ce827a3e24e5",
+      "size": 490,
+      "source": "src/dexstation/backends/observation.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/registry.py",
+      "sha256": "cec7510f3fa0ed4d7d6df32c2e4276d872b05ac17f951d741042dfc34578c089",
+      "size": 3619,
+      "source": "src/dexstation/backends/registry.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/sapien_physics.py",
+      "sha256": "a004969a8fc39ea9e418bfc55d485b9ec7f7420163f2aed2a8f61d5a6c531f28",
+      "size": 26905,
+      "source": "src/dexstation/backends/sapien_physics.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/backends/sapien_render.py",
+      "sha256": "4f08412175bd2fb2ba6a4ebc4307b2e92ccbfc82b7d33c29be7d491edf90b0a5",
+      "size": 21906,
+      "source": "src/dexstation/backends/sapien_render.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/cameras/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/cameras/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/cameras/image.py",
+      "sha256": "e8e68ef79f816c801c1b52bbe83fa65afada0f09cb5d91038c18a46d47cb7607",
+      "size": 451,
+      "source": "src/dexstation/cameras/image.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/cli/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/cli/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/cli/recover.py",
+      "sha256": "61b690ebd89e2abc01fbbdb70a0acd8a9d583eabd8d0eb54d465b1864b715361",
+      "size": 136,
+      "source": "src/dexstation/cli/recover.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/cli/server.py",
+      "sha256": "fa1db54d67fc970b5773eec2dcb37dca0f901d8ceebd1bf07f5ceaf955693d1b",
+      "size": 132,
+      "source": "src/dexstation/cli/server.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/config/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/defaults.py",
+      "sha256": "87a8c2ac8247681a42a4a72aefd9a58f3335ace8fec2490d89a44255d6200ae8",
+      "size": 1785,
+      "source": "src/dexstation/config/defaults.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/environment.py",
+      "sha256": "f02f690fe3593b3f0b5f255c29b8ccff1a93dbc460e0116c12855614e7716771",
+      "size": 1700,
+      "source": "src/dexstation/config/environment.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/paths.py",
+      "sha256": "cba3d6cb341dfd9e9858ac3ebdf55f84ef443f1200fc476c214756b10df8bba3",
+      "size": 1631,
+      "source": "src/dexstation/config/paths.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/service_defaults.py",
+      "sha256": "ec73c97e9d47bd8522cf64c99c76cd5a3bb963eb25d3dd502dbe1b87a0480cfd",
+      "size": 1615,
+      "source": "src/dexstation/config/service_defaults.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/config/site.py",
+      "sha256": "c0aaf7a54664c28b566ef0d91a1dfb1504d2fcd64482d62986797d7687943a81",
+      "size": 9756,
+      "source": "src/dexstation/config/site.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/__init__.py",
+      "sha256": "91e93826c76e27776df472c3026e90def62f3d5f664fa49ec3561412b02a5f08",
+      "size": 234,
+      "source": "src/dexstation/contracts/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/backend.py",
+      "sha256": "208de4a3101405ba1da10fe42315b76a1874ea215141cf20dec91f05847f8f20",
+      "size": 3622,
+      "source": "src/dexstation/contracts/backend.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/ar5_08_g20_bench_bimanual.json",
+      "sha256": "d963dd96490363d7e0319bcf781811cca4b582ea4382636b1dd778bafe8c16dc",
+      "size": 5011,
+      "source": "src/dexstation/contracts/examples/ar5_08_g20_bench_bimanual.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/articulated_hinge.json",
+      "sha256": "476acf9955e5c8b1d024e2c3b2e909f5cbe1917c451fd52c6cfabc76bc58a425",
+      "size": 1005,
+      "source": "src/dexstation/contracts/examples/articulated_hinge.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/calibration_real_robot.json",
+      "sha256": "2f9d66c5b384f0e3216fe25a94e1e68f19e7a75be7e65bb32ad988970795d4c3",
+      "size": 2618,
+      "source": "src/dexstation/contracts/examples/calibration_real_robot.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/calibration_teleop.json",
+      "sha256": "9c02e12e83215e7e25c794b5820be851daaef95cb41edb568c3d03134b576608",
+      "size": 1558,
+      "source": "src/dexstation/contracts/examples/calibration_teleop.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/empty.json",
+      "sha256": "0ee1bfb8c9a811a02ad13a514570e6f2451da173f51ec637496eb9c68c7bd235",
+      "size": 386,
+      "source": "src/dexstation/contracts/examples/empty.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/episode_empty.json",
+      "sha256": "aedffae6aa86131ba65b4a39e2862337b31fb705d406e9fe4e6afd4cd630267b",
+      "size": 1378,
+      "source": "src/dexstation/contracts/examples/episode_empty.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/episode_gamepad.json",
+      "sha256": "11def1f2e23aedc49c49703416b4e293f94610649ee30535e2fdeb5b94de9063",
+      "size": 1539,
+      "source": "src/dexstation/contracts/examples/episode_gamepad.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_config.json",
+      "sha256": "2f6f64cbabf3e6950f1671e6698dc515584eebdcd75e5935aaed515bbeafbd7b",
+      "size": 1447,
+      "source": "src/dexstation/contracts/examples/http_config.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_episodes.json",
+      "sha256": "3deef34fabf6bc563d705718768fe987097d7b8c029416f65f68b63567275505",
+      "size": 386,
+      "source": "src/dexstation/contracts/examples/http_episodes.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_session_start.json",
+      "sha256": "8376ba24e4d5803ba15ef8f3f8e901c34705cb3da67f59b9fca9ad9d48ea2bb3",
+      "size": 1875,
+      "source": "src/dexstation/contracts/examples/http_session_start.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_status.json",
+      "sha256": "2bc8341b69df9b4fe3e48e683594102a92f569176fafed18035948f95eb4c105",
+      "size": 1580,
+      "source": "src/dexstation/contracts/examples/http_status.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_task_action.json",
+      "sha256": "95772acf99bbef28b3b14d530caa874ede79bda7ff630cebef4ac1b11939eab5",
+      "size": 359,
+      "source": "src/dexstation/contracts/examples/http_task_action.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_task_action_recording.json",
+      "sha256": "957ab4d31e03cd8c9dec47b95471d5f27a1911d09a92942c7247bd5bc4a4e616",
+      "size": 344,
+      "source": "src/dexstation/contracts/examples/http_task_action_recording.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_task_cells.json",
+      "sha256": "5408c0cdf3620633ea69cc486a509af7f295e5bde7ca58be2b68c5ccc986631a",
+      "size": 1449,
+      "source": "src/dexstation/contracts/examples/http_task_cells.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/http_task_web.json",
+      "sha256": "278a61059e3a50d09cfb32a59a74e5d6c037178e6231d2f0dd648f39a8cce4f2",
+      "size": 344,
+      "source": "src/dexstation/contracts/examples/http_task_web.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/limits.json",
+      "sha256": "f2dc6cff9635aed00179d00573a5844c18b9290389956409a8110fb0fab0bace",
+      "size": 915,
+      "source": "src/dexstation/contracts/examples/limits.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/tabletop_cube_grasp.json",
+      "sha256": "762e7a4142026f7c9a22ade3521bed90276477b2b2ac98a56ea8ab5c65286dfa",
+      "size": 2758,
+      "source": "src/dexstation/contracts/examples/tabletop_cube_grasp.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/takeover.json",
+      "sha256": "3513032185f1b268700747ef6c1a5d4826dc658b26902a4f9a1ec519f154be5c",
+      "size": 198,
+      "source": "src/dexstation/contracts/examples/takeover.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/examples/xbox_gamepad_v3_3.json",
+      "sha256": "7facc038344289909597b521d3bd6ad0f1429d8e2624c37c16d90791b0a0e3d6",
+      "size": 2600,
+      "source": "src/dexstation/contracts/examples/xbox_gamepad_v3_3.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/limits.py",
+      "sha256": "adcfe914779e52298ab54f283905153b39b259080524e0d6365418190bbcf69e",
+      "size": 1252,
+      "source": "src/dexstation/contracts/limits.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/profiles.py",
+      "sha256": "fec30aafdf2e42f13de359d23b0f4431af764f4a25100a999777e83ca8f95d73",
+      "size": 1986,
+      "source": "src/dexstation/contracts/profiles.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/recording.py",
+      "sha256": "e5869c72f965833b7212754fa1559eae201734ba1166aeeac938253c2e3cce2a",
+      "size": 6109,
+      "source": "src/dexstation/contracts/recording.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/calibration.schema.json",
+      "sha256": "ffffa9fdc964d1b1be63497192ea2fffd195550efec7c5f20b16f08a54edd4eb",
+      "size": 5348,
+      "source": "src/dexstation/contracts/schemas/calibration.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/episode.schema.json",
+      "sha256": "7d64caff5a91d40ca5555856ceef2d78902c1df4aa3241d67fda544a1f1269ea",
+      "size": 5971,
+      "source": "src/dexstation/contracts/schemas/episode.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/http.schema.json",
+      "sha256": "4afac986bd0ba54ae97137ef5ed6416d6b4aa2432b4bc8e7e27cba202979102e",
+      "size": 53978,
+      "source": "src/dexstation/contracts/schemas/http.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/limits.schema.json",
+      "sha256": "bc49e797abc1400f2abc1520d1af6c24da0a88af84d28739dacaf88ebd663e60",
+      "size": 11892,
+      "source": "src/dexstation/contracts/schemas/limits.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/site.schema.json",
+      "sha256": "fd64ee2dc5793543dbd499d0ce0e31f7423472ab2fab0cdbb76450107c520f5b",
+      "size": 32233,
+      "source": "src/dexstation/contracts/schemas/site.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/takeover.schema.json",
+      "sha256": "ca8c4c6a8e414ee0af2f452e1a73b793add180c91c31e941063e5012a16781ea",
+      "size": 2071,
+      "source": "src/dexstation/contracts/schemas/takeover.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/task.schema.json",
+      "sha256": "96f32add1b828eb917330ef9688f762738b51712fee245593bf537eac79d8d5f",
+      "size": 19404,
+      "source": "src/dexstation/contracts/schemas/task.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/schemas/workbench.schema.json",
+      "sha256": "180ff51378a8f7ad7096670f0b1b0b82856b4993c6ff49841cbb45729b2beee0",
+      "size": 19278,
+      "source": "src/dexstation/contracts/schemas/workbench.schema.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/services.py",
+      "sha256": "5de3e61f7569f509975a990c7aabff767e8ffe6f099747bc001b827e8f313ed3",
+      "size": 4053,
+      "source": "src/dexstation/contracts/services.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/takeover.py",
+      "sha256": "d129da7e01edd621088bbfc703efde79f345e272ddabc002c39da6dac9c37813",
+      "size": 1467,
+      "source": "src/dexstation/contracts/takeover.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/task_plugin.py",
+      "sha256": "b219794496905b67b935290dbc43624188f8187c2a13d6728e6cabb1b18f5709",
+      "size": 1560,
+      "source": "src/dexstation/contracts/task_plugin.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/validation.py",
+      "sha256": "66c2c2a3d8ce6e3c5281fa1b1afc77fa129b3d0c399bf39a8cd694707ab74d0e",
+      "size": 3487,
+      "source": "src/dexstation/contracts/validation.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/contracts/versions.py",
+      "sha256": "2b16f9016601392b92426128ae298cf015f495ef796b4bd40903939591f4f1ba",
+      "size": 3565,
+      "source": "src/dexstation/contracts/versions.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/control/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/commands.py",
+      "sha256": "b008083debd500d638c083fd9f9af8ff21501124e3b4bed8e352e2ad67dc4450",
+      "size": 4200,
+      "source": "src/dexstation/control/commands.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/joint_motion.py",
+      "sha256": "f27d8401442d00928e2f7c1c4aac59ce9ad052428f0c57a69e0aff054c52d747",
+      "size": 13560,
+      "source": "src/dexstation/control/joint_motion.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/protocol.py",
+      "sha256": "ee73ac1a5edf59c880ff61870b17bd21b4cec55843f1c7d663e63af1d5c76da7",
+      "size": 7668,
+      "source": "src/dexstation/control/protocol.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/takeover.py",
+      "sha256": "0face5d4e32949916beb9bf41951ad5b68af7679a63781ee0a9ca6e5e283e85a",
+      "size": 4295,
+      "source": "src/dexstation/control/takeover.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/teleop_status.py",
+      "sha256": "5018354864ad31498094fb09e42590218a8e81512eed1c5f43079dc29679d20a",
+      "size": 3830,
+      "source": "src/dexstation/control/teleop_status.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/control/workspace_limits.py",
+      "sha256": "6364bd9a0b38a3fcec21a0b374dddc80cbe5a713deca72f71fe91f75371b8085",
+      "size": 53920,
+      "source": "src/dexstation/control/workspace_limits.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/examples/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/examples/ar5_g20/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/appearance/station_v1.json",
+      "sha256": "fca64d11c53154d438b403a332b52f437c3fdd7477a9234f823c976dd795891c",
+      "size": 4977,
+      "source": "src/dexstation/examples/ar5_g20/appearance/station_v1.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/appearance/station_v3_3_fixture.json",
+      "sha256": "b0d8b1800c4bbb1054fc746a11afaa39c68446dc67397270ce5489d21a35f06b",
+      "size": 39136,
+      "source": "src/dexstation/examples/ar5_g20/appearance/station_v3_3_fixture.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/compose.py",
+      "sha256": "50cdc17a95781610727aa0d7a810a67c4ae3012663e02c91c5dc735c60ad2499",
+      "size": 14123,
+      "source": "src/dexstation/examples/ar5_g20/compose.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/PROVENANCE.md",
+      "sha256": "097a02f46de5e1ab4ff8e6524374d46f1bf6517d166eb5ea19443b6f1b3239c5",
+      "size": 2958,
+      "source": "src/dexstation/examples/ar5_g20/data/PROVENANCE.md"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/calibration/master_linkerta_range.json",
+      "sha256": "14711e8391298e676cad24111d4198a672d697153ab05fc191c9c41d888d0a98",
+      "size": 7831,
+      "source": "src/dexstation/examples/ar5_g20/data/calibration/master_linkerta_range.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/calibration/real_robot.json",
+      "sha256": "2f9d66c5b384f0e3216fe25a94e1e68f19e7a75be7e65bb32ad988970795d4c3",
+      "size": 2618,
+      "source": "src/dexstation/examples/ar5_g20/data/calibration/real_robot.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/calibration/teleop.json",
+      "sha256": "9c02e12e83215e7e25c794b5820be851daaef95cb41edb568c3d03134b576608",
+      "size": 1558,
+      "source": "src/dexstation/examples/ar5_g20/data/calibration/teleop.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/limits.json",
+      "sha256": "269adb9971cb7cb3ac6728938a8af709199dae7710b360c78c836f818e7a1972",
+      "size": 1691,
+      "source": "src/dexstation/examples/ar5_g20/data/limits.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/sources/base_scene.json",
+      "sha256": "c5d24d987bce98e2450d5f309c95fd3061b02af01c7a17238dd65c7ed98e6c89",
+      "size": 50238,
+      "source": "src/dexstation/examples/ar5_g20/data/sources/base_scene.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/sources/baseline.json",
+      "sha256": "a6c1f448e0b0c520b652b2cd3d03c16aead9e977784d9a77f2df180c255d9043",
+      "size": 19297,
+      "source": "src/dexstation/examples/ar5_g20/data/sources/baseline.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/sources/external_resources.json",
+      "sha256": "0cbae0409c4c3188dc942bc6a08e36cde44305cbce9ba8c9d8955586818f4c67",
+      "size": 54772,
+      "source": "src/dexstation/examples/ar5_g20/data/sources/external_resources.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/sources/overrides.json",
+      "sha256": "3f3ef47992f2c152def529471ba1c20dab0ed15221ca51b8b935ceaebe45eebd",
+      "size": 4478,
+      "source": "src/dexstation/examples/ar5_g20/data/sources/overrides.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/takeover.json",
+      "sha256": "caa97fde970db2ad2661a7347d1c5799e05fb390945d8ceb9500662cfc8030fd",
+      "size": 197,
+      "source": "src/dexstation/examples/ar5_g20/data/takeover.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/data/workbench.json",
+      "sha256": "b37abc2a9c010a73b2cb863f0961d8d9f336b5f70c44c07db50bff9d4719964f",
+      "size": 32466,
+      "source": "src/dexstation/examples/ar5_g20/data/workbench.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/mapping.py",
+      "sha256": "ca1f825d7553377183384835c0da17cc63c6818ad7f96620c58ce8a59562a114",
+      "size": 9754,
+      "source": "src/dexstation/examples/ar5_g20/mapping.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/model.py",
+      "sha256": "bc34145a0583622377784c5b2767b5d1de2800b96dcc9f3a8e44c7b7acf1b4ad",
+      "size": 548,
+      "source": "src/dexstation/examples/ar5_g20/model.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/motion_assets/provenance.json",
+      "sha256": "d4db2e97808c69ddc7a923c0637d4528b0c3803fa9566c3147f6ca002faf2d60",
+      "size": 2735,
+      "source": "src/dexstation/examples/ar5_g20/motion_assets/provenance.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/motion_assets/source_ledger.json",
+      "sha256": "11ad4c9b90d55ef8b42ff64072265a0f4e2d549fcac8dc68439de3d62c709897",
+      "size": 4739,
+      "source": "src/dexstation/examples/ar5_g20/motion_assets/source_ledger.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/motion_assets/station.json",
+      "sha256": "20c59bc03738a54dcec4cce60dd9554c598c4ef1d58b31d161da1a96a2de6a37",
+      "size": 2766,
+      "source": "src/dexstation/examples/ar5_g20/motion_assets/station.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/examples/ar5_g20/motion_assets/vendor/provenance.json",
+      "sha256": "a52231cd4cde4f9ec8b885e337f68ebf47b9498a69c8fae15407f9221f57d681",
+      "size": 100,
+      "source": "src/dexstation/examples/ar5_g20/motion_assets/vendor/provenance.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/inputs/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/arm_mapping.py",
+      "sha256": "b911fd660137786c087a6bfc8a7bb13ced388ddccf610c3ed61da4f8dd09e569",
+      "size": 3635,
+      "source": "src/dexstation/inputs/arm_mapping.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/factories.py",
+      "sha256": "0ebed9b43b85dc1550dab1008012f9f3f2e486c8092897eaccd1e7c2cda46dcc",
+      "size": 1471,
+      "source": "src/dexstation/inputs/factories.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/glove_overlay.py",
+      "sha256": "8ee55629be8d0c151455927cc3f6fa36fd97d51d99e4b3912d8a96d150c955ba",
+      "size": 12668,
+      "source": "src/dexstation/inputs/glove_overlay.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/glove_recording.py",
+      "sha256": "e02363e802c07b97139ae8f48884f4f5f249047b40691619acc003f4747e920c",
+      "size": 10660,
+      "source": "src/dexstation/inputs/glove_recording.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_assets/APACHE-2.0.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357,
+      "source": "src/dexstation/inputs/linkerta_assets/APACHE-2.0.txt"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_assets/NOTICE",
+      "sha256": "739e5b4105ad64d85d2afc1b305621d87ce5dfd464e897403a4d3e54fe13cc1d",
+      "size": 1099,
+      "source": "src/dexstation/inputs/linkerta_assets/NOTICE"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_assets/PROVENANCE.md",
+      "sha256": "fe4a39bbbeb8404ae0b473a14502906bb6d608cf95490ddb4ed3ffdd99943012",
+      "size": 7418,
+      "source": "src/dexstation/inputs/linkerta_assets/PROVENANCE.md"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_assets/linkerta.yaml",
+      "sha256": "e9f5ed74aaa66dd1a46dc1abc8217db83064f8fa1f333ff81d89fb5fe2b2c2f8",
+      "size": 592,
+      "source": "src/dexstation/inputs/linkerta_assets/linkerta.yaml"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_assets/sources.json",
+      "sha256": "4686ef9403dcf20097e5088f52bf685c3bdf7f07f7e1d76627c57a0a9cf2706d",
+      "size": 4077,
+      "source": "src/dexstation/inputs/linkerta_assets/sources.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/linkerta_reader.py",
+      "sha256": "4dd4179896cf61234dce5558ad8789fc43c0b1b5b689fb89d1a6d986b5d9d749",
+      "size": 11944,
+      "source": "src/dexstation/inputs/linkerta_reader.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/master_mapping.py",
+      "sha256": "762168ad79b56e36229bc2a941e69bcfa9233f58c082b2576d7b9b87028adf0d",
+      "size": 45240,
+      "source": "src/dexstation/inputs/master_mapping.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/registry.py",
+      "sha256": "85fa0a0de6514a651a9eaeaa115eac715b31e1356728dbbd1926a3d461c5eeaf",
+      "size": 3847,
+      "source": "src/dexstation/inputs/registry.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/replay.py",
+      "sha256": "315ead7b384239459f8a390b96c4b055efcf2f223fa381d0547ae813609be4ea",
+      "size": 27049,
+      "source": "src/dexstation/inputs/replay.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_anatomy.py",
+      "sha256": "8fca8daf38cdcef862cee242a671d9cf5ec6f7982d9cfb29c97b5380d7224eee",
+      "size": 7897,
+      "source": "src/dexstation/inputs/retarget_anatomy.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_assets/anatomical.json",
+      "sha256": "beb652dbf592e474f679db29d490a188cd86d1779531ea5f19809d84480f28fd",
+      "size": 886,
+      "source": "src/dexstation/inputs/retarget_assets/anatomical.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_assets/g20_left.urdf",
+      "sha256": "04a7e8ed25d5bc4d8f9a3f28355a9294b96a92000d06936626b0a81205943b7d",
+      "size": 18384,
+      "source": "src/dexstation/inputs/retarget_assets/g20_left.urdf"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_assets/g20_right.urdf",
+      "sha256": "56239afbbe416eef3e425cd12dbd918e3bc9bec41bd4cc0b28bd5648472e83e8",
+      "size": 18235,
+      "source": "src/dexstation/inputs/retarget_assets/g20_right.urdf"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_assets/motor_mapping.json",
+      "sha256": "885f73d1471b2f037b4be6f7fe84c9b3068b73f796cb136479fa0c5673d1d1db",
+      "size": 1669,
+      "source": "src/dexstation/inputs/retarget_assets/motor_mapping.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_motor_clone.py",
+      "sha256": "9cb83fe2b7bf9cd0a927aca26433d91ecacf2d555e14f95bb960732e4a7d0360",
+      "size": 4778,
+      "source": "src/dexstation/inputs/retarget_motor_clone.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_node.py",
+      "sha256": "1a8bac5c7d061115f9ba3afa4d788c427fb2ab812e0205128a3c0e26bd00db75",
+      "size": 2862,
+      "source": "src/dexstation/inputs/retarget_node.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/retarget_runtime.py",
+      "sha256": "20210c0ac2c5957ef5e186dbc48c683297edd679f36e39360b113cb04c2aa243",
+      "size": 7619,
+      "source": "src/dexstation/inputs/retarget_runtime.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/ros2_probe.py",
+      "sha256": "92307ff7b94ea7408454bd5a68e3f5d8cf1d5e514aa6308f1c07138559eeda54",
+      "size": 11080,
+      "source": "src/dexstation/inputs/ros2_probe.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/supervisor.py",
+      "sha256": "400eccd91c1c6cf344930138b68b2c5cb499fd250a0be75f37e6d3d14d9c021f",
+      "size": 30606,
+      "source": "src/dexstation/inputs/supervisor.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/inputs/udp.py",
+      "sha256": "cef48f303e24e73e50bf1f4addc724b79ebb65defd39dd5092e2d1b56ebcbee4",
+      "size": 2781,
+      "source": "src/dexstation/inputs/udp.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/model/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/appearance.py",
+      "sha256": "2d3468dee3a1be0247382051c591e79843776b73bec72584df93363d7b904d7c",
+      "size": 3139,
+      "source": "src/dexstation/model/appearance.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/constants.py",
+      "sha256": "76d30c60033e8728b071ede762819dd76c7e29720142a7b41d3e157cd0c075d6",
+      "size": 253,
+      "source": "src/dexstation/model/constants.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/contact.py",
+      "sha256": "f72a52a47f6f654cc6afb0f52203750243ee0d6186d4ac88b846db0a2706c1a2",
+      "size": 625,
+      "source": "src/dexstation/model/contact.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/fixture_collision.py",
+      "sha256": "86e53c358064dc3c6e0cc69df6cf854dff6bdeac457229cfa05cbaeb51a84f36",
+      "size": 6995,
+      "source": "src/dexstation/model/fixture_collision.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/kinematics.py",
+      "sha256": "fd05073916641ea65800c7f70341bd4922ee053e329f572969343ace82f78159",
+      "size": 9134,
+      "source": "src/dexstation/model/kinematics.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/mount_geometry.py",
+      "sha256": "ccd75bcf90744745627692bc9fda6ff3fa9265d452644c4a1d6a463c9bef07fa",
+      "size": 1380,
+      "source": "src/dexstation/model/mount_geometry.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/physics_utils.py",
+      "sha256": "131ae579e56b25de8b15e75ec377d36385d65fc6c98a49ff7ab604992510d32a",
+      "size": 1395,
+      "source": "src/dexstation/model/physics_utils.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/robot_description.py",
+      "sha256": "40f3f922ce2639d64aeee7a4d976db1984fdcc2ae5331929970412156ae0a71d",
+      "size": 3334,
+      "source": "src/dexstation/model/robot_description.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/spec.py",
+      "sha256": "c5b9435100156eff352c8f2239d1a5bfb25859d403b673f0adf94c1578ffc69c",
+      "size": 18290,
+      "source": "src/dexstation/model/spec.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/model/station_math.py",
+      "sha256": "15ef6c5053021ec17507e82170aa3d4837672dd97680f31995f3dead70583b3a",
+      "size": 3111,
+      "source": "src/dexstation/model/station_math.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/profiles/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/profiles/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/profiles/calibration.py",
+      "sha256": "2bc6b03564a8abcf59d96ab95e77d5e2c4a9c1109dee0a0d0970c16025178a68",
+      "size": 1879,
+      "source": "src/dexstation/profiles/calibration.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/profiles/compose.py",
+      "sha256": "b78b830c56a6f58e2de8615e26e342f897b4214cee95ac496e4c5bae8a201967",
+      "size": 20419,
+      "source": "src/dexstation/profiles/compose.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/profiles/export.py",
+      "sha256": "493f405961f639a394c6debdc5545d25544539f0ab43b288d54e277ab8a95de9",
+      "size": 58568,
+      "source": "src/dexstation/profiles/export.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/profiles/task_objects.py",
+      "sha256": "5f6b3af62eec8be99b141a44e0373614942182390f3ea7ad0fde3234f8313586",
+      "size": 11010,
+      "source": "src/dexstation/profiles/task_objects.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/recording/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/recording/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/recording/episode.py",
+      "sha256": "317dc6ac7fec228f665ffc585f292bdeeeac95c20eabd2beb3107f4b747519d7",
+      "size": 21450,
+      "source": "src/dexstation/recording/episode.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/recording/integrity.py",
+      "sha256": "2f4356d88f32986004186a1d547f340d74c633b7d90dc5ae19988cb6995fbcdc",
+      "size": 7647,
+      "source": "src/dexstation/recording/integrity.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/recording/lerobot_export.py",
+      "sha256": "f911e43883ebeb9e283d02e7a5b0b7f24005ea4c0a1a739a5e662c2bb0c6cde2",
+      "size": 8600,
+      "source": "src/dexstation/recording/lerobot_export.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/recording/session.py",
+      "sha256": "f007a34490fbefe2f7af14ad3769c0be6196c1f1eb26ad0032e680aad4f9c8c6",
+      "size": 14664,
+      "source": "src/dexstation/recording/session.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/render/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/auxiliary_views.py",
+      "sha256": "50d06ba19f0744c5d08126bbdb5a318f8cc00a88e92dfeaefc228a2f32ef2d09",
+      "size": 12428,
+      "source": "src/dexstation/render/auxiliary_views.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/data/operator_view.yaml",
+      "sha256": "9d293d2977df5d93d6040d92255f5a1f16507761a94aff786abe9de11496f69a",
+      "size": 1243,
+      "source": "src/dexstation/render/data/operator_view.yaml"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/operator_stream.py",
+      "sha256": "922d68057b1a09b69a7ca97536381cb82b9aba16c818e2d10221b5c7a25fc265",
+      "size": 9675,
+      "source": "src/dexstation/render/operator_stream.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/operator_view.py",
+      "sha256": "0192dd478fb9130b720c628992539145c7c4c3dd1ba799c4f64f9995ac4373f0",
+      "size": 28381,
+      "source": "src/dexstation/render/operator_view.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/review.py",
+      "sha256": "3fe9a17fdfbc996cadb9a0b4dab38b7b0c263db2b5df87c031f56ef2a2063c87",
+      "size": 3219,
+      "source": "src/dexstation/render/review.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/scene_snapshot.py",
+      "sha256": "0b76c0bdb9c36f2bb0c8ac361d2d300d266bcd6e13e52677b0f0b728bff08298",
+      "size": 10290,
+      "source": "src/dexstation/render/scene_snapshot.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/snapshots.py",
+      "sha256": "e56f0e5789e25dce7127491b121f0622879c8068bd1b00d1c9364af8a5e0f830",
+      "size": 8731,
+      "source": "src/dexstation/render/snapshots.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/web/app.js",
+      "sha256": "4e5fdad9a783333cbb67d4364dc4fba357e3372e07dc43d192d0d708cabc9aef",
+      "size": 516,
+      "source": "src/dexstation/render/web/app.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/web/index.html",
+      "sha256": "0ea416a9c95c62da84d06113e56c6ddf6c89e162eb0eea4c82623a73b30314dd",
+      "size": 534,
+      "source": "src/dexstation/render/web/index.html"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/render/web/video.mjs",
+      "sha256": "a0bdd339de43cf04a30f802bd1048532a3d1127f0ba0af269923e1f2ec68e4ce",
+      "size": 2540,
+      "source": "src/dexstation/render/web/video.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/runtime/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/controller.py",
+      "sha256": "014b4b2f50cdba6e9c5da8e190e4fe0f9df7889563b44b3fa96b08ad153d10d2",
+      "size": 46387,
+      "source": "src/dexstation/runtime/controller.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/health.py",
+      "sha256": "4323f8fdff4843bdb1455cafed0ea7ea429a96ee9d6d4df4fcd790132ebb342b",
+      "size": 7037,
+      "source": "src/dexstation/runtime/health.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/logs.py",
+      "sha256": "13d31ad258081d17b5337695dee07e76d8a68def48a9f4d10fa0d1c3ba87c456",
+      "size": 2782,
+      "source": "src/dexstation/runtime/logs.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/loop.py",
+      "sha256": "fe41d073571f472f9d4046a6f5fb59fdd29625c33a2ac53afb23de312152f28c",
+      "size": 3248,
+      "source": "src/dexstation/runtime/loop.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/plugins.py",
+      "sha256": "42c5df7ff44d1240a95e2c2c4a6a025a71bb29a9a8a84833f47a2768a8a9c92f",
+      "size": 9408,
+      "source": "src/dexstation/runtime/plugins.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/runtime/provenance.py",
+      "sha256": "ec90619928d6767004873ccb0a298455c878254a2a3c7a5f9d96e2b7e4ffd928",
+      "size": 2998,
+      "source": "src/dexstation/runtime/provenance.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/server/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/app.py",
+      "sha256": "3596a75f54ee845fbebd25a3729263afc63d7906ad728934ef42a109c9b42aaf",
+      "size": 60981,
+      "source": "src/dexstation/server/app.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/auxiliary-panel.mjs",
+      "sha256": "dc5beabd67a346f20748b35b13c0a1407c46d275bd5a1301f1050ff380bd0daa",
+      "size": 8088,
+      "source": "src/dexstation/server/web/auxiliary-panel.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/camera-panel.mjs",
+      "sha256": "8a8314562b33c1ba94ebe9882a8d4acd23c91d37c050ab8c1198b4c18b671ce0",
+      "size": 7981,
+      "source": "src/dexstation/server/web/camera-panel.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/index.html",
+      "sha256": "31a9e31d32c58f6f2765f56f6066c24f36651cdf15f40ce4d504b5fe5af0ca63",
+      "size": 34346,
+      "source": "src/dexstation/server/web/index.html"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/ASSET_PROJECT_LICENSE",
+      "sha256": "c3f1449547cb9a72674f153bc8ff104e1a5a96df7339ca3d0db9805b84c91bdb",
+      "size": 1060,
+      "source": "src/dexstation/server/web/overlay/ASSET_PROJECT_LICENSE"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/collection.css",
+      "sha256": "3f04ddecb44f327e7f41b98535619aac8736038a0d951e1ed31bd495ddd5f32f",
+      "size": 10540,
+      "source": "src/dexstation/server/web/overlay/collection.css"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/fonts/IBM-Plex-LICENSE.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "size": 4456,
+      "source": "src/dexstation/server/web/overlay/fonts/IBM-Plex-LICENSE.txt"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/fonts/IBMPlexSansCondensed-Regular.woff2",
+      "sha256": "a71a56e516751883cb7877112d39f9c13b92c2dc15caaf00277b7f9d941d673a",
+      "size": 63228,
+      "source": "src/dexstation/server/web/overlay/fonts/IBMPlexSansCondensed-Regular.woff2"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/fonts/JetBrainsMono-OFL.txt",
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
+      "size": 4399,
+      "source": "src/dexstation/server/web/overlay/fonts/JetBrainsMono-OFL.txt"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/fonts/JetBrainsMono-Regular.woff2",
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+      "size": 92380,
+      "source": "src/dexstation/server/web/overlay/fonts/JetBrainsMono-Regular.woff2"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/overlay/upstream.json",
+      "sha256": "37f0dc85f31f9ce98e8aa6e2ec34d641bbb99c226e4bdfba8cb3d7428d011774",
+      "size": 1199,
+      "source": "src/dexstation/server/web/overlay/upstream.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/task-cells.mjs",
+      "sha256": "aae5af2393ace5db9e8303548c0fd61323b50d4e6d81f270b1a127ebb53d9a87",
+      "size": 11955,
+      "source": "src/dexstation/server/web/task-cells.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/server/web/teleop-table.mjs",
+      "sha256": "b3094cb59e6a226a63c79a7d1c66317f70151ddea5eacc289c701cb66a4023e4",
+      "size": 6151,
+      "source": "src/dexstation/server/web/teleop-table.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/__init__.py",
+      "sha256": "a2d47a177e3086f5ce61723627a52d6d144361a8bae2ee8e46b2a8cdb795178e",
+      "size": 931,
+      "source": "src/dexstation/task_plugins/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/empty/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/task_plugins/empty/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/empty/data/fixtures.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size": 3,
+      "source": "src/dexstation/task_plugins/empty/data/fixtures.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/empty/data/task.json",
+      "sha256": "0ee1bfb8c9a811a02ad13a514570e6f2451da173f51ec637496eb9c68c7bd235",
+      "size": 386,
+      "source": "src/dexstation/task_plugins/empty/data/task.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/tabletop_cube_grasp/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "src/dexstation/task_plugins/tabletop_cube_grasp/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/tabletop_cube_grasp/data/fixtures.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size": 3,
+      "source": "src/dexstation/task_plugins/tabletop_cube_grasp/data/fixtures.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/tabletop_cube_grasp/data/task.json",
+      "sha256": "762e7a4142026f7c9a22ade3521bed90276477b2b2ac98a56ea8ab5c65286dfa",
+      "size": 2758,
+      "source": "src/dexstation/task_plugins/tabletop_cube_grasp/data/task.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/__init__.py",
+      "sha256": "3a77f506c1dd2e3040990ae852893a0d31f3349c62898ea9533b3a6629b1be80",
+      "size": 574,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/__init__.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/g20_finger_pads.json",
+      "sha256": "c89acbcc885973da0ad309d38e84997d6b1a137eb78ccf3ad9f8f39945145142",
+      "size": 71280,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/g20_finger_pads.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/play_poses.json",
+      "sha256": "c62d0b94fe58848d779feb006c8ffa093fa6fd7271b4318404a4ccfdb98304fb",
+      "size": 20272,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/play_poses.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/xbox_one_s_controls.json",
+      "sha256": "7c8f72ccebe24eb9af07e0cae7c85f96256b5942f9ac7235b04b24f5c5ce3355",
+      "size": 8911,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/assets/xbox_one_s_controls.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot.py",
+      "sha256": "be075500675d6a0c845f396f343c51f22b94c217228c050b87cf5e30f1da2ccb",
+      "size": 403,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_eval.py",
+      "sha256": "e4cf208018c5de8513d54881a878b0ad47864a8891ce9f7d0941694bda0adebf",
+      "size": 11764,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_eval.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_ik.py",
+      "sha256": "ac3fbd4cccf481f25acdf6500033ad1c76a12f82f142a885b6e26105eb288f7b",
+      "size": 10505,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_ik.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_plan.py",
+      "sha256": "5ac997a2362fbd58164e74dbcf9addfe3ab428ce162465d15f1eae4bc3d1cfc9",
+      "size": 11279,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_plan.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_source.py",
+      "sha256": "436e759b19135167654d942f8d4f29dba60561332eac7962a129b9ae83becec1",
+      "size": 34726,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_source.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_tasks.py",
+      "sha256": "ed1edbf9f9ecffa21b24dc0e9a61a63fed33e369d6ea20adf1a9d35f66324a36",
+      "size": 6215,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/autopilot_tasks.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/autopilot/game_combos_v1.json",
+      "sha256": "d5039b11067f7a3fea261e791bc451683275f3406f812368e150bda63174dfac",
+      "size": 12608,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/autopilot/game_combos_v1.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/fixtures.json",
+      "sha256": "61e7b036e7534a075d3b31823d4f14a330528f0da545fed614af31e44cb56761",
+      "size": 49341,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/fixtures.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/task.json",
+      "sha256": "14d6f91ed5ed21164d2b41631c41f2a1237b1cbf078c82dd5bc5cee04e812648",
+      "size": 4519,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/data/task.json"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/evaluate.py",
+      "sha256": "39118e606e0b316d955423871ed4af80b351cfd76ec667d0ca34795e6f50256e",
+      "size": 261,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/evaluate.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/gamepad_types.py",
+      "sha256": "9ca1a150a5d0e5104983c55d4aafaf77195e7f97f274a01707e6fff14c2be160",
+      "size": 2057,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/gamepad_types.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/operations.py",
+      "sha256": "5f77f1271c86551f2f2c579f3f457786dcc3dffa30c6b681e9c1f2b6bebf8911",
+      "size": 3315,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/operations.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/signals.py",
+      "sha256": "4a84fdb3dbede47d7d4f12ead3775666e56c1198ee402cd91f4c1e363bfbfb3e",
+      "size": 4976,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/signals.py"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/ASSET_PROJECT_LICENSE",
+      "sha256": "c3f1449547cb9a72674f153bc8ff104e1a5a96df7339ca3d0db9805b84c91bdb",
+      "size": 1060,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/ASSET_PROJECT_LICENSE"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/UPSTREAM_LICENSE",
+      "sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
+      "size": 1211,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/UPSTREAM_LICENSE"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/autopilot-status.mjs",
+      "sha256": "692624e04dfcb232b1310774fbf9d161cb32f66724513e5059ccca7e5269c76c",
+      "size": 1535,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/autopilot-status.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/canonical_adapter.mjs",
+      "sha256": "110b7e245d89a873bca61cd3988a99ea366d920432bb120c69e5f81213536aaf",
+      "size": 6085,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/canonical_adapter.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/collection.css",
+      "sha256": "07c4b26effc5375f93d019aeee1c79986bfcbb4749a5cb835d16e0803494b09c",
+      "size": 10320,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/collection.css"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/IBM-Plex-LICENSE.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "size": 4456,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/IBM-Plex-LICENSE.txt"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/IBMPlexSansCondensed-Regular.woff2",
+      "sha256": "a71a56e516751883cb7877112d39f9c13b92c2dc15caaf00277b7f9d941d673a",
+      "size": 63228,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/IBMPlexSansCondensed-Regular.woff2"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/JetBrainsMono-OFL.txt",
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
+      "size": 4399,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/JetBrainsMono-OFL.txt"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/JetBrainsMono-Regular.woff2",
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+      "size": 92380,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/fonts/JetBrainsMono-Regular.woff2"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-input-sources.js",
+      "sha256": "dd96eeccffcda715f18de5191e364cae24b057ab74fbf6e26c6072b3e17eb048",
+      "size": 17660,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-input-sources.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-overlay.html",
+      "sha256": "1e63fa68c0674548a4839eff1e049d0d7a2d2bafeb54eee849e8d234bb1f23c7",
+      "size": 1297,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-overlay.html"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-overlay.mjs",
+      "sha256": "1ea04bd8f3d810993febda77de061aa851a9184869b871fe0418ae095e55db40",
+      "size": 831,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/gamepad-overlay.mjs"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-app.js",
+      "sha256": "83c0bdf1035b22d7e29a32215857616933ca982a660c00887a1685e06c64b340",
+      "size": 14914,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-app.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-core.js",
+      "sha256": "f26bd85d1a36dac77119a7b358d59384f2b66b6ee7053a4cfbab5a9eab810bf8",
+      "size": 13040,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-core.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-layout-xbox.js",
+      "sha256": "f4fa2624c610bdb7f5d0cf854f9a82eea0a7f67f254f0c3714e0d4546a8e5bb6",
+      "size": 280,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-layout-xbox.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-renderer-svg.js",
+      "sha256": "b900b7ee9af0430c56f6edc029c6970e4627a9f189fefb8e15c6cd7559e0f236",
+      "size": 52836,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-renderer-svg.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-shell.css",
+      "sha256": "33a8829706c373a382abacc8ed441e3c3b3bb8af3d6e853e1946190708f78cff",
+      "size": 1698,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-shell.css"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-spec.js",
+      "sha256": "917dc03505124fa07f956fc5a675eba4d9af3d7dc0f3a25707f19b5feaa5552d",
+      "size": 12199,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-spec.js"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-theme-research.css",
+      "sha256": "ad4823247ee786abff854358c2d14d02aac5d4d51f0a716b5d7cbed6095f61d4",
+      "size": 452,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/overlay-theme-research.css"
+    },
+    {
+      "executable": false,
+      "path": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/upstream.json",
+      "sha256": "37fd503572bfda8aa507070a36d7330f16c5b03c8a7f24b0c63f9bfc64e4add5",
+      "size": 3870,
+      "source": "src/dexstation/task_plugins/xbox_gamepad_v3_3/web/upstream.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/conftest.py",
+      "sha256": "137509d062381b9c791c4fa2c89f318c0862874c5362d9b18c18f039e18478c0",
+      "size": 1387,
+      "source": "tests/conftest.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/auxiliary_cameras_2ccdaba.json",
+      "sha256": "96c83f1918fba18ce71dbcc489bb3788881ec675d0dd83ba44b68789792dba28",
+      "size": 18971,
+      "source": "tests/fixtures/auxiliary_cameras_2ccdaba.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/README.md",
+      "sha256": "2967fcf4e65c49e319e5252aaf8244a380870b6f07add1c47e098419d98c57f8",
+      "size": 2618,
+      "source": "tests/fixtures/golden/README.md"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/episode/empty.json",
+      "sha256": "f153a170eab8dcde357fb9621e619e101fd373b824dcc8580520cddc019e7f7f",
+      "size": 12191,
+      "source": "tests/fixtures/golden/episode/empty.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/episode/xbox_gamepad_v3_3.json",
+      "sha256": "c82b659eb2d9efcc8a897018b52c4665a38c6fa3c3d78e14e721677d81896bf9",
+      "size": 21652,
+      "source": "tests/fixtures/golden/episode/xbox_gamepad_v3_3.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/import_layers.json",
+      "sha256": "6b42902f25babbcffece2fdcabec3a18119476820f78f1c78e2244fb9ab605f8",
+      "size": 5795,
+      "source": "tests/fixtures/golden/import_layers.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/routes.json",
+      "sha256": "5c8ef9e31f5bf6db3c76f9ed439a63aa1624f836d335d0f839f1a197dd1524e4",
+      "size": 3007,
+      "source": "tests/fixtures/golden/routes.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/scenes/empty.json",
+      "sha256": "65902505167dfbe6e61665cfb93557e26f15fbb3c15ff4f4a1347925f3741149",
+      "size": 117173,
+      "source": "tests/fixtures/golden/scenes/empty.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/scenes/tabletop_cube_grasp.json",
+      "sha256": "a274b64c0b013831af01d3ae7d80867bd9be25e6ba5253011c939dd69e6299b0",
+      "size": 123570,
+      "source": "tests/fixtures/golden/scenes/tabletop_cube_grasp.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/golden/scenes/xbox_gamepad_v3_3.json",
+      "sha256": "9169917ce436ddccdfacf2a0ca83c8cb9d72c892feac91b08b44b6ecf6f5149c",
+      "size": 354281,
+      "source": "tests/fixtures/golden/scenes/xbox_gamepad_v3_3.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/linkerta_equivalence/4dbb537.json.gz",
+      "sha256": "b63472b845b51d30f0ce8cbce79653a1f9468c4857c550922dcc6cf18c99f809",
+      "size": 244545,
+      "source": "tests/fixtures/linkerta_equivalence/4dbb537.json.gz"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/linkerta_equivalence/README.md",
+      "sha256": "a88c7b268dc64218b29ba0f46ec31eb11f5c1cd2101834d9d7fdbf1619e54536",
+      "size": 3563,
+      "source": "tests/fixtures/linkerta_equivalence/README.md"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/motion/sdk_filter_reference.json",
+      "sha256": "a293c4552a44cc15ff339415fb907dc91f5f161e21e333a3594df0602e91d69b",
+      "size": 9350,
+      "source": "tests/fixtures/motion/sdk_filter_reference.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/motion/sdk_frequency_reference.json",
+      "sha256": "3cc0b6bd39c19802c49c6856abb3de5d0f5bad43f87e2ef4a8bbc901d4e1031b",
+      "size": 593,
+      "source": "tests/fixtures/motion/sdk_frequency_reference.json"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/rewrite_equivalence/README.md",
+      "sha256": "415335eb7b06c4c738a9f05c1100e7b32e8b301a3a5d6191da4288e45cc4e82d",
+      "size": 1617,
+      "source": "tests/fixtures/rewrite_equivalence/README.md"
+    },
+    {
+      "executable": false,
+      "path": "tests/fixtures/rewrite_equivalence/f07aa4c.json.gz",
+      "sha256": "6caa80bac88847fd56a4c3fabd374c9398b21952e9130037e2cbff08a704d089",
+      "size": 656038,
+      "source": "tests/fixtures/rewrite_equivalence/f07aa4c.json.gz"
+    },
+    {
+      "executable": false,
+      "path": "tests/helpers.py",
+      "sha256": "01b0de8bc50088137e5370d73a8c44a7f424e808483ad0a7893d7a9a0507f631",
+      "size": 20223,
+      "source": "tests/helpers.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/public_boundary_probe.py",
+      "sha256": "ec6355aa5a376f11685d40eecdebbe56efeae3d5aa244c764787fbfdd04824bf",
+      "size": 4827,
+      "source": "tests/public_boundary_probe.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/session_helpers.py",
+      "sha256": "a6fd1e97ff3225938435626bc9e1e57d308e7276f90a4e44f8375f845fa1c9e0",
+      "size": 978,
+      "source": "tests/session_helpers.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/stop_helpers.py",
+      "sha256": "f5a6792866bbc220baa490361ff63508ad979a772661d219ab37147151105103",
+      "size": 1779,
+      "source": "tests/stop_helpers.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_api_inventory.py",
+      "sha256": "59ce550f8d49edc971af97ccbc6e4646d304f477adf0e2d198001589a038041c",
+      "size": 1068,
+      "source": "tests/test_api_inventory.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_autopilot.py",
+      "sha256": "3e211a3ab5edf25efac25ed59e8ed0b2be50a29dbf1b0ee9997045562a3cc97d",
+      "size": 11486,
+      "source": "tests/test_autopilot.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_autopilot_controller.py",
+      "sha256": "ca8d20cd98bb1b29d3bf683d06f7a590f84bfb1e40177883cf3743207d16f4d6",
+      "size": 1333,
+      "source": "tests/test_autopilot_controller.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_auxiliary_framing.py",
+      "sha256": "5ec04569438105a4ca4b17fc56b00f53ef86d2dd0c4c706871458cb1113e7302",
+      "size": 9904,
+      "source": "tests/test_auxiliary_framing.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_auxiliary_layout.mjs",
+      "sha256": "9680fb837cab75d91223c9e82a09717feac995e9f3f1e8109cd7d7fcc723597f",
+      "size": 2913,
+      "source": "tests/test_auxiliary_layout.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_auxiliary_views.py",
+      "sha256": "d9b3322dfe148d739b2189438854e351d207901e4e4d9beac8886a7ec2d6abd7",
+      "size": 5160,
+      "source": "tests/test_auxiliary_views.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_calibration_single_copy.py",
+      "sha256": "9f51154b1941fc95eb7336ffd9f7688500a11742bae1dbba2fd36b6fc623b92f",
+      "size": 767,
+      "source": "tests/test_calibration_single_copy.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_camera_presentation.py",
+      "sha256": "a10dd8c3b54ab7e9c2617e4d5ac6547391a7dc691e3e844d4e4aca9c55410109",
+      "size": 1670,
+      "source": "tests/test_camera_presentation.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection.py",
+      "sha256": "79931ec8382bc111ef3c143b94fe015fcee8f0c758ec1c007c2d9b2fdcc80c72",
+      "size": 11140,
+      "source": "tests/test_collection.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection_api.py",
+      "sha256": "194278eb8c03bf79ab8563a1f16855142feb355322e3dac77aa64810f8b05a86",
+      "size": 16334,
+      "source": "tests/test_collection_api.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection_ctl.py",
+      "sha256": "920d09d0be72f9bcdec6f2f949367be46a4c3027e5299eb60f35ad12d75db1ba",
+      "size": 6424,
+      "source": "tests/test_collection_ctl.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection_ctl_isolation.py",
+      "sha256": "4a90ddc150bf7af8cbfbf935b1c957ab6fca2816f211be249f437db5eaf0a6b2",
+      "size": 5291,
+      "source": "tests/test_collection_ctl_isolation.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection_snapshots.py",
+      "sha256": "566d254b7a0a9fc894409d187b366922634b570ff0ec37f45bc0bfaed1e0227d",
+      "size": 4694,
+      "source": "tests/test_collection_snapshots.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_collection_web.py",
+      "sha256": "81028d7ddfa465ea96365ddc2d364a1eccad1235e8955e877e5894982fff1e22",
+      "size": 12168,
+      "source": "tests/test_collection_web.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_contract_boundaries.py",
+      "sha256": "628c815c24ab27c4d7dc316367d01fc67206d541bf447340db5900cf7c0bad7d",
+      "size": 4804,
+      "source": "tests/test_contract_boundaries.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_contracts.py",
+      "sha256": "92725d5d736fc937416e964e598da0ac2d51a2a69dfb3566184df14abdf04646",
+      "size": 14793,
+      "source": "tests/test_contracts.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_derive_ar5_08_arms.py",
+      "sha256": "03eaf4c9f29565007c849b4507ea25f8769e6fcc955aac42467d12ca6db49d2b",
+      "size": 2135,
+      "source": "tests/test_derive_ar5_08_arms.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_fixture_collision.py",
+      "sha256": "547ddd091edab525bccdae296b352a8633a8150eeebfef4c016f6512ec4d4e96",
+      "size": 7103,
+      "source": "tests/test_fixture_collision.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_frozen_comparison.py",
+      "sha256": "74e78a0985bb198c0c9b3a50c152ee70d431d9fa8706669ba0a0e397b5ea9840",
+      "size": 1922,
+      "source": "tests/test_frozen_comparison.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_g20_station_inverse.py",
+      "sha256": "c62f1e6bf359f22cff2346d617b471ad19ca6bd22cbf2bfdbcc14cc7023a3ffa",
+      "size": 2624,
+      "source": "tests/test_g20_station_inverse.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_glove_overlay.py",
+      "sha256": "8f1d87115a2526291c9ea3f68336685a7902a4b5e4105d085ce10f42d6c3297e",
+      "size": 7612,
+      "source": "tests/test_glove_overlay.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_golden_episode.py",
+      "sha256": "340859b5bdc3c91aff09caf93cdaf4a5b60edffb008d2c4dab148d3578a28b4b",
+      "size": 4036,
+      "source": "tests/test_golden_episode.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_golden_scenes.py",
+      "sha256": "d48617aa5c28e147688d2f3cdeffa5abb8131d142a1a9c74b9432c0e19ececc0",
+      "size": 2713,
+      "source": "tests/test_golden_scenes.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_hardware_lock.py",
+      "sha256": "f270a770682a17878c205ada3ed1796863cefdfa8835c46c69bd6fd47a90db76",
+      "size": 5949,
+      "source": "tests/test_hardware_lock.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_import_layers.py",
+      "sha256": "106265913038b415e06fd0921077615db1488ee0779ac834f35e0726f38b0d0f",
+      "size": 4502,
+      "source": "tests/test_import_layers.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_input_chain_api.py",
+      "sha256": "db2e21469180c160e9d8d7a5dc18aeaeaa6376e5e270473c991bce1fd37b9630",
+      "size": 6474,
+      "source": "tests/test_input_chain_api.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_input_example_services.py",
+      "sha256": "b6685e3765b1f9224835a666859c70505dafa9a958a5ccc082c7a61ba82987c6",
+      "size": 1833,
+      "source": "tests/test_input_example_services.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_input_lamps.mjs",
+      "sha256": "ee5eb406369dbd6aece159e7e38b77ba60581663dc371e97c177df39658d4b85",
+      "size": 5769,
+      "source": "tests/test_input_lamps.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_joint_motion.py",
+      "sha256": "1e0cb0187ea422c89c8a2148da2e782598d4d355e8a0dba3a1b7bb3152051821",
+      "size": 10387,
+      "source": "tests/test_joint_motion.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_kinematics.py",
+      "sha256": "5e332f0d0a1e55cb24fb2da1c98ae2d4a9436bf76840de4e7e6c071acc109955",
+      "size": 2406,
+      "source": "tests/test_kinematics.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_lerobot_export.py",
+      "sha256": "f969eb76b8a514e57669e2f69993babf359936397839bfc22b7aaead395f5325",
+      "size": 2037,
+      "source": "tests/test_lerobot_export.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_linkerta_reader.py",
+      "sha256": "ace4f41af490329811c3d288b7c84aa10e52c9aeffaaf86eb6f8828b648c3758",
+      "size": 9239,
+      "source": "tests/test_linkerta_reader.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_linkerta_rewrite_equivalence.py",
+      "sha256": "f3cee74da0900d6d5e17244074efce32e282f84bfac0e511eb7eeb810d38550e",
+      "size": 798,
+      "source": "tests/test_linkerta_rewrite_equivalence.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_maintenance.py",
+      "sha256": "6f20bfe3ccbe4d09492a2065a6c0cf69ab1709b17ad6206eb91bf8f70cb2bf88",
+      "size": 1449,
+      "source": "tests/test_maintenance.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_master_mapping.py",
+      "sha256": "866338b9396748b341ad0b6e1f5a8e237cb99d97a2dbefa054324076362d3a4a",
+      "size": 28805,
+      "source": "tests/test_master_mapping.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_motion_timing.py",
+      "sha256": "7be80e6f6dcb7892888a1c25c64cde5ddc52b716ad673f7fcc398628d81da682",
+      "size": 12195,
+      "source": "tests/test_motion_timing.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_mount_geometry.py",
+      "sha256": "e82dab6790b7b0cbe58a758201b721cfaac6861ea03babd603519278a73a0635",
+      "size": 1656,
+      "source": "tests/test_mount_geometry.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_mujoco_visuals.py",
+      "sha256": "10c3266c8ad968714e237301b04d233347733f3fb9410477684d3605d2cc182e",
+      "size": 1173,
+      "source": "tests/test_mujoco_visuals.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_node_scripts.py",
+      "sha256": "cf946b0382521a82cb07778f5aaf9f16166c293acd7827f022c7fa0cd0c7d038",
+      "size": 789,
+      "source": "tests/test_node_scripts.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_operator_collection.py",
+      "sha256": "045abb8e0716804fedb347e3965ac99e798c24fce25d9b9337264aa70d8d2e72",
+      "size": 5165,
+      "source": "tests/test_operator_collection.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_operator_stream_shutdown.py",
+      "sha256": "9d03ca25a604a1b91aa275f59d80fe165a6b2550d7dd0da16a3b23c6822c59e5",
+      "size": 2789,
+      "source": "tests/test_operator_stream_shutdown.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_pane_weights.py",
+      "sha256": "2ca24bad81e58e246570b6534ea671293898396956cb28b851bdeb5b784f66ca",
+      "size": 2889,
+      "source": "tests/test_pane_weights.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_profiles.py",
+      "sha256": "d3de08c291126c4e471ec6b276d6c84d8c2829259e8e412354e9d6efe1e211bc",
+      "size": 11393,
+      "source": "tests/test_profiles.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_public_private_boundary.py",
+      "sha256": "5ac41ddc149092c5e878c8b04ac0fbb2846aa19e2f86d7c973390d66c81dd771",
+      "size": 1180,
+      "source": "tests/test_public_private_boundary.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_realtime_input.py",
+      "sha256": "60749b8690f0eb123ae17e28539939ad095a55c25f60b9889c6bcaf999efced5",
+      "size": 12141,
+      "source": "tests/test_realtime_input.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_recording_layers.py",
+      "sha256": "eee4934770efeac2a275b7d96e61d1a80b5c19b99c47c9f79845b42f5d292454",
+      "size": 16570,
+      "source": "tests/test_recording_layers.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_registries.py",
+      "sha256": "ff66fcb0a918aa0c296f9e4739ee9d41ebbd89b44625b6d44c3ec810555c180b",
+      "size": 7672,
+      "source": "tests/test_registries.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_rehash_workbench.py",
+      "sha256": "765a66b0f73332541f1af0ff56449697fe159704180cdee5af3b3c51bbeaaa04",
+      "size": 2045,
+      "source": "tests/test_rehash_workbench.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_retarget_anatomical.py",
+      "sha256": "e12679b9445eaac0b2468d2a7014dba8468e0883d9ee38582d50272f90cde7f3",
+      "size": 4390,
+      "source": "tests/test_retarget_anatomical.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_rewrite_equivalence.py",
+      "sha256": "da2986d7cc290f4b0a59a3bed352ac2f001cabf7eb7f35719fb8991f625c5a4c",
+      "size": 4135,
+      "source": "tests/test_rewrite_equivalence.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_runtime_logs.py",
+      "sha256": "597db32d1a081994bdf2d87e6d42a900ceb4c1eac7743362858e8b7341b5e8ae",
+      "size": 4629,
+      "source": "tests/test_runtime_logs.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_scene_export.py",
+      "sha256": "eed922eab052e04f84c13a6ffd790cbb1d0dd9db4c5c38c72eb8088fe846d587",
+      "size": 20409,
+      "source": "tests/test_scene_export.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_scene_snapshot_render.py",
+      "sha256": "38a9ec60459575a7dcea2ec402b063ce00a9e18af0b23e59e4176367b9df8d14",
+      "size": 6785,
+      "source": "tests/test_scene_snapshot_render.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_session_compose.py",
+      "sha256": "8eaf511718b40ebe07047bd7464c8a13d6f8ff9169cb448aee29dd0ea294d185",
+      "size": 33220,
+      "source": "tests/test_session_compose.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_session_event_log.py",
+      "sha256": "12ff44cbbe0fe60133e153c6329098c94af932c7be3d5000a47df21f3e232d9b",
+      "size": 3270,
+      "source": "tests/test_session_event_log.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_signals.py",
+      "sha256": "d0fb5debb9d507742328270e42bb37aff7da664dcab2839f79fdd3b7a1683213",
+      "size": 3166,
+      "source": "tests/test_signals.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_site_config.py",
+      "sha256": "077b1b6e715e96ae4bfd5d7513e7c186387579b58ec93f74faff2bbbba85b750",
+      "size": 7045,
+      "source": "tests/test_site_config.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_snapshot_api.py",
+      "sha256": "f971a76fc354df480c9396ba0d936e3149083f3bd3b5cdbaa948512808c8b2f7",
+      "size": 8103,
+      "source": "tests/test_snapshot_api.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_standalone.py",
+      "sha256": "7baca1b0840309f475e60f0a5b06cbe7e903a2150379538752e91e9a81096184",
+      "size": 1231,
+      "source": "tests/test_standalone.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_takeover.py",
+      "sha256": "ccb970c70d18ea3f85492683d7cff95fc1213cacd608ea0190c97af48e7116df",
+      "size": 4005,
+      "source": "tests/test_takeover.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_task_cells.mjs",
+      "sha256": "80325056bf9e79c2b7099e7fda24f20d30ec65347485603e5a5314701b511f52",
+      "size": 12582,
+      "source": "tests/test_task_cells.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_task_objects.py",
+      "sha256": "834526e097870e885f6ebc084f1cde1c86ef181ce05decad716ff3d9b5e2b85c",
+      "size": 11644,
+      "source": "tests/test_task_objects.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_task_plugins.py",
+      "sha256": "77f8bbd833291e7f03f4eaad709a0b028bfee014c58cefdc8b5c6e80b62089a3",
+      "size": 12784,
+      "source": "tests/test_task_plugins.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_teleop_calibration.py",
+      "sha256": "50db848d6b5544c40c407e865fae70a0321ba18e456b06e0e3837cb421a1d6e5",
+      "size": 6892,
+      "source": "tests/test_teleop_calibration.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_teleop_status.py",
+      "sha256": "5dcef25ab1162160df8af3753ddfdb6f4fb4d3e007581234b86d22807697397f",
+      "size": 5361,
+      "source": "tests/test_teleop_status.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_teleop_table.mjs",
+      "sha256": "fbf2480f7e9d8792f5d3c2be3a52d5606b9b102bab8bb8306d70ec2118ba1691",
+      "size": 7959,
+      "source": "tests/test_teleop_table.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_type_registries.py",
+      "sha256": "40e08eef59222fced048a8a301d9c51031846d45c54d25aa3d4252bcae6d8a28",
+      "size": 8294,
+      "source": "tests/test_type_registries.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_vendor_bench.py",
+      "sha256": "e0dae64b2c54cf200e8313238a003f7ddce84400f95d85d55073abcc0f8f84dc",
+      "size": 1072,
+      "source": "tests/test_vendor_bench.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_web_glove_audio.mjs",
+      "sha256": "c0b88c968416e23db018d43b1290c114ad992b69bc9bee05631768cc69aa2166",
+      "size": 2744,
+      "source": "tests/test_web_glove_audio.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_web_rtf.mjs",
+      "sha256": "b1994ec404531531f2d7d026db7c9ff58cec46f1a6cbed65657d4488673de3ff",
+      "size": 977,
+      "source": "tests/test_web_rtf.mjs"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workspace_limits.py",
+      "sha256": "604a0d0231b2e28c4ee7ee140e882fff15f4f7657563f55b769abff0ce75e577",
+      "size": 28500,
+      "source": "tests/test_workspace_limits.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_g20_mapping.py",
+      "sha256": "01fd9d78bf927b556b319114c80ec431c22b6cdd4c841b2d82e717396bbe897b",
+      "size": 2360,
+      "source": "tests/test_workstation_g20_mapping.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_protocol_commands.py",
+      "sha256": "392bbdccb8daf9f0b0686fc12f305f46201f7ddecb3af76672d18e3695c41b03",
+      "size": 2639,
+      "source": "tests/test_workstation_protocol_commands.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_render_review.py",
+      "sha256": "186b6cf3f0d21ccaa1b525fce8ed1aff2a402be367603c27868f44b2aa544c00",
+      "size": 1040,
+      "source": "tests/test_workstation_render_review.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_sources.py",
+      "sha256": "e091f10f9385563573e1a8ec6cba79d4b4e0783e99560083b8100a4a9a0d1aca",
+      "size": 2349,
+      "source": "tests/test_workstation_sources.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_spec.py",
+      "sha256": "efe91a644d500fce9059dd0f9c59e457982a85e1facb7bdafa53612311d28675",
+      "size": 2716,
+      "source": "tests/test_workstation_spec.py"
+    },
+    {
+      "executable": false,
+      "path": "tests/test_workstation_v4.py",
+      "sha256": "f9406a964d9cb6982c002ee41c59ae11749ccf53e416cab6632c0ae878207f31",
+      "size": 7233,
+      "source": "tests/test_workstation_v4.py"
+    }
+  ],
+  "format": 1,
+  "kind": "public",
+  "manifest_note": "This manifest inventories copied files; it excludes itself and preexisting files.",
+  "source_commit": "62e56c98ed499063dfc1ba61e8fe836e40a4ad73"
+}

@@ -1,0 +1,854 @@
+{
+  "source": {
+    "repository": "https://github.com/linker-bot/linker-sim-assets",
+    "revision": "d0224b8da58802fe7cb2e35dcc9771693c4543b6",
+    "workstation": "src/linker_robot_assets/assets/workstations/ar5_08_l25_bench_bimanual",
+    "table": "src/linker_robot_assets/assets/components/bases/bench_table/variants/default",
+    "sha256": {
+      "bench_table/base.urdf": "003d04da8f4ddf9516e1cd6967afac0d4e726cceccbb24e785d3f6631a9a328c",
+      "bench_table/collision_manifest.json": "5ae019706249c97bbbdc9d769f3131634577d08a23c044cce24ab656bfaa6846",
+      "bench_table/meshes/collision/bench_table_caster_front_left_01.stl": "e68ea2fd09f834ff8a4df97ee32d66401a401a16c5ba7f3beeeb529b95728ae5",
+      "bench_table/meshes/collision/bench_table_caster_front_left_02.stl": "5cc69afc821842dafe1690d23d8b430dc42f86823c3a56a8f3e4e2b6a14b293d",
+      "bench_table/meshes/collision/bench_table_caster_front_left_03.stl": "8eb5b032830cccd129b2bdadd1cbdce8965a54e9e531fe73675c155d7a5c3a5f",
+      "bench_table/meshes/collision/bench_table_caster_front_left_04.stl": "4102926abb05314724c7fc37abeac9311138dc8440cc427a811bcd416f0f2324",
+      "bench_table/meshes/collision/bench_table_caster_front_right_01.stl": "cd0747bed71fc66280ee3592c5dc4e2b47ce6b12ec084a5af299db0d1d492bc2",
+      "bench_table/meshes/collision/bench_table_caster_front_right_02.stl": "a9a13ebd023d383b68b05d03c9e7fc44edabc165059bd4c78d5d25875b29c29b",
+      "bench_table/meshes/collision/bench_table_caster_front_right_03.stl": "14b243adfe8d5ec91f0fd43ce3704542aa6374b6d46feecf731d820f125547be",
+      "bench_table/meshes/collision/bench_table_caster_front_right_04.stl": "097fc7225468c06e1d1502b01bc26b4e8171f5cb470a9b7b0dbc468eba2c870c",
+      "bench_table/meshes/collision/bench_table_caster_rear_left_01.stl": "bb5d51bc6cd3b6149ca51811afb21cc8f5ef07e1e1492f8952d3ec213e3e64c9",
+      "bench_table/meshes/collision/bench_table_caster_rear_left_02.stl": "1b1e94a9c38a65cd0638c6945fe6f55dfb553e6f0ef1fd6d3a0035fd224c65c3",
+      "bench_table/meshes/collision/bench_table_caster_rear_left_03.stl": "e70e1a69a454ee0df6b004ed7e12849826bdb19dedefa089282c721816e02c04",
+      "bench_table/meshes/collision/bench_table_caster_rear_left_04.stl": "b40ec19139841f802c375e14c8e4ab41cb7a32c224b11b4d07fc653199c2bc8a",
+      "bench_table/meshes/collision/bench_table_caster_rear_right_01.stl": "b140a6fc0b002183b591079c108ab6a1b5631f41daa6fc36713769f6822a11e3",
+      "bench_table/meshes/collision/bench_table_caster_rear_right_02.stl": "354ea2d490bc59f90c5da81317baee4fae69805f1a27bf28c591c2498ae4f72f",
+      "bench_table/meshes/collision/bench_table_caster_rear_right_03.stl": "1a9822fe7d9c45c3f0ecaef8183e5b69f1b3593c2d7b33087746f84464569605",
+      "bench_table/meshes/collision/bench_table_caster_rear_right_04.stl": "b0e89ca465803403daf6143b61a60fbf5291087d02ef6931f0081abcff4e8599",
+      "bench_table/meshes/collision/bench_table_front_left_leg_02.stl": "32e36c4fec8ef704e51377c39f4ff2de78c98802270d1359105b031f43f4515e",
+      "bench_table/meshes/collision/bench_table_front_panel.stl": "74180e22f8d18dcaeb613bfef6f57e2abe82b7721c73b1b4f47088b6b01711be",
+      "bench_table/meshes/collision/bench_table_front_right_leg_02.stl": "b41c3d904a4082f41d01e6fa213c1c5cfe821c36d3fb9d76b5bb3c0fa19c4acd",
+      "bench_table/meshes/collision/bench_table_mount_crossbar.stl": "9de07d60872a5e1cba09e7d7cfa911fc41f533bce234f7902a7a72cbad3a9f67",
+      "bench_table/meshes/collision/bench_table_mount_left.stl": "8dd9b21973c72b953cb4839d0f782dc6573824c7713bfad083b784f90cdc88ca",
+      "bench_table/meshes/collision/bench_table_mount_right.stl": "76e592fe09bb73573628aa19233433d45a506fa6e59c039582ae81ce50fdbbae",
+      "bench_table/meshes/collision/bench_table_rear_left_leg_02.stl": "fbae6fba3988789d80979b1aa84630a57ebc583b5a48be3e32b1d028fa8b73c6",
+      "bench_table/meshes/collision/bench_table_rear_right_leg_02.stl": "1f7b5c9cb1b342a15056f476d283ecc43b0b1d86a485bfabba1031d29d129087",
+      "bench_table/meshes/collision/bench_table_shelf_left.stl": "9f936dabbdce1706bf3e468968fcec4f81e0d835e83701ed44c8ecaf823051ac",
+      "bench_table/meshes/collision/bench_table_shelf_right.stl": "528eaf05184f6b95bb521f14e7167219b06e11f5686e2a70d21bbc81e5ab0182",
+      "bench_table/meshes/collision/bench_table_side_panel_left.stl": "0d44fd619d1030ecfbaa878cbca801280b44e8405d72e785391fef56eb879e0d",
+      "bench_table/meshes/collision/bench_table_side_panel_right.stl": "9a88658948e44661e46d426411d8f94a41d9534d964045f9ea1c58b44821cb7f",
+      "bench_table/meshes/collision/bench_table_tabletop.stl": "5f823a4a8b8d94fa253336251e7346d7cb3b86d1e3fb64de8c8703949770daa2",
+      "workstation/workstation.urdf": "91033ca89f828df9551cc7e36fdb21bfa37d715baa0e97af1098fff138e60289"
+    }
+  },
+  "tabletop": {
+    "center": [
+      0.405914966,
+      0.625200016,
+      0.759654999
+    ],
+    "half_extents": [
+      0.312499996,
+      0.625000017,
+      0.007499993
+    ]
+  },
+  "parts": [
+    {
+      "name": "bench_table_tabletop",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_tabletop.stl"
+    },
+    {
+      "name": "bench_table_arm_column",
+      "type": "box",
+      "pose": [
+        0.063415006,
+        0.625199974,
+        0.697155043,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.029999971,
+        0.060000062,
+        0.540000036
+      ]
+    },
+    {
+      "name": "bench_table_front_upper_rail",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        0.625200004,
+        0.722155005,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.600000053,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_rear_upper_rail",
+      "type": "box",
+      "pose": [
+        0.123414978,
+        0.625200004,
+        0.722155005,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.600000053,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_rear_lower_rail",
+      "type": "box",
+      "pose": [
+        0.123414978,
+        0.625199977,
+        0.187154993,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.540000018,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_front_lower_rail",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        0.625199977,
+        0.187154993,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.540000018,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_front_panel",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_front_panel.stl"
+    },
+    {
+      "name": "bench_table_front_left_leg_01",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        1.195200026,
+        0.373905001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.030000031,
+        0.318250002
+      ]
+    },
+    {
+      "name": "bench_table_front_left_leg_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_front_left_leg_02.stl"
+    },
+    {
+      "name": "bench_table_rear_left_leg_01",
+      "type": "box",
+      "pose": [
+        0.123414978,
+        1.195200026,
+        0.373905001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.030000031,
+        0.318250002
+      ]
+    },
+    {
+      "name": "bench_table_rear_left_leg_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_rear_left_leg_02.stl"
+    },
+    {
+      "name": "bench_table_front_right_leg_01",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        0.055199997,
+        0.373905001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.029999999,
+        0.318250002
+      ]
+    },
+    {
+      "name": "bench_table_front_right_leg_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_front_right_leg_02.stl"
+    },
+    {
+      "name": "bench_table_rear_right_leg_01",
+      "type": "box",
+      "pose": [
+        0.123414978,
+        0.055199997,
+        0.373905001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.029999999,
+        0.318250002
+      ]
+    },
+    {
+      "name": "bench_table_rear_right_leg_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_rear_right_leg_02.stl"
+    },
+    {
+      "name": "bench_table_shelf_left",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_shelf_left.stl"
+    },
+    {
+      "name": "bench_table_shelf_right",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_shelf_right.stl"
+    },
+    {
+      "name": "bench_table_side_panel_right",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_side_panel_right.stl"
+    },
+    {
+      "name": "bench_table_side_panel_left",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_side_panel_left.stl"
+    },
+    {
+      "name": "bench_table_upper_rail_left",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        1.195200026,
+        0.722155005,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.030000031,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_lower_rail_left",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        1.195200026,
+        0.187154993,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.030000031,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_upper_rail_right",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        0.055199998,
+        0.722155005,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.029999998,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_lower_rail_right",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        0.055199998,
+        0.187154993,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.029999998,
+        0.030000001
+      ]
+    },
+    {
+      "name": "bench_table_shelf_rail_left",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        0.79520002,
+        0.202154994,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.030000001,
+        0.015000001
+      ]
+    },
+    {
+      "name": "bench_table_shelf_rail_right",
+      "type": "box",
+      "pose": [
+        0.393414989,
+        0.455199987,
+        0.202154994,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.239999995,
+        0.030000001,
+        0.015000001
+      ]
+    },
+    {
+      "name": "bench_table_mount_crossbar",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_mount_crossbar.stl"
+    },
+    {
+      "name": "bench_table_mount_right",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_mount_right.stl"
+    },
+    {
+      "name": "bench_table_mount_left",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_mount_left.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_left_01",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_left_01.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_left_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_left_02.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_left_03",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_left_03.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_left_04",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_left_04.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_left_05",
+      "type": "box",
+      "pose": [
+        0.123414982,
+        0.985200018,
+        0.151405007,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.029999997,
+        0.030000001,
+        0.00575
+      ]
+    },
+    {
+      "name": "bench_table_caster_rear_right_01",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_right_01.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_right_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_right_02.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_right_03",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_right_03.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_right_04",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_rear_right_04.stl"
+    },
+    {
+      "name": "bench_table_caster_rear_right_05",
+      "type": "box",
+      "pose": [
+        0.123414982,
+        0.265199997,
+        0.151405007,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.029999997,
+        0.029999994,
+        0.00575
+      ]
+    },
+    {
+      "name": "bench_table_caster_front_right_01",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_right_01.stl"
+    },
+    {
+      "name": "bench_table_caster_front_right_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_right_02.stl"
+    },
+    {
+      "name": "bench_table_caster_front_right_03",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_right_03.stl"
+    },
+    {
+      "name": "bench_table_caster_front_right_04",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_right_04.stl"
+    },
+    {
+      "name": "bench_table_caster_front_right_05",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        0.265199997,
+        0.151405007,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.029999994,
+        0.00575
+      ]
+    },
+    {
+      "name": "bench_table_caster_front_left_01",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_left_01.stl"
+    },
+    {
+      "name": "bench_table_caster_front_left_02",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_left_02.stl"
+    },
+    {
+      "name": "bench_table_caster_front_left_03",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_left_03.stl"
+    },
+    {
+      "name": "bench_table_caster_front_left_04",
+      "type": "mesh",
+      "pose": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mesh": "meshes/collision/bench_table_caster_front_left_04.stl"
+    },
+    {
+      "name": "bench_table_caster_front_left_05",
+      "type": "box",
+      "pose": [
+        0.663414985,
+        0.985200018,
+        0.151405007,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "half_extents": [
+        0.030000001,
+        0.030000001,
+        0.00575
+      ]
+    }
+  ],
+  "arms": {
+    "left": {
+      "base_link": "AR5_5_08L_W4C4A6_base",
+      "base_pose": [
+        0.0637,
+        0.719,
+        1.267,
+        0.499999998,
+        -0.500000002,
+        0.5,
+        0.5
+      ]
+    },
+    "right": {
+      "base_link": "AR5_5_08R_W4C4A6_base",
+      "base_pose": [
+        0.0637,
+        0.536,
+        1.267,
+        0.499999998,
+        0.500000002,
+        0.5,
+        -0.5
+      ]
+    }
+  },
+  "hands": {
+    "left": {
+      "mount": [
+        0.0,
+        0.0,
+        0.0205,
+        0.707105483,
+        0.0,
+        -0.0,
+        0.70710808
+      ]
+    },
+    "right": {
+      "mount": [
+        0.0,
+        0.0,
+        0.0205,
+        0.707105483,
+        -0.0,
+        -0.0,
+        -0.70710808
+      ]
+    }
+  }
+}

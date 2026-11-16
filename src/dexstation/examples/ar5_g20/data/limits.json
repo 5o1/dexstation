@@ -1,0 +1,96 @@
+{
+  "schema": "dexhand-workspace-limits-v1",
+  "revision": "2026-11-14-wp5",
+  "spatial": {
+    "enabled": true,
+    "checked_geometry": {
+      "left": {
+        "arm": "collision_surface",
+        "hand": "actual_joint_collision_surface",
+        "max_spacing_m": 0.01
+      },
+      "right": {
+        "arm": "collision_surface",
+        "hand": "actual_joint_collision_surface",
+        "max_spacing_m": 0.01
+      }
+    },
+    "obstacles": [
+      "table",
+      "station_table_frame_*",
+      "station_column*",
+      "station_floor"
+    ],
+    "margin_m": 0.02
+  },
+  "angular": {
+    "enabled": true,
+    "origin": "shoulder_center",
+    "points": [
+      "J3",
+      "J4",
+      "J5",
+      "J6",
+      "J7",
+      "flange"
+    ],
+    "exempt": {
+      "r_min_m": 0.1,
+      "h_min_m": 0.05
+    },
+    "azimuth": {
+      "range": "table_corners",
+      "margin_deg": 1
+    },
+    "elevation": {
+      "max_up_deg": 45.0,
+      "margin_deg": 1
+    }
+  },
+  "joint": {
+    "controller_soft_limits": {
+      "left": {
+        "lower_deg": [
+          -178,
+          -120,
+          -178,
+          -60,
+          -178,
+          -60,
+          -60
+        ],
+        "upper_deg": [
+          178,
+          120,
+          178,
+          145,
+          178,
+          60,
+          60
+        ]
+      },
+      "right": {
+        "lower_deg": [
+          -178,
+          -120,
+          -178,
+          -60,
+          -178,
+          -60,
+          -60
+        ],
+        "upper_deg": [
+          178,
+          120,
+          178,
+          145,
+          178,
+          60,
+          60
+        ]
+      }
+    },
+    "ik_branch": null
+  },
+  "workbench": "ar5_08_g20_bench_bimanual"
+}

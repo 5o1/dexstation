@@ -1,0 +1,29 @@
+{
+  "schema": "dexhand-teleop-calibration-v2",
+  "arm_base_links": {
+    "left": [
+      "AR5_left_5_08L_W4C4A6_base",
+      "AR5_left_5_08R_W4C4A6_base"
+    ],
+    "right": [
+      "AR5_right_5_08R_W4C4A6_base"
+    ]
+  },
+  "note": "Teleop was calibrated on reference_base_orientation_wxyz. Only these physical reference mount orientations are stored; runtime J1 offsets are derived from the current scene geometry, independent of its name. Relative z-axis tilt above 0.01 deg requires recalibration. Calibration covers only the explicitly listed arm_base_links (verified 08-family base conventions); other arm models require recalibration. Missing arms receive zero offsets.",
+  "reference_base_orientation_wxyz": {
+    "left": [
+      0.707106779772,
+      -0.707106782601,
+      -1.414e-09,
+      1.414e-09
+    ],
+    "right": [
+      0.701057383432,
+      0.701057385868,
+      -0.092295957228,
+      0.092295954055
+    ]
+  },
+  "reference_description": "linker-sim-assets d0224b8d vendor mount rotated -90 deg (left) / +105 deg (right) about base z: the original workstation values teleop was calibrated on",
+  "evidence": "Teleop was calibrated on the original workstation vendor mounts rotated -90 / +105 deg about base z. configs/workcell/vendor_bench_overrides.json records the measured -84.10 / +85.85 deg mounts. Comparing scene orientations to these reference orientations derives J1 corrections (-5.90 / +19.15 deg for the measured-mount scene); tests/test_teleop_calibration.py verifies that corrected mapped commands preserve world poses."
+}

@@ -1,0 +1,925 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dexhand.example/schemas/site.schema.json",
+  "type": "object",
+  "description": "Private site configuration.",
+  "properties": {
+    "workspace": {
+      "type": "string",
+      "default": "",
+      "description": "Workspace path; an empty value selects the existing layout fallback.",
+      "x-read-by": [
+        "site.workspace_root"
+      ]
+    },
+    "conda_executable": {
+      "type": "string",
+      "default": "conda",
+      "description": "Conda executable exported to station launchers.",
+      "x-read-by": [
+        "site.main --shell"
+      ]
+    },
+    "simulation": {
+      "type": "object",
+      "description": "simulation settings.",
+      "properties": {
+        "python": {
+          "type": "string",
+          "default": "",
+          "description": "Simulation interpreter path; empty selects the workspace interpreter.",
+          "x-read-by": [
+            "site.simulation_python"
+          ]
+        },
+        "resources": {
+          "type": "string",
+          "default": "",
+          "description": "Gamepad physics resources path; empty selects the workspace resources.",
+          "x-read-by": [
+            "site.gamepad_resources"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "compute": {
+      "type": "object",
+      "description": "compute settings.",
+      "properties": {
+        "ssh_profile": {
+          "type": "string",
+          "default": "",
+          "description": "Remote compute SSH profile exported by the shell resolver.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "remote_code": {
+          "type": "string",
+          "default": "",
+          "description": "Remote checkout path exported by the shell resolver.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "python": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "cuda_visible_devices": {
+          "type": "string",
+          "default": "",
+          "description": "CUDA device mask applied when no process mask is already set.",
+          "x-read-by": [
+            "site.configure_runtime"
+          ]
+        },
+        "render_device": {
+          "type": "string",
+          "default": "",
+          "description": "Renderer device selector exported to child processes.",
+          "x-read-by": [
+            "site.configure_runtime"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "station": {
+      "type": "object",
+      "description": "station settings.",
+      "properties": {
+        "ssh_profile": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "home": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "workspace": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "data_root": {
+          "type": "string",
+          "default": "",
+          "description": "Station data root; empty selects the existing layout fallback.",
+          "x-read-by": [
+            "site.data_root",
+            "camera_panel",
+            "collection_server"
+          ]
+        },
+        "camera_root": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "estop_script": {
+          "type": "string",
+          "default": "",
+          "description": "Station emergency-stop script path shown by the console.",
+          "x-read-by": [
+            "site.estop_script"
+          ]
+        },
+        "ros_setup": {
+          "type": "string",
+          "default": "/opt/ros/humble/setup.bash",
+          "description": "ROS environment setup script for input and camera processes.",
+          "x-read-by": [
+            "input_chain",
+            "camera_panel",
+            "scripts/research/gamepad_vision/gamepad_pose_capture.py",
+            "site.main --shell",
+            "scripts/station/start_collection_server.sh"
+          ]
+        },
+        "python": {
+          "type": "string",
+          "default": "/usr/bin/python3",
+          "description": "ROS camera and recording interpreter.",
+          "x-read-by": [
+            "camera_panel",
+            "scripts/research/gamepad_vision/gamepad_pose_capture.py",
+            "site.main --shell"
+          ]
+        },
+        "conda_setup": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "input_source": {
+          "type": "string",
+          "default": "~/workstation",
+          "description": "Input source checkout used to build the independent mirror.",
+          "x-read-by": [
+            "scripts/station/build_input_mirror.sh via site.main --shell"
+          ]
+        },
+        "input_mirror": {
+          "type": "string",
+          "default": "",
+          "description": "Independent ROS input mirror path.",
+          "x-read-by": [
+            "site.input_mirror",
+            "input_chain",
+            "site.main --shell"
+          ]
+        },
+        "can_roles": {
+          "type": "object",
+          "description": "station.can roles settings.",
+          "properties": {
+            "linkerta": {
+              "type": "object",
+              "description": "station.can roles.linkerta settings.",
+              "properties": {
+                "usb_path": {
+                  "type": "string",
+                  "default": "",
+                  "description": "USB topology suffix used to resolve the LinkerTa CAN interface.",
+                  "x-read-by": [
+                    "site.resolve_can_interface"
+                  ]
+                },
+                "interface": {
+                  "type": "string",
+                  "default": "",
+                  "description": "Explicit LinkerTa CAN interface override; empty uses the USB path.",
+                  "x-read-by": [
+                    "site.resolve_can_interface"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": {
+            "type": "object",
+            "description": "station.can roles.linkerta settings.",
+            "properties": {
+              "usb_path": {
+                "type": "string",
+                "default": "",
+                "description": "USB topology suffix used to resolve the LinkerTa CAN interface.",
+                "x-read-by": [
+                  "site.resolve_can_interface"
+                ]
+              },
+              "interface": {
+                "type": "string",
+                "default": "",
+                "description": "Explicit LinkerTa CAN interface override; empty uses the USB path.",
+                "x-read-by": [
+                  "site.resolve_can_interface"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "input_log_root": {
+          "type": "string",
+          "default": "",
+          "description": "Input process log root.",
+          "x-read-by": [
+            "site.input_log_root",
+            "input_chain",
+            "site.main --shell"
+          ]
+        },
+        "retarget_python": {
+          "type": "string",
+          "default": "~/miniconda3/envs/workstation/bin/python",
+          "description": "Interpreter for the input retarget process.",
+          "x-read-by": [
+            "input_chain",
+            "scripts/station/record_glove.sh via site.main --shell"
+          ]
+        },
+        "left_arm_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "right_arm_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "left_local_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "right_local_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "left_can": {
+          "type": "string",
+          "default": "can1",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "right_can": {
+          "type": "string",
+          "default": "can0",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        },
+        "hand_joint": {
+          "type": "string",
+          "default": "G20",
+          "description": "Legacy compatibility field. Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "deprecated": true,
+          "x-deprecation-reason": "Only exported unchanged by site --shell; no in-tree consumer reads the export.",
+          "x-read-by": [
+            "site.main --shell"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "description": "camera settings.",
+      "properties": {
+        "usb_ports": {
+          "type": "object",
+          "description": "Host USB ports define camera roles. Replacing a camera on the same port needs no configuration change.",
+          "properties": {
+            "camera_1": {
+              "type": "string",
+              "pattern": "^$|^[1-9][0-9]*-[1-9][0-9]*(\\.[1-9][0-9]*)*$",
+              "description": "Kernel host USB port path under /sys/bus/usb/devices, for example 2-1.3. Find it with ls /sys/bus/usb/devices or udevadm info --query=path --name=/dev/videoN; use the final USB device component before :1.x, not an interface or video number.",
+              "default": ""
+            },
+            "camera_2": {
+              "type": "string",
+              "pattern": "^$|^[1-9][0-9]*-[1-9][0-9]*(\\.[1-9][0-9]*)*$",
+              "description": "Kernel host USB port path under /sys/bus/usb/devices, for example 2-1.3. Find it with ls /sys/bus/usb/devices or udevadm info --query=path --name=/dev/videoN; use the final USB device component before :1.x, not an interface or video number.",
+              "default": ""
+            },
+            "camera_3": {
+              "type": "string",
+              "pattern": "^$|^[1-9][0-9]*-[1-9][0-9]*(\\.[1-9][0-9]*)*$",
+              "description": "Kernel host USB port path under /sys/bus/usb/devices, for example 2-1.3. Find it with ls /sys/bus/usb/devices or udevadm info --query=path --name=/dev/videoN; use the final USB device component before :1.x, not an interface or video number.",
+              "default": ""
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^$|^[1-9][0-9]*-[1-9][0-9]*(\\.[1-9][0-9]*)*$",
+            "description": "Kernel host USB port path under /sys/bus/usb/devices, for example 2-1.3. Find it with ls /sys/bus/usb/devices or udevadm info --query=path --name=/dev/videoN; use the final USB device component before :1.x, not an interface or video number."
+          }
+        },
+        "serials": {
+          "type": "object",
+          "description": "Deprecated device serials. Used only to refuse startup with USB port migration advice.",
+          "properties": {
+            "camera_1": {
+              "type": "string",
+              "description": "Deprecated serial; migration advice only.",
+              "x-read-by": [
+                "camera_panel.usb_port (migration only)"
+              ]
+            },
+            "camera_2": {
+              "type": "string",
+              "description": "Deprecated serial; migration advice only.",
+              "x-read-by": [
+                "camera_panel.usb_port (migration only)"
+              ]
+            },
+            "camera_3": {
+              "type": "string",
+              "description": "Deprecated serial; migration advice only.",
+              "x-read-by": [
+                "camera_panel.usb_port (migration only)"
+              ]
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "Deprecated serial for migration advice only."
+          },
+          "deprecated": true,
+          "x-deprecation-reason": "Bind workbench cameras by host USB port, never hardware serial."
+        },
+        "width": {
+          "type": "integer",
+          "default": 1280,
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "height": {
+          "type": "integer",
+          "default": 720,
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "port": {
+          "type": "integer",
+          "default": 18788,
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "tunnel_port": {
+          "type": "integer",
+          "default": 18787,
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "remote_port": {
+          "type": "integer",
+          "default": 18787,
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "ros_domain_id": {
+          "type": "integer",
+          "default": 73,
+          "description": "ROS domain for camera processes.",
+          "x-read-by": [
+            "camera_panel"
+          ]
+        },
+        "camera_3": {
+          "type": "string",
+          "default": "",
+          "description": "Deprecated serial override; configure camera.usb_ports.camera_3 instead.",
+          "deprecated": true,
+          "x-deprecation-reason": "Research capture now binds by host USB port, never a configured serial.",
+          "x-read-by": []
+        },
+        "ego_web_script": {
+          "type": "string",
+          "default": "",
+          "description": "Existing RGB-D web recording tool path.",
+          "x-read-by": [
+            "camera_panel"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "udp": {
+      "type": "object",
+      "description": "udp settings.",
+      "properties": {
+        "bind_host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Collection UDP receive bind address.",
+          "x-read-by": [
+            "collection_server",
+            "scripts/run_collection.py"
+          ]
+        },
+        "peer_host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "UDP forwarding destination address.",
+          "x-read-by": [
+            "scripts/station/forward_collection.py"
+          ]
+        },
+        "source_host": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "port": {
+          "type": "integer",
+          "default": 50200,
+          "description": "Collection and forwarding UDP port.",
+          "x-read-by": [
+            "collection_server",
+            "scripts/run_collection.py",
+            "scripts/station/forward_collection.py"
+          ]
+        },
+        "allow_sources": {
+          "type": "array",
+          "default": [],
+          "description": "Allowed UDP source addresses; empty leaves the existing source filter unset.",
+          "x-read-by": [
+            "collection_controller"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "operator": {
+      "type": "object",
+      "description": "operator settings.",
+      "properties": {
+        "bind_host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Operator HTTP server bind address.",
+          "x-read-by": [
+            "collection_server",
+            "operator_view",
+            "scripts/run_collection.py"
+          ]
+        },
+        "port": {
+          "type": "integer",
+          "default": 8780,
+          "description": "Operator HTTP server port.",
+          "x-read-by": [
+            "collection_server",
+            "scripts/run_collection.py"
+          ]
+        },
+        "browser_url": {
+          "type": "string",
+          "default": "http://127.0.0.1:8780/",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "debug_url": {
+          "type": "string",
+          "default": "http://127.0.0.1:19222",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        }
+      },
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "description": "network settings.",
+      "properties": {
+        "proxy_url": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        }
+      },
+      "additionalProperties": true
+    },
+    "snapshots": {
+      "type": "object",
+      "description": "snapshots settings.",
+      "properties": {
+        "delay_s": {
+          "type": "number",
+          "default": 30,
+          "description": "Default snapshot countdown in seconds.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "default": 1280,
+          "description": "Snapshot image width in pixels.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "height": {
+          "type": "integer",
+          "default": 720,
+          "description": "Snapshot image height in pixels.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "max_bytes": {
+          "type": "integer",
+          "default": 67108864,
+          "description": "Maximum snapshot response size in bytes.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "collection": {
+      "type": "object",
+      "description": "collection settings.",
+      "properties": {
+        "motion_profile": {
+          "type": "string",
+          "default": "auto",
+          "description": "Collection joint motion profile selector.",
+          "x-read-by": [
+            "collection_server",
+            "scripts/run_collection.py"
+          ]
+        },
+        "backend": {
+          "type": "string",
+          "default": "sapien",
+          "description": "Default backend offered by the collection console.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "default": "ros2",
+          "description": "Default input source offered by the collection console.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "scene_variant": {
+          "type": "string",
+          "default": "full",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "default": null,
+          "description": "Default session duration in seconds; null leaves duration unset.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "rate_hz": {
+          "type": "integer",
+          "default": 60,
+          "description": "Default collection command rate in hertz.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "loop_replay": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether replay repeats by default.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "replay": {
+          "type": "string",
+          "default": "",
+          "description": "Default replay recording path.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "replay_files": {
+          "type": "array",
+          "default": [],
+          "description": "Replay entries offered by the collection console.",
+          "x-read-by": [
+            "collection_server"
+          ],
+          "items": {}
+        },
+        "ros_topic_prefix": {
+          "type": "string",
+          "default": "",
+          "description": "ROS subscription topic prefix.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "output_root": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "export_python": {
+          "type": "string",
+          "default": "",
+          "description": "Export interpreter; empty selects the workspace data-tools interpreter.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "workbench": {
+          "type": "string",
+          "default": "ar5_08_g20_bench_bimanual",
+          "description": "Default workbench profile identifier.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "task": {
+          "type": "string",
+          "default": "empty",
+          "description": "Default task profile identifier.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "idle_timeout_s": {
+          "type": "number",
+          "default": 7200,
+          "description": "Idle session timeout in seconds.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "resource_root": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Optional explicit task resource root; null uses the existing resource resolution.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        },
+        "arm_startup": {
+          "type": "string",
+          "default": "spec",
+          "description": "Simulation arm startup clamp selector.",
+          "x-read-by": [
+            "collection_server"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "deploy": {
+      "type": "object",
+      "description": "deploy settings.",
+      "properties": {
+        "ssh_profile": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "remote_dir": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        },
+        "repository": {
+          "type": "string",
+          "description": "Legacy compatibility field. No current in-tree site configuration consumer reads this key.",
+          "deprecated": true,
+          "x-deprecation-reason": "No current in-tree site configuration consumer reads this key.",
+          "x-read-by": []
+        }
+      },
+      "additionalProperties": true
+    },
+    "real_robot": {
+      "type": "object",
+      "description": "real robot settings.",
+      "properties": {
+        "left_arm_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Left arm controller address.",
+          "x-read-by": [
+            "real_robot.real_robot_factory"
+          ]
+        },
+        "right_arm_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Right arm controller address.",
+          "x-read-by": [
+            "real_robot.real_robot_factory"
+          ]
+        },
+        "local_ip": {
+          "type": "string",
+          "default": "",
+          "description": "Local interface address used by the arm state reader.",
+          "x-read-by": [
+            "real_robot.real_robot_factory"
+          ]
+        },
+        "arm_reader": {
+          "type": "string",
+          "default": "",
+          "description": "Native arm state reader executable path.",
+          "x-read-by": [
+            "site.arm_reader",
+            "real_robot.real_robot_factory"
+          ]
+        },
+        "arm_rate_hz": {
+          "type": "number",
+          "default": 50,
+          "description": "Arm state reader publication rate in hertz.",
+          "x-read-by": [
+            "real_robot.real_robot_factory"
+          ]
+        },
+        "hand_rate_hz": {
+          "type": "number",
+          "default": 30,
+          "description": "Hand state reader publication rate in hertz.",
+          "x-read-by": [
+            "real_robot.real_robot_factory"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "web": {
+      "type": "object",
+      "properties": {
+        "pane_weights": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "description": "Grid pane weight overrides by known pane ID. Unknown IDs fail startup.",
+          "x-read-by": [
+            "plugins.task_panes",
+            "collection_server.make_app"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "services": {
+      "type": "object",
+      "properties": {
+        "bootstrap": {
+          "type": "string",
+          "description": "Optional explicit module:callable service composition; no plugin discovery group."
+        }
+      },
+      "additionalProperties": false
+    },
+    "data_root": {
+      "type": "string",
+      "description": "Generic collection data root; environment overrides take precedence."
+    },
+    "input_example": {
+      "type": "object",
+      "properties": {
+        "log_root": {
+          "type": "string"
+        },
+        "python": {
+          "type": "string"
+        },
+        "ros_setup": {
+          "type": "string"
+        },
+        "ros_environment": {
+          "type": "string"
+        },
+        "ros_domain_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 232
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

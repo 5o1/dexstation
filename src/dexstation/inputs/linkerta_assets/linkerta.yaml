@@ -1,0 +1,12 @@
+# Source: linkerta-ref/mirror/config/lta.yaml, copied 2026-11-15.
+# SHA256: 76ed2874cdb3f48d7d4606520de17c6072e23cb3f640f26bc7d71d112e1877ce
+# Owned reader: calibration/resetZero and vendor diagnostics are intentionally absent.
+dexhand_linkerta_reader:
+  ros__parameters:
+    negation: [1, -1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, 1, 1]
+    offset_deg: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -15.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    arm_channel: linkerta  # role resolved from private station.can_roles
+    arm_baudrate: 1000000
+    publish_rate_hz: 100.0
+    max_age_s: 0.30
+    status_rate_hz: 2.0

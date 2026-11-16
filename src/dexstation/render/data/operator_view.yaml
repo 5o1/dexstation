@@ -1,0 +1,40 @@
+# Operator-only virtual camera, never a calibrated dataset camera.
+candidate: raster
+fps: 60
+width: 960
+height: 540
+# Collection main camera uses the calibrated K scaled to this native size.
+collection_main:
+  width: 1280
+  height: 720
+auxiliary:
+  width: 1920
+  height: 1620
+  fps: 20
+  framing_margin: 1.12
+  background_color: '#3a4048'
+  # 2x3 slots, 960x540 (16:9) each; task-declared cameras plus Table top.
+  # The removed camera slot stays black; Table top uses `overview` below.
+  # Task camera vectors/fitting: task.json; camera_3 stays calibrated.
+camera:
+  position_gamepad: [-0.16, -0.15, 0.105]
+  target_gamepad: [-0.0203, -0.0018, 0.0184]
+  up_gamepad: [0, 0, 1]
+  fovy_degrees: 34
+pip:
+  enabled: true
+  width: 320
+overview:
+  # Table-top view looking straight down; image top is +x (far table edge),
+  # bottom the robot column. 2026-11-11: raised from 2.10 m to 2.60 m and centred
+  # at x=0.55 so both arms stretched forward (q=0,90,+/-90,0,0,0,0) fit whole,
+  # fingertips (x~1.05 m) inside the top edge and the shoulders just above the
+  # bottom edge.
+  enabled: true
+  width: 480
+  render_width: 640
+  render_height: 360
+  position: [0.55, 0.6202, 2.60]
+  target: [0.55, 0.6202, 0.767]
+  up: [1, 0, 0]
+  fovy_degrees: 50

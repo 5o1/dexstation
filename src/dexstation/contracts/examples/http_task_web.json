@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/tasks/xbox_gamepad_v3_3/web/gamepad-overlay.mjs",
+    "query": {},
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "content_type": "text/javascript",
+    "body": "export function mount(root, api) { root.textContent = \"Example signals\"; }\nexport function unmount() {}\n"
+  }
+}

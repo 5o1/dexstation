@@ -1,0 +1,70 @@
+{
+  "repository": "https://github.com/linker-bot/linkerbot-teleop-arm",
+  "revision": "4354083b27fd69f9d042d78edb6924e67f7f03fc",
+  "license": "Apache-2.0 declared in src/linkerta/package.xml",
+  "upstream_license_file": null,
+  "upstream_notice_file": null,
+  "relationship": "Public protocol reference only; no upstream implementation source is distributed.",
+  "sources": [
+    {
+      "path": "src/linkerta/CMakeLists.txt",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/CMakeLists.txt",
+      "sha256": "882809e26f787d24fba0bef4f3ae26cd4af98a71e7b0f86ca0fc961eecfbb096"
+    },
+    {
+      "path": "src/linkerta/config/lta.yaml",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/config/lta.yaml",
+      "sha256": "de197ede6ac01903f5dc23a1b1d3f921b8da14c83553790a0bdd74ac13cd3103"
+    },
+    {
+      "path": "src/linkerta/launch/run.launch.py",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/launch/run.launch.py",
+      "sha256": "59ceefeaa04dc5069a140076e5d7a3ea91e5d9311558efd7f31e3a91615edb86"
+    },
+    {
+      "path": "src/linkerta/package.xml",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/package.xml",
+      "sha256": "84769ee3fa06bb4c3ed17c4f9f254c45456ac9b41ff5b94a963cf5a48c54f15e"
+    },
+    {
+      "path": "src/linkerta/src/CanBus.cpp",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/CanBus.cpp",
+      "sha256": "45015564cd835e6f28c9da855fe5763541c0ae0b0c623c8f34fbbff25b219c91"
+    },
+    {
+      "path": "src/linkerta/src/CanBus.h",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/CanBus.h",
+      "sha256": "1e9f2668c95909bccdc3c8277177951571edc0e26511bcf911f64e731c9c8046"
+    },
+    {
+      "path": "src/linkerta/src/LinkerArm.cpp",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/LinkerArm.cpp",
+      "sha256": "bcb9e3d89318354a2e15fe8d316faa9435b1c3dd12924609a21869b4456859e1"
+    },
+    {
+      "path": "src/linkerta/src/LinkerArm.h",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/LinkerArm.h",
+      "sha256": "d77838b34956eb5af0cc30ca64c16a87db2a5caca5bbf60acdbff5557de049b5"
+    },
+    {
+      "path": "src/linkerta/src/main.cpp",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/main.cpp",
+      "sha256": "c9a17712e7e6c7b75f0aec3ebbf026e9c035705a0f0bc948652039f5410d0ba6"
+    },
+    {
+      "path": "src/linkerta/src/main_ros2.cpp",
+      "url": "https://raw.githubusercontent.com/linker-bot/linkerbot-teleop-arm/4354083b27fd69f9d042d78edb6924e67f7f03fc/src/linkerta/src/main_ros2.cpp",
+      "sha256": "33955db0f75f869c5065e6af63aa2785e15ddf974349c34cc0a1418aac1669ca"
+    }
+  ],
+  "apache_license_text": {
+    "url": "https://raw.githubusercontent.com/apache/.github/66951150d5f712b03655139a4383a08b9b0cb2c6/LICENSE",
+    "revision": "66951150d5f712b03655139a4383a08b9b0cb2c6",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "implementations": {
+    "src/dexstation/inputs/linkerta_reader.py": "Project-owned rewrite of the public protocol and project validity/graph policies; existing project non-mutating CAN preflight retained.",
+    "scripts/linkerta_reader_node.py": "Project-owned ROS adapter rewrite; numeric values and standard ROS settings are project configuration under RW2-1.",
+    "src/dexstation/inputs/linkerta_assets/linkerta.yaml": "Existing project configuration, unchanged."
+  }
+}

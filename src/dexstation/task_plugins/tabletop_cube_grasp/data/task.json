@@ -1,0 +1,157 @@
+{
+  "schema": "dexhand-task-v1",
+  "id": "tabletop_cube_grasp",
+  "version": "0.1",
+  "title": "Tabletop cube grasp",
+  "workbenches": [
+    "ar5_08_g20_bench_bimanual"
+  ],
+  "backends": {
+    "sapien": {},
+    "mjcf_export": {}
+  },
+  "objects": [
+    {
+      "name": "cube",
+      "type": "rigid",
+      "geometry": {
+        "box": {
+          "half_extents": [
+            0.025,
+            0.025,
+            0.025
+          ]
+        }
+      },
+      "inertial": {
+        "mass_kg": 0.1
+      },
+      "material": {
+        "static_friction": 0.8,
+        "dynamic_friction": 0.6,
+        "restitution": 0.0
+      },
+      "initial_pose": {
+        "frame": "table_top",
+        "pose": [
+          0.1,
+          0.0,
+          0.025,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "randomize": {
+        "xy_m": [
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.08,
+            0.08
+          ]
+        ],
+        "yaw_deg": [
+          -180,
+          180
+        ]
+      },
+      "collision": {
+        "robots": true,
+        "environment": true,
+        "objects": true
+      }
+    }
+  ],
+  "fixtures": [],
+  "observations": [
+    {
+      "name": "cube_pose",
+      "kind": "object_pose",
+      "object": "cube"
+    },
+    {
+      "name": "cube_contact",
+      "kind": "contact",
+      "object": "cube",
+      "with": [
+        "left_hand",
+        "right_hand"
+      ]
+    }
+  ],
+  "sources": [],
+  "evaluation": {
+    "online": {
+      "kind": "object_lifted",
+      "object": "cube",
+      "height_m": 0.1,
+      "hold_s": 1.0
+    }
+  },
+  "cells": [
+    {
+      "id": "result",
+      "title": "Result",
+      "builtin": "banner",
+      "source": {
+        "evaluation": "online"
+      },
+      "states": {
+        "true": "SUCCESS",
+        "false": "NOT YET"
+      },
+      "speak_on_change": true
+    },
+    {
+      "id": "cube",
+      "title": "Cube",
+      "builtin": "values",
+      "source": {
+        "channels": [
+          "cube_pose",
+          "cube_contact"
+        ]
+      },
+      "fields": [
+        {
+          "key": "cube_pose[2]",
+          "label": "Height",
+          "unit": "m",
+          "digits": 3
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "title": "Task",
+      "builtin": "controls",
+      "controls": [
+        {
+          "label": "Reset cube",
+          "action": "reset",
+          "hotkey": "T"
+        }
+      ]
+    }
+  ],
+  "actions": {
+    "reset": {
+      "builtin": "resample_objects",
+      "objects": [
+        "cube"
+      ],
+      "while_recording": "forbidden"
+    }
+  },
+  "keep_out": [],
+  "real_robot": {
+    "twin_objects": "hidden"
+  },
+  "recording": {
+    "format": "tabletop-cube-grasp-rec-v1"
+  }
+}

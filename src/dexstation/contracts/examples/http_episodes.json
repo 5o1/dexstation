@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/episodes",
+    "query": {
+      "task": "tabletop_cube_grasp"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json",
+    "body": [
+      {
+        "id": "episode-000000",
+        "task": "tabletop_cube_grasp",
+        "status": "complete",
+        "rows": 2
+      }
+    ]
+  }
+}

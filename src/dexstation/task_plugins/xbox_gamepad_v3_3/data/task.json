@@ -1,0 +1,233 @@
+{
+  "schema": "dexhand-task-v1",
+  "id": "xbox_gamepad_v3_3",
+  "version": "1.0",
+  "title": "Xbox gamepad on fixture v3.3",
+  "workbenches": [
+    "ar5_08_g20_bench_bimanual"
+  ],
+  "backends": {
+    "sapien": {
+      "package": "xbox-gamepad-physics==0.4.3"
+    },
+    "mjcf_export": {
+      "package": "xbox-gamepad-physics[mujoco]==0.4.3",
+      "note": "asset timestep <= 0.5 ms"
+    }
+  },
+  "objects": [
+    {
+      "name": "gamepad",
+      "type": "xbox_gamepad_physics",
+      "geometry": {
+        "release": "xbox_gamepad_physics==0.4.3",
+        "profile": "full_controls",
+        "collision_mesh": "sdf",
+        "fixed_root": true
+      },
+      "initial_pose": {
+        "frame": "world",
+        "pose": [
+          0.6649622227161496,
+          0.6252000000000001,
+          0.9876608653492692,
+          -0.6532814824381882,
+          -0.2705980500730985,
+          0.2705980500730985,
+          0.6532814824381882
+        ]
+      },
+      "collision": {
+        "robots": true,
+        "environment": true,
+        "objects": false
+      }
+    }
+  ],
+  "fixtures": "fixtures.json",
+  "observations": [
+    {
+      "name": "gamepad",
+      "kind": "gamepad_sdl3_core_v1",
+      "object": "gamepad"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ik_autopilot",
+      "module": "dexstation.task_plugins.xbox_gamepad_v3_3.autopilot",
+      "task_sets": "autopilot/game_combos_*.json"
+    }
+  ],
+  "cells": [],
+  "actions": {},
+  "evaluation": {
+    "offline": "dexstation.task_plugins.xbox_gamepad_v3_3.evaluate"
+  },
+  "keep_out": [],
+  "real_robot": {
+    "twin_objects": "nominal"
+  },
+  "appearance": "configs/appearance/station_v3_3_fixture.json",
+  "initial_robot_state": {
+    "hand_q": {
+      "right": [
+        0.7195294117647059,
+        0.7203529411764705,
+        0.4654509803921569,
+        0.25,
+        0.2575,
+        0.23,
+        0.7272156862745098,
+        0.19215686274509805,
+        0.17101960784313727,
+        0.17047058823529412,
+        0.6937254901960784,
+        0.1784313725490196,
+        0.15880392156862747,
+        0.17227450980392153,
+        0.7941960784313725,
+        0.19215686274509805,
+        0.17101960784313727,
+        0.23,
+        0.6793725490196079,
+        0.7137254901960784,
+        0.6352156862745099
+      ]
+    }
+  },
+  "recording": {
+    "format": "xbox-gamepad-rec-v1"
+  },
+  "auxiliary_cameras": [
+    {
+      "id": "face",
+      "object": "gamepad",
+      "position": [
+        0.0,
+        0.005,
+        0.34
+      ],
+      "target": [
+        0.0,
+        0.005,
+        0.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fit_render_meshes": true,
+      "framing_margin": 1.12,
+      "atlas_slot": 0
+    },
+    {
+      "id": "back",
+      "object": "gamepad",
+      "position": [
+        0.0,
+        0.205,
+        -0.23
+      ],
+      "target": [
+        0.0,
+        0.015,
+        -0.005
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fit_render_meshes": false,
+      "framing_margin": 1.12,
+      "atlas_slot": 1
+    },
+    {
+      "id": "left",
+      "object": "gamepad",
+      "position": [
+        -0.24,
+        0.19,
+        0.28
+      ],
+      "target": [
+        0.0,
+        0.01,
+        0.0
+      ],
+      "up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "fit_render_meshes": true,
+      "framing_margin": 1.12,
+      "atlas_slot": 2
+    },
+    {
+      "id": "right",
+      "object": "gamepad",
+      "position": [
+        0.24,
+        0.19,
+        0.28
+      ],
+      "target": [
+        0.0,
+        0.01,
+        0.0
+      ],
+      "up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "fit_render_meshes": true,
+      "framing_margin": 1.12,
+      "atlas_slot": 3
+    }
+  ],
+  "panes": [
+    {
+      "id": "face",
+      "title": "Button face",
+      "weight": 10,
+      "camera": "face"
+    },
+    {
+      "id": "back",
+      "title": "Back",
+      "weight": 20,
+      "camera": "back"
+    },
+    {
+      "id": "left",
+      "title": "Left side",
+      "weight": 30,
+      "camera": "left"
+    },
+    {
+      "id": "right",
+      "title": "Right side",
+      "weight": 40,
+      "camera": "right"
+    },
+    {
+      "id": "gamepad_signals",
+      "title": "Gamepad signals",
+      "weight": 50,
+      "module": "web/gamepad-overlay.mjs"
+    },
+    {
+      "id": "autopilot",
+      "title": "Autopilot",
+      "weight": 85,
+      "module": "web/autopilot-status.mjs",
+      "visible_when": {
+        "source": "ik_autopilot"
+      }
+    }
+  ]
+}
